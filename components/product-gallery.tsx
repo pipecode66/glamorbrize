@@ -245,7 +245,7 @@ export default function ProductGallery() {
               </div>
               <h3 className="font-bold text-sm sm:text-base md:text-lg mb-2 line-clamp-2">{product.name}</h3>
               <p className="text-primary font-bold text-base sm:text-lg md:text-xl mb-3 sm:mb-4">
-                ${product.price.toLocaleString()}
+                ${product.price.toLocaleString("es-CO")}
               </p>
               <Link href={`/batas-glamor/${product.type}`} passHref>
                 <Button className="w-full bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm py-2 min-h-[44px]">
