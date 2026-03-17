@@ -1,13 +1,24 @@
+﻿import { createClient } from "@supabase/supabase-js"
+import { getPublicSupabaseConfig, hasPublicSupabaseConfig } from "@/lib/supabase-config"
 import { getServerSupabase } from "@/lib/server-supabase"
-import { createClient } from "@supabase/supabase-js"
+import type { Database } from "@/types/supabase"
 
-// Cliente de Supabase para el lado del cliente
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ""
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
+let reviewClient: ReturnType<typeof createClient<Database>> | null = null
 
-export const supabaseClient = createClient(supabaseUrl, supabaseAnonKey)
+function getReviewClient() {
+  if (reviewClient) {
+    return reviewClient
+  }
 
-// Tipos
+  const config = getPublicSupabaseConfig()
+  if (!config) {
+    return null
+  }
+
+  reviewClient = createClient<Database>(config.url, config.anonKey)
+  return reviewClient
+}
+
 export interface Review {
   id: number
   product_id: number
@@ -23,8 +34,12 @@ export interface Review {
   }
 }
 
-// Funciones para el cliente
 export async function getProductReviews(productId: number): Promise<Review[]> {
+  const supabaseClient: any = getReviewClient()
+  if (!supabaseClient) {
+    return []
+  }
+
   const { data, error } = await supabaseClient
     .from("reviews")
     .select(`
@@ -49,14 +64,17 @@ export async function createReview(
   title: string | null,
   content: string | null,
 ): Promise<{ success: boolean; error?: string }> {
-  // Obtener la sesión actual
+  const supabaseClient: any = getReviewClient()
+  if (!supabaseClient) {
+    return { success: false, error: "La configuraciÃ³n de Supabase no estÃ¡ disponible" }
+  }
+
   const { data: sessionData } = await supabaseClient.auth.getSession()
 
   if (!sessionData.session) {
-    return { success: false, error: "No estás autenticado" }
+    return { success: false, error: "No estÃ¡s autenticado" }
   }
 
-  // Verificar si el usuario ya ha dejado una reseña para este producto
   const { data: existingReview } = await supabaseClient
     .from("reviews")
     .select("id")
@@ -65,30 +83,32 @@ export async function createReview(
     .maybeSingle()
 
   if (existingReview) {
-    return { success: false, error: "Ya has dejado una reseña para este producto" }
+    return { success: false, error: "Ya has dejado una reseÃ±a para este producto" }
   }
 
-  // Crear la reseña
   const { error } = await supabaseClient.from("reviews").insert({
+    approved: false,
+    content,
     product_id: productId,
-    user_id: sessionData.session.user.id,
     rating,
     title,
-    content,
-    approved: false, // Las reseñas requieren aprobación
+    user_id: sessionData.session.user.id,
   })
 
   if (error) {
     console.error("Error creating review:", error)
-    return { success: false, error: "Error al crear la reseña" }
+    return { success: false, error: "Error al crear la reseÃ±a" }
   }
 
   return { success: true }
 }
 
-// Funciones para el administrador (solo se usarán en el lado del servidor)
 export async function getAdminReviews(approved: boolean) {
-  const supabase = getServerSupabase()
+  if (!hasPublicSupabaseConfig()) {
+    return []
+  }
+
+  const supabase: any = await getServerSupabase()
 
   const { data, error } = await supabase
     .from("reviews")
@@ -107,3 +127,4 @@ export async function getAdminReviews(approved: boolean) {
 
   return data || []
 }
+

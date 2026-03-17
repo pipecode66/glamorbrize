@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getCategories, getProducts } from "@/lib/db-utils"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ProductList from "@/components/product-list"
 import { Separator } from "@/components/ui/separator"
@@ -37,7 +36,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound()
   }
 
-  const products = await getProducts({ category_slug: params.slug })
+  const products = await getProducts({ categorySlug: params.slug })
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -45,9 +44,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="bg-secondary text-white py-2 text-center text-sm">
         Envíos GRATIS en pedidos superiores a $200.000 *Aplica solo en Colombia
       </div>
-
-      {/* Header */}
-      <Header />
 
       <div className="container py-12">
         <div className="flex flex-col items-center text-center mb-12">

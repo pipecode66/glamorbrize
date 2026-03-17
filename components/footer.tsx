@@ -88,12 +88,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contacto"
-                  className="hover:text-accent transition-colors text-sm sm:text-base block py-2 min-h-[44px] flex items-center"
+                <a
+                  href="mailto:batasglamorr@gmail.com"
+                  className="flex min-h-[44px] items-center py-2 text-sm transition-colors hover:text-accent sm:text-base"
                 >
                   Contacto
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

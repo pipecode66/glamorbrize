@@ -29,7 +29,7 @@ export default function AntifluidoPage() {
             {/* Imagen responsive */}
             <div className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[50vh] xl:h-[55vh] rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl lg:shadow-2xl">
               <Image
-                src="/images/design-mode/LINEA%20ANTIFLUIDOS.png"
+                src="/images/design-mode/linea-antifluido.png"
                 alt="Colección Antifluido"
                 fill
                 className="object-cover object-center"

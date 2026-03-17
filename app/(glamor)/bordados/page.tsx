@@ -44,7 +44,7 @@ export default function BordadosPage() {
             <div className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[50vh] xl:h-[55vh] rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl lg:shadow-2xl">
               {/* Espacio para imagen - Reemplaza la src con tu imagen */}
               <Image
-                src="/images/design-mode/BANNER%20BORDADO%20COMPUTARIZADO.png" // Cambiado a imagen de bordados
+                src="/images/design-mode/banner-bordado-computarizado.png"
                 alt="Bordados Personalizados - Batas Glamor y Uniformes G"
                 fill
                 className="object-cover object-center"

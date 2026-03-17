@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 import { getBrowserClient } from "@/lib/supabase-browser"
 import type { User, Session } from "@supabase/supabase-js"
@@ -49,15 +49,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
   const [profile, setProfile] = useState<Profile | null>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [supabase] = useState(() => getBrowserClient())
   const router = useRouter()
+  const supabase = useMemo(() => {
+    if (typeof window === "undefined") {
+      return null
+    }
+
+    try {
+      return getBrowserClient()
+    } catch {
+      return null
+    }
+  }, [])
 
   const fetchProfile = async (userId: string) => {
+    if (!supabase) {
+      return
+    }
+
     try {
       const { data, error } = await supabase.from("profiles").select("*").eq("id", userId).single()
 
       if (!error && data) {
-        setProfile(data)
+        setProfile(data as Profile)
       }
     } catch (error) {
       console.error("Error fetching profile:", error)
@@ -65,6 +79,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   useEffect(() => {
+    if (!supabase) {
+      setIsLoading(false)
+      return
+    }
+
     const setData = async () => {
       try {
         const {
@@ -101,15 +120,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => {
       subscription.unsubscribe()
     }
-  }, [])
+  }, [supabase])
 
   const signUp = async (
     email: string,
     password: string,
     metadata?: { [key: string]: any },
   ): Promise<{ success?: boolean; error: any }> => {
+    if (!supabase) {
+      return { success: false, error: { message: "La autenticación no está disponible en este entorno." } }
+    }
+
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -129,8 +152,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signIn = async (email: string, password: string): Promise<{ success?: boolean; error: any }> => {
+    if (!supabase) {
+      return { success: false, error: { message: "La autenticación no está disponible en este entorno." } }
+    }
+
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
@@ -148,6 +175,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signOut = async () => {
+    if (!supabase) {
+      router.push("/")
+      return
+    }
+
     await supabase.auth.signOut()
     setProfile(null)
     router.refresh()
@@ -157,6 +189,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const updateProfile = async (data: Partial<Profile>): Promise<{ error: any }> => {
     if (!user) {
       return { error: { message: "No user logged in" } }
+    }
+
+    if (!supabase) {
+      return { error: { message: "La autenticación no está disponible en este entorno." } }
     }
 
     try {

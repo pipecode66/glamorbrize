@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server"
+﻿import { NextResponse } from "next/server"
 import { getServerSupabase } from "@/lib/server-supabase"
 
 export async function GET(request: Request) {
-  const supabase = await getServerSupabase()
+  const supabase: any = await getServerSupabase()
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const supabase = await getServerSupabase()
+  const supabase: any = await getServerSupabase()
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -60,3 +60,4 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ success: true })
 }
+

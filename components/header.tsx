@@ -8,11 +8,13 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { useAuth } from "@/context/auth-context"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [batasGlamorOpen, setBatasGlamorOpen] = useState(false)
   const [uniformesGOpen, setUniformesGOpen] = useState(false)
+  const { user } = useAuth()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-[#3E5860]/95 backdrop-blur supports-[backdrop-filter]:bg-[#3E5860]/90">
@@ -21,7 +23,7 @@ export default function Header() {
         <div className="mr-4 flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              src="/images/design-mode/Batas%20glamor%20VECTOR.png"
+              src="/images/design-mode/batas-glamor-vector.png"
               alt="Glamor Logo"
               width={280}
               height={100}
@@ -105,7 +107,7 @@ export default function Header() {
 
         {/* Right side buttons */}
         <div className="ml-auto flex items-center space-x-2 md:space-x-4">
-          <Link href="/wishlist">
+          <Link href={user ? "/account/favorites" : "/wishlist"}>
             <Button
               variant="ghost"
               size="icon"

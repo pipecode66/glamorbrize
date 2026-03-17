@@ -1,4 +1,4 @@
-import { type NextRequest, NextResponse } from "next/server"
+﻿import { type NextRequest, NextResponse } from "next/server"
 import { getAdminReviews } from "@/lib/review-service"
 import { getServerSupabase } from "@/lib/server-supabase"
 
@@ -7,9 +7,8 @@ export async function GET(request: NextRequest) {
   const approved = searchParams.get("approved") === "true"
 
   try {
-    const supabase = getServerSupabase()
+    const supabase: any = await getServerSupabase()
 
-    // Verificar si el usuario está autenticado y es administrador
     const {
       data: { session },
     } = await supabase.auth.getSession()
@@ -18,7 +17,6 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
-    // Verificar si el usuario es administrador
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select("role")
@@ -36,3 +34,4 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
+

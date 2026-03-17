@@ -1,16 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Check } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import QuoteButton from "@/components/quote-button"
 
 interface ColorVariant {
   name: string
   color: string
   description: string
   images: string[]
+}
+
+interface ComplementaryProduct {
+  name: string
+  price: number
+  description?: string
 }
 
 interface ProductDisplayProps {
@@ -36,200 +42,218 @@ interface ProductDisplayProps {
     accent: string
     accent2: string
     accent3: string
-    light: string
+    light?: string
+    darkGray?: string
+    lightGray?: string
     white: string
     black: string
   }
-  // NUEVA PROPIEDAD PARA PRODUCTOS COMPLEMENTARIOS
-  complementaryProducts?: Array<{
-    name: string
-    price: number
-    description?: string
-  }>
+  complementaryProduct?: ComplementaryProduct
+  complementaryProducts?: ComplementaryProduct[]
+}
+
+const defaultPalette = {
+  primary: "#354358",
+  secondary: "#697C87",
+  accent: "#A78786",
+  accent2: "#7E6863",
+  accent3: "#98837A",
+  light: "#CFC2B6",
+  white: "#FFFFFF",
+  black: "#000000",
 }
 
 export default function ProductDisplay({
-  id,
   name,
   basePrice,
   pricing,
   description,
   colorVariants,
-  specs,
   features,
   colors,
   sizes,
-  uniformesGColors = {
-    primary: "#354358",
-    secondary: "#697C87",
-    accent: "#A78786",
-    accent2: "#7E6863",
-    accent3: "#98837A",
-    light: "#CFC2B6",
-    white: "#FFFFFF",
-    black: "#000000",
-  },
-  complementaryProducts = [], // Nueva prop con valor por defecto
+  uniformesGColors,
+  complementaryProduct,
+  complementaryProducts = [],
 }: ProductDisplayProps) {
-  const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.name || colors[0])
-  const [selectedSize, setSelectedSize] = useState(sizes[0])
+  const palette = {
+    ...defaultPalette,
+    ...uniformesGColors,
+    light: uniformesGColors?.light ?? uniformesGColors?.lightGray ?? defaultPalette.light,
+  }
+
+  const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.name || colors[0] || "")
+  const [selectedSize, setSelectedSize] = useState(sizes[0] || "S")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const currentVariant = colorVariants.find((variant) => variant.name === selectedColor) || colorVariants[0]
+  const currentImages = currentVariant?.images ?? []
   const currentPrice = pricing[selectedSize as keyof typeof pricing] || basePrice
+  const extraProducts = useMemo(
+    () => (complementaryProduct ? [complementaryProduct, ...complementaryProducts] : complementaryProducts),
+    [complementaryProduct, complementaryProducts],
+  )
 
   const handleColorChange = (colorName: string) => {
     setSelectedColor(colorName)
     setCurrentImageIndex(0)
   }
 
-  const formatPrice = (price: number) => {
-    return price.toLocaleString("es-CO", {
+  const formatPrice = (price: number) =>
+    price.toLocaleString("es-CO", {
       style: "currency",
       currency: "COP",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     })
-  }
 
-  // Dividir características en dos columnas (3 y 3)
-  const leftFeatures = features.slice(0, 3)
-  const rightFeatures = features.slice(3, 6)
+  const leftFeatures = features.slice(0, Math.ceil(features.length / 2))
+  const rightFeatures = features.slice(Math.ceil(features.length / 2))
 
   return (
-    <div className="max-w-7xl mx-auto p-4 sm:p-6 md:p-8 bg-white rounded-lg shadow-lg">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-        {/* Columna izquierda - Imágenes */}
-        <div className="space-y-3 sm:space-y-4">
-          {/* Imagen principal */}
-          <div className="relative aspect-[4/5] max-w-xs sm:max-w-sm mx-auto">
+    <div className="mx-auto max-w-7xl rounded-lg bg-white p-4 shadow-lg sm:p-6 md:p-8">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12">
+        <div className="space-y-4">
+          <div className="relative mx-auto aspect-[4/5] max-w-xs overflow-hidden rounded-lg bg-gray-50 sm:max-w-sm">
             <Image
-              src={currentVariant?.images[currentImageIndex] || "/placeholder.svg"}
-              alt={`${name} - ${selectedColor}`}
+              src={currentImages[currentImageIndex] || "/placeholder.svg"}
+              alt={`${name} - ${selectedColor || "principal"}`}
               fill
-              className="object-cover rounded-lg shadow-lg"
-              sizes="(max-width: 640px) 300px, (max-width: 768px) 400px, 500px"
+              className="object-cover"
+              sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
             />
           </div>
 
-          {/* Miniaturas */}
-          <div className="flex justify-center gap-2 sm:gap-3 max-w-xs sm:max-w-sm mx-auto">
-            {currentVariant?.images.map((image, index) => (
-              null
-            ))}
-          </div>
+          {currentImages.length > 1 && (
+            <div className="mx-auto grid max-w-sm grid-cols-4 gap-2 sm:grid-cols-5">
+              {currentImages.map((image, index) => (
+                <button
+                  key={`${image}-${index}`}
+                  type="button"
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`relative aspect-square overflow-hidden rounded-md border-2 transition ${
+                    currentImageIndex === index ? "shadow-md" : "border-gray-200 hover:border-gray-300"
+                  }`}
+                  style={{ borderColor: currentImageIndex === index ? palette.primary : undefined }}
+                >
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt={`${name} - vista ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="96px"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Columna derecha - Información del producto */}
-        <div className="space-y-4 sm:space-y-6">
-          {/* Título y precio */}
+        <div className="space-y-6">
           <div>
             <h1
-              className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-center lg:text-left"
-              style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              className="text-center text-xl font-bold sm:text-2xl md:text-3xl lg:text-left"
+              style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
             >
               {name}
             </h1>
-            <div className="flex items-center gap-3 mb-3 sm:mb-4 justify-center lg:justify-start">
+            <div className="mt-3 flex items-center justify-center gap-3 lg:justify-start">
               <span
-                className="text-2xl sm:text-3xl font-bold"
-                style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                className="text-2xl font-bold sm:text-3xl"
+                style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 {formatPrice(currentPrice)}
               </span>
               <Badge variant="secondary" className="text-xs sm:text-sm">
-                Línea Priveé
+                Linea Privee
               </Badge>
             </div>
           </div>
 
-          {/* Descripción */}
-          <div className="max-w-md mx-auto lg:mx-0">
-            <p
-              className="text-sm sm:text-base text-muted-foreground leading-relaxed text-center lg:text-left"
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              {description}
-            </p>
-          </div>
+          <p
+            className="max-w-xl text-center text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-left"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            {description}
+          </p>
 
-          {/* NUEVA SECCIÓN: PRODUCTOS COMPLEMENTARIOS */}
-          {complementaryProducts.length > 0 && (
-            <div className="space-y-3 sm:space-y-4">
+          {extraProducts.length > 0 && (
+            <div className="space-y-3">
               <h3
-                className="text-base sm:text-lg font-semibold text-center lg:text-left"
-                style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                className="text-center text-base font-semibold sm:text-lg lg:text-left"
+                style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 Complementos Disponibles
               </h3>
               <div className="space-y-2">
-                {complementaryProducts.map((product, index) => (
+                {extraProducts.map((product, index) => (
                   <div
-                    key={index}
-                    className="bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200 flex justify-between items-center"
+                    key={`${product.name}-${index}`}
+                    className="flex items-center justify-between rounded-lg border border-gray-200 bg-gray-50 p-3 sm:p-4"
                   >
                     <div>
-                      <h4 className="font-semibold text-sm sm:text-base">{product.name}</h4>
+                      <h4 className="text-sm font-semibold sm:text-base">{product.name}</h4>
                       {product.description && (
-                        <p className="text-xs sm:text-sm text-muted-foreground mt-1">{product.description}</p>
+                        <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{product.description}</p>
                       )}
                     </div>
-                    <div>
-                      <span className="text-lg sm:text-xl font-bold" style={{ color: uniformesGColors.primary }}>
-                        {formatPrice(product.price)}
-                      </span>
-                    </div>
+                    <span className="text-lg font-bold sm:text-xl" style={{ color: palette.primary }}>
+                      {formatPrice(product.price)}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Selección de color */}
-          <div className="space-y-3 sm:space-y-4">
-            <div>
+          {colorVariants.length > 0 && (
+            <div className="space-y-3">
               <h3
-                className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-center lg:text-left"
-                style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                className="text-center text-base font-semibold sm:text-lg lg:text-left"
+                style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 Color: {selectedColor}
               </h3>
-              <div className="flex gap-2 sm:gap-3 justify-center lg:justify-start">
+              <div className="flex justify-center gap-2 lg:justify-start">
                 {colorVariants.map((variant) => (
                   <button
                     key={variant.name}
+                    type="button"
                     onClick={() => handleColorChange(variant.name)}
-                    className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 transition-all ${
+                    className={`h-6 w-6 rounded-full border-2 transition-all sm:h-7 sm:w-7 ${
                       selectedColor === variant.name
-                        ? "border-gray-800 ring-2 ring-offset-2 ring-gray-300"
+                        ? "border-gray-800 ring-2 ring-offset-2"
                         : "border-gray-300 hover:border-gray-400"
                     }`}
-                    style={{ backgroundColor: variant.color }}
+                    style={{
+                      backgroundColor: variant.color,
+                      boxShadow: selectedColor === variant.name ? `0 0 0 2px ${palette.light}` : undefined,
+                    }}
                     title={variant.name}
                   />
                 ))}
               </div>
             </div>
-          </div>
+          )}
 
-          {/* Selección de talla */}
-          <div className="space-y-3 sm:space-y-4">
-            <div>
+          {sizes.length > 0 && (
+            <div className="space-y-3">
               <h3
-                className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-center lg:text-left"
-                style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                className="text-center text-base font-semibold sm:text-lg lg:text-left"
+                style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 Talla
               </h3>
-              <div className="grid grid-cols-5 gap-1 sm:gap-2 max-w-md mx-auto lg:mx-0">
+              <div className="mx-auto grid max-w-md grid-cols-5 gap-2 lg:mx-0">
                 {sizes.map((size) => (
                   <button
                     key={size}
+                    type="button"
                     onClick={() => setSelectedSize(size)}
-                    className={`h-8 sm:h-10 rounded-md border-2 transition-all text-sm sm:text-base font-medium ${
+                    className={`h-9 rounded-md border-2 text-sm font-medium transition-all sm:h-10 sm:text-base ${
                       selectedSize === size
                         ? "border-blue-500 bg-blue-50 text-blue-700"
-                        : "border-gray-300 hover:border-gray-400 text-gray-700"
+                        : "border-gray-300 text-gray-700 hover:border-gray-400"
                     }`}
                     style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                   >
@@ -238,91 +262,68 @@ export default function ProductDisplay({
                 ))}
               </div>
             </div>
-          </div>
+          )}
 
-          {/* Botones de acción */}
-          <div className="space-y-2 sm:space-y-3">
-            
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold bg-primary text-input"
-              style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-            >
-              COTIZACIÓN
-            </Button>
-          </div>
+          <QuoteButton
+            productName={name}
+            productPrice={formatPrice(currentPrice)}
+            selectedColor={selectedColor}
+            selectedSize={selectedSize}
+            className="w-full py-3 text-sm font-semibold sm:py-4 sm:text-base md:text-lg"
+            style={{
+              backgroundColor: palette.primary,
+              color: palette.white,
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: 700,
+            }}
+          />
 
-          {/* Características divididas en dos columnas */}
-          <div className="space-y-3 sm:space-y-4">
-            <h3
-              className="text-lg sm:text-xl font-semibold text-center lg:text-left"
-              style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-            >
-              Características
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-              {/* Columna izquierda */}
-              <div className="space-y-2">
-                {leftFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span
-                      className="text-xs sm:text-sm text-muted-foreground"
-                      style={{ fontFamily: "Poppins, sans-serif" }}
-                    >
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Columna derecha */}
-              <div className="space-y-2">
-                {rightFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span
-                      className="text-xs sm:text-sm text-muted-foreground"
-                      style={{ fontFamily: "Poppins, sans-serif" }}
-                    >
-                      {feature}
-                    </span>
+          {features.length > 0 && (
+            <div className="space-y-4">
+              <h3
+                className="text-center text-lg font-semibold sm:text-xl lg:text-left"
+                style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                Caracteristicas
+              </h3>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {[leftFeatures, rightFeatures].map((column, columnIndex) => (
+                  <div key={columnIndex} className="space-y-2">
+                    {column.map((feature, index) => (
+                      <div key={`${feature}-${index}`} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-600 sm:h-5 sm:w-5" />
+                        <span
+                          className="text-xs text-muted-foreground sm:text-sm"
+                          style={{ fontFamily: "Poppins, sans-serif" }}
+                        >
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          )}
 
-          {/* Instrucciones de cuidado */}
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-3">
             <h3
-              className="text-lg sm:text-xl font-semibold text-center lg:text-left"
-              style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              className="text-center text-lg font-semibold sm:text-xl lg:text-left"
+              style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
             >
               Instrucciones de Cuidado
             </h3>
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  • Lavar a temperatura no mayor a 30°C
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  • No usar blanqueador
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  • Secar a la sombra
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  • Planchar a temperatura media
-                </span>
-              </div>
+              {[
+                "Lavar a temperatura no mayor a 30 C",
+                "No usar blanqueador",
+                "Secar a la sombra",
+                "Planchar a temperatura media",
+              ].map((instruction) => (
+                <p key={instruction} className="text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  • {instruction}
+                </p>
+              ))}
             </div>
           </div>
         </div>

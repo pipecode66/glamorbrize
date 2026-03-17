@@ -223,8 +223,17 @@ interface ProductGridProps {
   category: "batas" | "estrapleras" | "accesorios" | "toallas" | "bordados"
 }
 
+type GridProduct = {
+  id: number
+  name: string
+  price: number
+  image: string
+  description: string
+  bordadoEspalda?: number
+}
+
 export default function ProductGrid({ category }: ProductGridProps) {
-  let products = batasProducts
+  let products: GridProduct[] = batasProducts
 
   switch (category) {
     case "batas":

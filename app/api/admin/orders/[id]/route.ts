@@ -1,10 +1,16 @@
-import { NextResponse } from "next/server"
+﻿import { NextResponse } from "next/server"
 import { getServerSupabase } from "@/lib/server-supabase"
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
-  const supabase = getServerSupabase()
+type OrderRouteContext = {
+  params: Promise<{
+    id: string
+  }>
+}
 
-  // Verificar si el usuario es administrador
+export async function PATCH(request: Request, context: OrderRouteContext) {
+  const supabase: any = await getServerSupabase()
+  const { id } = await context.params
+
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -22,8 +28,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
   try {
     const { status } = await request.json()
 
-    // Actualizar estado del pedido
-    const { data: order, error } = await supabase.from("orders").update({ status }).eq("id", params.id).select()
+    const { data: order, error } = await supabase.from("orders").update({ status }).eq("id", id).select()
 
     if (error) {
       console.error("Error updating order status:", error)
@@ -36,3 +41,4 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     return NextResponse.json({ error: "Error al actualizar el estado del pedido" }, { status: 500 })
   }
 }
+

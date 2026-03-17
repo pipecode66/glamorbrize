@@ -139,7 +139,7 @@ export default function AmatistaCollectionGallery() {
             }`}
             style={{
               borderColor: currentImage === index ? currentProduct.color : undefined,
-              ringColor: currentImage === index ? currentProduct.color : undefined,
+              boxShadow: currentImage === index ? `0 0 0 2px ${currentProduct.color}` : undefined,
             }}
             onClick={() => setCurrentImage(index)}
           >

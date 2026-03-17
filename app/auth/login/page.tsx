@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useAuth } from "@/context/auth-context"
 import { toast } from "@/components/ui/use-toast"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { PasswordInput } from "@/components/ui/password-input"
 
@@ -117,7 +116,6 @@ function LoginForm() {
 export default function LoginPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
       <Suspense fallback={<div className="flex-1 flex items-center justify-center">Cargando...</div>}>
         <LoginForm />
       </Suspense>

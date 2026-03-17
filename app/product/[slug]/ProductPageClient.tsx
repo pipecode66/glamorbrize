@@ -6,7 +6,6 @@ import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { ChevronDown, Minus, Plus, Heart, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ProductList from "@/components/product-list"
 import { useCart } from "@/context/cart-context"
@@ -199,7 +198,6 @@ export default function ProductPageClient({ params }: ProductPageClientProps) {
   if (loading) {
     return (
       <div className="flex min-h-screen flex-col">
-        <Header />
         <div className="container py-12 flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
@@ -214,7 +212,6 @@ export default function ProductPageClient({ params }: ProductPageClientProps) {
   if (!product) {
     return (
       <div className="flex min-h-screen flex-col">
-        <Header />
         <div className="container py-12 text-center">
           <h2 className="text-2xl font-medium mb-4">Producto no encontrado</h2>
           <p className="mb-6">Lo sentimos, el producto que buscas no existe o ha sido eliminado.</p>
@@ -233,9 +230,6 @@ export default function ProductPageClient({ params }: ProductPageClientProps) {
       <div className="bg-secondary text-white py-2 text-center text-sm">
         Envíos GRATIS en pedidos superiores a $200.000 *Aplica solo en Colombia
       </div>
-
-      {/* Header */}
-      <Header />
 
       {/* Breadcrumb */}
       <div className="border-b py-4">
@@ -460,7 +454,18 @@ export default function ProductPageClient({ params }: ProductPageClientProps) {
                 <p className="text-muted mb-4">
                   Pedidos con logo empresarial a partir de 12 unidades. Puedes mezclar entre productos.
                 </p>
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                <Button
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary/10"
+                  onClick={() =>
+                    window.open(
+                      `https://wa.me/573209951491?text=${encodeURIComponent(
+                        `Hola, quiero cotizar ${product.name} - ${selectedColor || "sin color"} - ${selectedSize || "sin talla"} - cantidad ${quantity}`,
+                      )}`,
+                      "_blank",
+                    )
+                  }
+                >
                   Solicitar Cotización
                 </Button>
               </div>

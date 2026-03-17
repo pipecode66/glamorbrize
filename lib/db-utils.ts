@@ -1,3 +1,4 @@
+﻿import { hasPublicSupabaseConfig } from "@/lib/supabase-config"
 import { getServerSupabase } from "@/lib/server-supabase"
 import type { Database } from "@/types/supabase"
 
@@ -20,7 +21,11 @@ export type Review = Database["public"]["Tables"]["reviews"]["Row"] & {
 
 // Obtener un producto por su slug
 export async function getProductBySlug(slug: string): Promise<Product | null> {
-  const supabase = await getServerSupabase()
+  if (!hasPublicSupabaseConfig()) {
+    return null
+  }
+
+  const supabase: any = await getServerSupabase()
 
   const { data, error } = await supabase
     .from("products")
@@ -53,7 +58,11 @@ export async function getProducts(
     offset?: number
   } = {},
 ): Promise<Product[]> {
-  const supabase = await getServerSupabase()
+  if (!hasPublicSupabaseConfig()) {
+    return []
+  }
+
+  const supabase: any = await getServerSupabase()
 
   let query = supabase.from("products").select(`
       *,
@@ -103,9 +112,13 @@ export async function getProducts(
   return data || []
 }
 
-// Obtener todas las categorías
+// Obtener todas las categorÃ­as
 export async function getCategories(): Promise<Category[]> {
-  const supabase = await getServerSupabase()
+  if (!hasPublicSupabaseConfig()) {
+    return []
+  }
+
+  const supabase: any = await getServerSupabase()
 
   const { data, error } = await supabase.from("categories").select("*").order("name")
 
@@ -119,7 +132,11 @@ export async function getCategories(): Promise<Category[]> {
 
 // Obtener favoritos de un usuario
 export async function getUserFavorites(userId: string): Promise<Product[]> {
-  const supabase = await getServerSupabase()
+  if (!hasPublicSupabaseConfig()) {
+    return []
+  }
+
+  const supabase: any = await getServerSupabase()
 
   const { data, error } = await supabase
     .from("favorites")
@@ -137,12 +154,16 @@ export async function getUserFavorites(userId: string): Promise<Product[]> {
     return []
   }
 
-  return data?.map((item) => item.product).filter(Boolean) as Product[]
+  return data?.map((item: any) => item.product).filter(Boolean) as Product[]
 }
 
-// Obtener reseñas de un producto
+// Obtener reseÃ±as de un producto
 export async function getProductReviews(productId: number): Promise<Review[]> {
-  const supabase = await getServerSupabase()
+  if (!hasPublicSupabaseConfig()) {
+    return []
+  }
+
+  const supabase: any = await getServerSupabase()
 
   const { data, error } = await supabase
     .from("reviews")
@@ -161,3 +182,4 @@ export async function getProductReviews(productId: number): Promise<Review[]> {
 
   return data || []
 }
+

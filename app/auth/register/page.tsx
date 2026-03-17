@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useAuth } from "@/context/auth-context"
 import { toast } from "@/components/ui/use-toast"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { PasswordInput } from "@/components/ui/password-input"
 
@@ -98,8 +97,6 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
-
       <div className="flex-1 flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
