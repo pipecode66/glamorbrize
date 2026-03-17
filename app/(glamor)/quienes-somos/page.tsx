@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 
 // Definimos los colores de Uniformes G basados en la paleta oficial del manual de marca
 const uniformesGColors = {
@@ -40,8 +39,8 @@ export default function QuienesSomosPage() {
       </div>
 
       {/* Descripción de la marca */}
-      <section className="py-6 sm:py-8 md:py-12" style={{ backgroundColor: uniformesGColors.light + "20" }}>
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-10 md:py-14" style={{ backgroundColor: uniformesGColors.light + "20" }}>
+        <div className="container mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2
@@ -154,8 +153,8 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* Nuestro Proceso y Experiencia */}
-      <section className="py-6 sm:py-8 md:py-12" style={{ backgroundColor: uniformesGColors.primary }}>
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-10 md:py-14" style={{ backgroundColor: uniformesGColors.primary }}>
+        <div className="container mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div className="order-2 lg:order-1 flex justify-center">
               <Image
@@ -204,8 +203,8 @@ export default function QuienesSomosPage() {
       
 
       {/* Features */}
-      <section className="py-6 sm:py-8 md:py-12">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-10 md:py-12">
+        <div className="container mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
             <div className="p-3 sm:p-4">
               <h3

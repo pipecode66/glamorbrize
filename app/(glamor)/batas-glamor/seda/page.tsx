@@ -76,7 +76,7 @@ export default function SedaPage() {
           >
             Pedidos Empresariales
           </h2>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <p
               className="text-sm sm:text-base md:text-lg mb-3 sm:mb-4 md:mb-6 px-2"
               style={{ fontFamily: "Poppins, sans-serif" }}
@@ -99,8 +99,15 @@ export default function SedaPage() {
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
               }}
+              asChild
             >
-              Solicitar Cotización Empresarial
+              <Link
+                href="https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20linea%20de%20batas%20en%20seda"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cotizar
+              </Link>
             </Button>
           </div>
         </div>

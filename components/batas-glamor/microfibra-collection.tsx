@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
@@ -27,6 +28,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
   const [activeTab, setActiveTab] = useState("modelo1")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [itemsPerView, setItemsPerView] = useState(3)
+  const quoteHref = "https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20coleccion%20microfibra"
 
   // Responsive items per view
   useEffect(() => {
@@ -625,31 +627,31 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         {/* Tabs para los diferentes modelos */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto">
+            <TabsList className="grid h-auto w-full max-w-2xl grid-cols-2 gap-2 sm:grid-cols-4">
               <TabsTrigger
                 value="modelo1"
-                className="text-xs sm:text-sm font-semibold"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 BATAS
               </TabsTrigger>
               <TabsTrigger
                 value="modelo2"
-                className="text-xs sm:text-sm font-semibold"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 ESTRAPLERA
               </TabsTrigger>
               <TabsTrigger
                 value="modelo3"
-                className="text-xs sm:text-sm font-semibold"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 BABERO
               </TabsTrigger>
               <TabsTrigger
                 value="modelo4"
-                className="text-xs sm:text-sm font-semibold"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 TURBANTE
@@ -685,12 +687,12 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         {/* NUEVA SECCIÓN INDEPENDIENTE - 3 imágenes fijas cuadradas */}
         <div className="py-8 sm:py-12 md:py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10 md:mb-12">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
               {/* Imagen 1 */}
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/antifluido/20.png"
+                    src="/images/microfibra/6.png"
                     alt="Diseño personalizado de bata 1"
                     fill
                     className="object-cover rounded-lg shadow-lg"
@@ -709,7 +711,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/antifluido/21.png"
+                    src="/images/microfibra/7.png"
                     alt="Diseño personalizado de bata 2"
                     fill
                     className="object-cover rounded-lg shadow-lg"
@@ -728,7 +730,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/antifluido/22.png"
+                    src="/images/microfibra/8.png"
                     alt="Diseño personalizado de bata 3"
                     fill
                     className="object-cover rounded-lg shadow-lg"
@@ -757,7 +759,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         </div>
 
         {/* CTA Section */}
-        <div className="text-center py-8 sm:py-12">
+        <div className="py-10 text-center sm:py-12">
           <div className="max-w-2xl mx-auto px-4">
             <h3
               className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4"
@@ -776,8 +778,11 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
                 size="lg"
                 className="w-full sm:w-auto text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold"
                 style={{ backgroundColor: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                asChild
               >
-                Solicitar Catálogo Completo
+                <Link href={quoteHref} target="_blank" rel="noopener noreferrer">
+                  Cotizar
+                </Link>
               </Button>
             </div>
           </div>

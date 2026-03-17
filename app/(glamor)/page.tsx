@@ -263,7 +263,7 @@ export default function Home() {
               onClick={handleWhatsAppQuote}
               className="bg-primary hover:bg-primary/90 text-white font-semibold w-full sm:w-auto text-sm sm:text-base px-6 py-3 min-h-[44px]"
             >
-              Solicitar Cotización
+              Cotizar
             </Button>
           </div>
         </div>

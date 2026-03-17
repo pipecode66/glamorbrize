@@ -90,7 +90,7 @@ export default function UniformesGPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Solicitar Cotizacion Empresarial
+                Cotizar
               </Link>
             </Button>
           </div>
