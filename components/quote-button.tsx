@@ -62,16 +62,6 @@ export default function QuoteButton({
     })
   }
 
-  const handleQuickQuote = () => {
-    openWhatsApp({
-      productName,
-      productPrice,
-      quantity,
-      selectedColor,
-      selectedSize,
-    })
-  }
-
   const handleDetailedQuote = () => {
     openWhatsApp(buildQuoteData())
     setIsOpen(false)
@@ -82,13 +72,13 @@ export default function QuoteButton({
     <div className="flex flex-col gap-2">
       <Button onClick={() => setIsOpen(true)} variant={variant} size={size} className={className} style={style}>
         <MessageCircle className="w-4 h-4 mr-2" />
-        Cotizar por WhatsApp
+        Cotizar
       </Button>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Solicitar cotizacion</DialogTitle>
+            <DialogTitle>Cotizar</DialogTitle>
           </DialogHeader>
 
           <div className="space-y-4">
@@ -147,10 +137,7 @@ export default function QuoteButton({
             <div className="flex flex-col gap-2">
               <Button onClick={handleDetailedQuote} className="w-full">
                 <MessageCircle className="w-4 h-4 mr-2" />
-                Enviar cotizacion detallada
-              </Button>
-              <Button onClick={handleQuickQuote} variant="outline" className="w-full">
-                Cotizacion rapida
+                Cotizar
               </Button>
             </div>
           </div>

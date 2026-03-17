@@ -72,8 +72,8 @@ export default function BordadosPage() {
       </div>
 
       {/* Descripción del Servicio */}
-      <section className="py-12 bg-accent/10 mx-20">
-        <div className="container">
+      <section className="bg-accent/10 py-12 sm:py-14">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-eagers mb-6 text-secondary">Servicio de Bordado Profesional</h2>
@@ -142,7 +142,7 @@ export default function BordadosPage() {
 
       {/* Galería de Ejemplos */}
       <section className="py-12">
-        <div className="container mx-28">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-eagers text-center mb-8">Ejemplos de Nuestros Bordados</h2>
           <p className="text-center text-muted max-w-2xl mx-auto mb-12">
             Descubre algunos de nuestros trabajos realizados para diferentes empresas y profesionales del sector salud,
@@ -151,7 +151,7 @@ export default function BordadosPage() {
 
           <Tabs defaultValue="uniformes" className="w-full">
             <div className="flex justify-center mb-8">
-              <TabsList className="grid grid-cols-1 md:grid-cols-3 w-full max-w-3xl">
+              <TabsList className="grid w-full max-w-3xl grid-cols-1 gap-2 sm:grid-cols-3">
                 <TabsTrigger value="uniformes">Uniformes Médicos</TabsTrigger>
                 <TabsTrigger value="batas">Batas y Estrapleras</TabsTrigger>
                 <TabsTrigger value="accesorios">Accesorios</TabsTrigger>
@@ -286,7 +286,7 @@ export default function BordadosPage() {
 
       {/* Proceso de Bordado */}
       <section className="py-12 bg-gradient-to-r from-[#354358]/10 to-[#74A4AB]/10">
-        <div className="container mx-14">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-eagers text-center mb-8">Nuestro Proceso de Bordado</h2>
           <p className="text-center text-muted max-w-2xl mx-auto mb-12">
             Conoce el proceso que seguimos para crear bordados personalizados de alta calidad para tu empresa o negocio.
@@ -342,7 +342,7 @@ export default function BordadosPage() {
 
       {/* Opciones de Bordado */}
       <section className="py-12">
-        <div className="container mx-14">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-eagers text-center mb-8">Opciones de Bordado</h2>
           <p className="text-center text-muted max-w-2xl mx-auto mb-12">
             Ofrecemos diferentes opciones de bordado para adaptarnos a tus necesidades y presupuesto.
@@ -380,7 +380,9 @@ export default function BordadosPage() {
               </ul>
               <div className="text-center">
                 <p className="font-medium text-lg mb-4">Desde $15.000</p>
-                <Button className="bg-primary hover:bg-primary/90 text-white">Solicitar Cotización</Button>
+                <Button className="bg-primary hover:bg-primary/90 text-white" onClick={handleWhatsAppEmpresarial}>
+                  Cotizar
+                </Button>
               </div>
             </div>
 
@@ -416,7 +418,9 @@ export default function BordadosPage() {
               </ul>
               <div className="text-center">
                 <p className="font-medium text-lg mb-4">Desde $25.000</p>
-                <Button className="bg-primary hover:bg-primary/90 text-white">Solicitar Cotización</Button>
+                <Button className="bg-primary hover:bg-primary/90 text-white" onClick={handleWhatsAppEmpresarial}>
+                  Cotizar
+                </Button>
               </div>
             </div>
 
@@ -451,7 +455,9 @@ export default function BordadosPage() {
               </ul>
               <div className="text-center">
                 <p className="font-medium text-lg mb-4">Desde $35.000</p>
-                <Button className="bg-primary hover:bg-primary/90 text-white">Solicitar Cotización</Button>
+                <Button className="bg-primary hover:bg-primary/90 text-white" onClick={handleWhatsAppEmpresarial}>
+                  Cotizar
+                </Button>
               </div>
             </div>
           </div>
@@ -460,8 +466,8 @@ export default function BordadosPage() {
 
       {/* Pedidos Empresariales */}
       <section className="py-12 bg-accent/10">
-  <div className="container">
-    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12 mx-28">
+  <div className="container mx-auto px-4">
+    <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
       <div>
         <h2 className="text-3xl font-eagers mb-6">Pedidos Empresariales</h2>
         <p className="mb-6">
@@ -490,7 +496,7 @@ export default function BordadosPage() {
           className="mt-8 bg-primary hover:bg-primary/90 text-white"
           onClick={handleWhatsAppEmpresarial}
         >
-          Solicitar Cotización Empresarial
+          Cotizar
         </Button>
       </div>
       <div className="grid grid-cols-2 gap-4">

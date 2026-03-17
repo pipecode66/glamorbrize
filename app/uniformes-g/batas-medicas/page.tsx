@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import BatasMedicasCategory from "@/components/uniformes-g/batas-medicas-category"
 
 // Definimos los colores de Uniformes G basados en la paleta oficial del manual de marca
@@ -26,7 +25,7 @@ export default function BatasMedicasPage() {
           <div className="relative max-w-6xl mx-auto">
             {/* Placeholder para el banner de Batas Médicas */}
             <div className="relative h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[50vh] xl:h-[55vh] rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl lg:shadow-2xl bg-gradient-to-r from-blue-100 to-green-100 flex items-center justify-center">
-              <div className="text-center">
+              <div className="max-w-2xl px-4 text-center">
                 <h1
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
                   style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif" }}

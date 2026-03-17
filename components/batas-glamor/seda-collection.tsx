@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
@@ -27,6 +28,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
   const [activeTab, setActiveTab] = useState("modelo1")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [itemsPerView, setItemsPerView] = useState(3)
+  const quoteHref = "https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20coleccion%20seda"
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -327,17 +329,17 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
         {/* Tabs para los diferentes modelos */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto">
+            <TabsList className="grid h-auto w-full max-w-xl grid-cols-2 gap-2">
               <TabsTrigger
                 value="modelo1"
-                className="text-xs sm:text-sm font-semibold"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 BATAS
               </TabsTrigger>
               <TabsTrigger
                 value="modelo2"
-                className="text-xs sm:text-sm font-semibold"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 ESTRAPLERA
@@ -361,12 +363,12 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       {/* NUEVA SECCIÓN INDEPENDIENTE - 3 imágenes fijas cuadradas */}
       <div className="py-8 sm:py-12 md:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10 md:mb-12">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
             {/* Imagen 1 */}
             <div className="text-center">
               <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                 <Image
-                  src="/images/antifluido/20.png"
+                  src="/images/seda/12.png"
                   alt="Diseño personalizado de bata 1"
                   fill
                   className="object-cover rounded-lg shadow-lg"
@@ -385,7 +387,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
             <div className="text-center">
               <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                 <Image
-                  src="/images/antifluido/21.png"
+                  src="/images/seda/14.png"
                   alt="Diseño personalizado de bata 2"
                   fill
                   className="object-cover rounded-lg shadow-lg"
@@ -404,7 +406,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
             <div className="text-center">
               <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                 <Image
-                  src="/images/antifluido/22.png"
+                  src="/images/seda/15.png"
                   alt="Diseño personalizado de bata 3"
                   fill
                   className="object-cover rounded-lg shadow-lg"
@@ -433,13 +435,13 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       </div>
 
           {/* CTA Section */}
-          <div className="text-center py-8 sm:py-12">
+          <div className="py-10 text-center sm:py-12">
             <div className="max-w-2xl mx-auto px-4">
               <h3
                 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4"
                 style={{ color: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                ¿Te interesa nuestra Colección Microfibra?
+                ¿Te interesa nuestra Colección Seda?
               </h3>
               <p
                 className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg"
@@ -452,8 +454,11 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
                   size="lg"
                   className="w-full sm:w-auto text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold"
                   style={{ backgroundColor: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                  asChild
                 >
-                  Solicitar Catálogo Completo
+                  <Link href={quoteHref} target="_blank" rel="noopener noreferrer">
+                    Cotizar
+                  </Link>
                 </Button>
               </div>
             </div>

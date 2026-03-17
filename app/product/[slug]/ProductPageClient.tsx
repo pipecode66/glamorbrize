@@ -466,7 +466,7 @@ export default function ProductPageClient({ params }: ProductPageClientProps) {
                     )
                   }
                 >
-                  Solicitar Cotización
+                  Cotizar
                 </Button>
               </div>
 

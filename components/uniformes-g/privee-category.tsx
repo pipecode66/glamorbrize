@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "./product-display"
@@ -24,6 +25,8 @@ interface PriveeCategoryProps {
 
 export default function PriveeCategory({ colors = uniformesGColors }: PriveeCategoryProps) {
   const [activeTab, setActiveTab] = useState("amatista")
+  const quoteHref =
+    "https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20Linea%20Privee%20de%20Uniformes%20G"
 
   // Producto AMATISTA con precios actualizados según PDF
   const amatistaProduct = {
@@ -389,7 +392,7 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
   const bannerData = getBannerImages()
 
   return (
-    <div className="container mx-auto px-4 py-6 sm:py-8">
+    <div className="container mx-auto px-4 py-8 sm:py-10 md:py-12">
       <div className="space-y-6 sm:space-y-8">
         <div>
           <h2
@@ -448,38 +451,38 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
         {/* Tabs para las diferentes colecciones - Responsive con 5 tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-5 max-w-xs sm:max-w-3xl mx-auto gap-1 sm:gap-0">
+            <TabsList className="grid h-auto w-full max-w-md grid-cols-2 gap-2 sm:max-w-4xl sm:grid-cols-5 sm:gap-1">
               <TabsTrigger
                 value="amatista"
-                className="text-xs sm:text-sm font-semibold px-1 sm:px-3"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 AMATISTA
               </TabsTrigger>
               <TabsTrigger
                 value="agata"
-                className="text-xs sm:text-sm font-semibold px-1 sm:px-3"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 ÁGATA
               </TabsTrigger>
               <TabsTrigger
                 value="perla"
-                className="text-xs sm:text-sm font-semibold px-1 sm:px-3"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 PERLA
               </TabsTrigger>
               <TabsTrigger
                 value="esmeralda"
-                className="text-xs sm:text-sm font-semibold px-1 sm:px-3"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 ESMERALDA
               </TabsTrigger>
               <TabsTrigger
                 value="jade"
-                className="text-xs sm:text-sm font-semibold px-1 sm:px-3 col-span-2 sm:col-span-1"
+                className="col-span-2 min-h-[44px] px-1 text-xs font-semibold sm:col-span-1 sm:px-3 sm:text-sm"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 JADE
@@ -524,8 +527,8 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
         </Tabs>
 
         {/* CTA Section - Responsive */}
-        <div className="text-center py-8 sm:py-12">
-          <div className="max-w-2xl mx-auto px-4">
+        <div className="py-10 text-center sm:py-12 lg:py-14">
+          <div className="mx-auto max-w-3xl px-4">
             <h3
               className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4"
               style={{ color: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
@@ -543,8 +546,11 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
                 size="lg"
                 className="w-full sm:w-auto text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold"
                 style={{ backgroundColor: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+                asChild
               >
-                Solicitar Catálogo Completo Línea Priveé
+                <Link href={quoteHref} target="_blank" rel="noopener noreferrer">
+                  Cotizar
+                </Link>
               </Button>
             </div>
           </div>

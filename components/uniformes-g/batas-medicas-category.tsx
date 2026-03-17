@@ -52,31 +52,46 @@ export default function BatasMedicasCategory() {
   const currentCollection = batasMedicasData[activeTab as keyof typeof batasMedicasData]
 
   return (
-    <div className="py-12">
-      <div className="container">
+    <div className="py-8 sm:py-10 md:py-12">
+      <div className="container mx-auto px-4">
         {/* Tabs Navigation */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="april" className="text-sm font-medium">
+          <TabsList className="mb-6 grid h-auto w-full grid-cols-2 gap-2 sm:mb-8 sm:grid-cols-4">
+            <TabsTrigger value="april" className="min-h-[44px] text-sm font-medium">
               APRIL
             </TabsTrigger>
-            <TabsTrigger value="grey" className="text-sm font-medium">
+            <TabsTrigger value="grey" className="min-h-[44px] text-sm font-medium">
               GREY
             </TabsTrigger>
-            <TabsTrigger value="izzie" className="text-sm font-medium">
+            <TabsTrigger value="izzie" className="min-h-[44px] text-sm font-medium">
               IZZIE
             </TabsTrigger>
-            <TabsTrigger value="yang" className="text-sm font-medium">
+            <TabsTrigger value="yang" className="min-h-[44px] text-sm font-medium">
               YANG
             </TabsTrigger>
           </TabsList>
 
           {/* Collection Photos Display */}
-          <div className="mb-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mb-8 sm:mb-10">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
               {currentCollection.images.slice(0, 4).map((image, index) => (
-                null
+                <div
+                  key={`${currentCollection.name}-${index}`}
+                  className="relative aspect-[3/4] overflow-hidden rounded-xl shadow-sm"
+                >
+                  <Image
+                    src={image}
+                    alt={`${currentCollection.name} ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 220px"
+                  />
+                </div>
               ))}
+            </div>
+            <div className="mx-auto mt-4 max-w-2xl text-center sm:mt-6">
+              <h3 className="text-lg font-semibold sm:text-xl">{currentCollection.name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground sm:text-base">{currentCollection.description}</p>
             </div>
           </div>
 
@@ -89,7 +104,7 @@ export default function BatasMedicasCategory() {
         </Tabs>
 
         {/* Pedidos Empresariales Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-8">
+        <div className="mt-12 rounded-2xl bg-gradient-to-r from-blue-50 to-green-50 p-6 sm:mt-16 sm:p-8 md:p-10">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">Pedidos Empresariales</h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
@@ -100,7 +115,7 @@ export default function BatasMedicasCategory() {
               <QuoteButton
                 productName="Pedido Empresarial - Batas Médicas"
                 productPrice="Precio especial por volumen"
-                className="bg-primary hover:bg-primary/90 text-white"
+                className="w-full bg-primary text-white hover:bg-primary/90 sm:w-auto"
               />
             </div>
           </div>

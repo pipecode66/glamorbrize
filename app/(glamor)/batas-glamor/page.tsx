@@ -81,7 +81,7 @@ function BatasGlamorContent() {
         <div className="container">
           <Tabs defaultValue={activeTab} className="w-full">
             <div className="flex justify-center mb-8">
-              <TabsList className="grid grid-cols-1 md:grid-cols-3 w-full max-w-3xl">
+              <TabsList className="grid w-full max-w-3xl grid-cols-1 gap-2 sm:grid-cols-3">
                 <TabsTrigger value="empresarial">Empresarial</TabsTrigger>
                 <TabsTrigger value="personal">Personal</TabsTrigger>
                 <TabsTrigger value="prenupcial">Prenupcial</TabsTrigger>
@@ -118,8 +118,14 @@ function BatasGlamorContent() {
             <p className="text-lg mb-8">
               Contáctanos para obtener una cotización personalizada para tu empresa o negocio.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
-              Solicitar Cotización Empresarial
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
+              <Link
+                href="https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20un%20pedido%20empresarial%20de%20Batas%20Glamor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cotizar
+              </Link>
             </Button>
           </div>
         </div>
