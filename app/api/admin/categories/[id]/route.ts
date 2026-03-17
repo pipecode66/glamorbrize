@@ -1,10 +1,16 @@
-import { NextResponse } from "next/server"
+﻿import { NextResponse } from "next/server"
 import { getServerSupabase } from "@/lib/server-supabase"
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
-  const supabase = getServerSupabase()
+type CategoryRouteContext = {
+  params: Promise<{
+    id: string
+  }>
+}
 
-  // Verificar si el usuario es administrador
+export async function PUT(request: Request, context: CategoryRouteContext) {
+  const supabase: any = await getServerSupabase()
+  const { id } = await context.params
+
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -22,29 +28,28 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   try {
     const categoryData = await request.json()
 
-    // Actualizar categoría
     const { data: category, error: categoryError } = await supabase
       .from("categories")
       .update(categoryData)
-      .eq("id", params.id)
+      .eq("id", id)
       .select()
 
     if (categoryError) {
       console.error("Error updating category:", categoryError)
-      return NextResponse.json({ error: "Error al actualizar la categoría" }, { status: 500 })
+      return NextResponse.json({ error: "Error al actualizar la categorÃ­a" }, { status: 500 })
     }
 
     return NextResponse.json({ success: true, category: category[0] })
   } catch (error) {
     console.error("Error updating category:", error)
-    return NextResponse.json({ error: "Error al actualizar la categoría" }, { status: 500 })
+    return NextResponse.json({ error: "Error al actualizar la categorÃ­a" }, { status: 500 })
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
-  const supabase = getServerSupabase()
+export async function DELETE(_request: Request, context: CategoryRouteContext) {
+  const supabase: any = await getServerSupabase()
+  const { id } = await context.params
 
-  // Verificar si el usuario es administrador
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -59,23 +64,19 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     return NextResponse.json({ error: "No autorizado" }, { status: 401 })
   }
 
-  // Verificar si hay productos asociados a esta categoría
-  const { count } = await supabase
-    .from("products")
-    .select("*", { count: "exact", head: true })
-    .eq("category_id", params.id)
+  const { count } = await supabase.from("products").select("*", { count: "exact", head: true }).eq("category_id", id)
 
   if (count && count > 0) {
-    return NextResponse.json({ error: "No se puede eliminar una categoría con productos asociados" }, { status: 400 })
+    return NextResponse.json({ error: "No se puede eliminar una categorÃ­a con productos asociados" }, { status: 400 })
   }
 
-  // Eliminar la categoría
-  const { error } = await supabase.from("categories").delete().eq("id", params.id)
+  const { error } = await supabase.from("categories").delete().eq("id", id)
 
   if (error) {
     console.error("Error deleting category:", error)
-    return NextResponse.json({ error: "Error al eliminar la categoría" }, { status: 500 })
+    return NextResponse.json({ error: "Error al eliminar la categorÃ­a" }, { status: 500 })
   }
 
   return NextResponse.json({ success: true })
 }
+

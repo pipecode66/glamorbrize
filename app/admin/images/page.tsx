@@ -1,11 +1,18 @@
 import { createServerClient } from "@supabase/ssr"
 import { cookies } from "next/headers"
 import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
+import { ProductImageManager } from "@/components/admin/product-image-manager"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft } from "lucide-react"
-import { ProductImageManager } from "@/components/admin/product-image-manager"
+
+type ProductWithCategory = {
+  id: number
+  name: string
+  category_id: number
+  categories?: { name: string } | Array<{ name: string }>
+}
 
 export default async function AdminImagesPage() {
   const cookieStore = await cookies()
@@ -23,10 +30,8 @@ export default async function AdminImagesPage() {
     },
   })
 
-  // Obtener categorías
   const { data: categories } = await supabase.from("categories").select("*").order("name")
 
-  // Obtener productos
   const { data: products } = await supabase
     .from("products")
     .select(`
@@ -37,31 +42,32 @@ export default async function AdminImagesPage() {
     `)
     .order("name")
 
-  // Agrupar productos por categoría
-  const productsByCategory = products?.reduce((acc: Record<number, any[]>, product) => {
+  const normalizedProducts = (products || []) as ProductWithCategory[]
+  const productsByCategory = normalizedProducts.reduce((acc: Record<number, ProductWithCategory[]>, product) => {
     if (!acc[product.category_id]) {
       acc[product.category_id] = []
     }
+
     acc[product.category_id].push(product)
     return acc
   }, {})
 
   return (
     <div>
-      <div className="flex items-center gap-4 mb-8">
+      <div className="mb-8 flex items-center gap-4">
         <Button variant="outline" size="icon" asChild>
           <Link href="/admin">
             <ArrowLeft className="h-4 w-4" />
           </Link>
         </Button>
-        <h1 className="text-3xl font-bold">Gestión de Imágenes</h1>
+        <h1 className="text-3xl font-bold">Gestion de Imagenes</h1>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Imágenes de Productos</CardTitle>
+          <CardTitle>Imagenes de Productos</CardTitle>
           <CardDescription>
-            Gestiona las imágenes de los productos por categoría. Puedes subir nuevas imágenes, reordenarlas y
+            Gestiona las imagenes de los productos por categoria. Puedes subir nuevas imagenes, reordenarlas y
             eliminarlas.
           </CardDescription>
         </CardHeader>
@@ -77,12 +83,12 @@ export default async function AdminImagesPage() {
             </TabsList>
 
             <TabsContent value="all">
-              <ProductImageManager products={products || []} />
+              <ProductImageManager products={normalizedProducts} />
             </TabsContent>
 
             {categories?.map((category) => (
               <TabsContent key={category.id} value={category.id.toString()}>
-                <ProductImageManager products={productsByCategory?.[category.id] || []} categoryName={category.name} />
+                <ProductImageManager products={productsByCategory[category.id] || []} categoryName={category.name} />
               </TabsContent>
             ))}
           </Tabs>

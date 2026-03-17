@@ -1,16 +1,29 @@
-import type { Review } from "@/lib/db-utils"
 import { formatDistanceToNow } from "date-fns"
 import { es } from "date-fns/locale"
 
+export interface ReviewListItem {
+  id: number
+  rating: number
+  title: string | null
+  content: string | null
+  created_at: string | null
+  user?: {
+    first_name: string | null
+    last_name: string | null
+  }
+}
+
 interface ReviewItemProps {
-  review: Review
+  review: ReviewListItem
 }
 
 export function ReviewItem({ review }: ReviewItemProps) {
-  const formattedDate = formatDistanceToNow(new Date(review.created_at), {
-    addSuffix: true,
-    locale: es,
-  })
+  const formattedDate = review.created_at
+    ? formatDistanceToNow(new Date(review.created_at), {
+        addSuffix: true,
+        locale: es,
+      })
+    : "Reciente"
 
   // Obtener las iniciales del nombre del usuario
   const getInitials = () => {

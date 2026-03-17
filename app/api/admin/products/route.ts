@@ -1,10 +1,9 @@
-import { NextResponse } from "next/server"
+﻿import { NextResponse } from "next/server"
 import { getServerSupabase } from "@/lib/server-supabase"
 
 export async function POST(request: Request) {
-  const supabase = getServerSupabase()
+  const supabase: any = await getServerSupabase()
 
-  // Verificar si el usuario es administrador
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -22,7 +21,6 @@ export async function POST(request: Request) {
   try {
     const { images, variants, ...productData } = await request.json()
 
-    // Crear producto
     const { data: product, error: productError } = await supabase.from("products").insert(productData).select()
 
     if (productError) {
@@ -32,13 +30,12 @@ export async function POST(request: Request) {
 
     const productId = product[0].id
 
-    // Crear imágenes
     if (images && images.length > 0) {
       const imagesData = images.map((image: any) => ({
-        product_id: productId,
-        url: image.url,
         alt_text: image.alt_text,
         position: image.position,
+        product_id: productId,
+        url: image.url,
       }))
 
       const { error: imagesError } = await supabase.from("product_images").insert(imagesData)
@@ -48,7 +45,6 @@ export async function POST(request: Request) {
       }
     }
 
-    // Crear variantes
     if (variants && variants.length > 0) {
       const variantsData = variants.map((variant: any) => ({
         ...variant,
@@ -68,3 +64,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Error al crear el producto" }, { status: 500 })
   }
 }
+

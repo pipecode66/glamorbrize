@@ -11,50 +11,52 @@ export interface QuoteData {
 }
 
 export function generateWhatsAppMessage(data: QuoteData): string {
-  let message = `¡Hola! Me interesa cotizar el siguiente producto:\n\n`
-
-  message += `📦 *Producto:* ${data.productName}\n`
-  message += `💰 *Precio:* ${data.productPrice}\n`
+  const lines = [
+    "Hola, me interesa cotizar el siguiente producto:",
+    "",
+    `Producto: ${data.productName}`,
+    `Precio: ${data.productPrice}`,
+  ]
 
   if (data.selectedColor) {
-    message += `🎨 *Color:* ${data.selectedColor}\n`
+    lines.push(`Color: ${data.selectedColor}`)
   }
 
   if (data.selectedSize) {
-    message += `📏 *Talla:* ${data.selectedSize}\n`
+    lines.push(`Talla: ${data.selectedSize}`)
   }
 
   if (data.quantity && data.quantity > 1) {
-    message += `🔢 *Cantidad:* ${data.quantity}\n`
+    lines.push(`Cantidad: ${data.quantity}`)
   }
 
   if (data.customerName || data.customerEmail || data.customerPhone) {
-    message += `\n👤 *Datos de contacto:*\n`
+    lines.push("", "Datos de contacto:")
 
     if (data.customerName) {
-      message += `*Nombre:* ${data.customerName}\n`
+      lines.push(`Nombre: ${data.customerName}`)
     }
 
     if (data.customerEmail) {
-      message += `*Email:* ${data.customerEmail}\n`
+      lines.push(`Email: ${data.customerEmail}`)
     }
 
     if (data.customerPhone) {
-      message += `*Teléfono:* ${data.customerPhone}\n`
+      lines.push(`Telefono: ${data.customerPhone}`)
     }
   }
 
   if (data.notes) {
-    message += `\n📝 *Notas adicionales:* ${data.notes}\n`
+    lines.push("", `Notas adicionales: ${data.notes}`)
   }
 
-  message += `\n¡Gracias!`
+  lines.push("", "Gracias.")
 
-  return encodeURIComponent(message)
+  return encodeURIComponent(lines.join("\n"))
 }
 
 export function openWhatsApp(data: QuoteData, phoneNumber = "573209951491") {
   const message = generateWhatsAppMessage(data)
   const url = `https://wa.me/${phoneNumber}?text=${message}`
-  window.open(url, "_blank")
+  window.open(url, "_blank", "noopener,noreferrer")
 }

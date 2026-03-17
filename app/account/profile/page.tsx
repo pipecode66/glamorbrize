@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useAuth } from "@/context/auth-context"
 import { toast } from "@/components/ui/use-toast"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
@@ -91,7 +90,6 @@ export default function ProfilePage() {
   if (isLoading) {
     return (
       <div className="flex min-h-screen flex-col">
-        <Header />
         <div className="flex-1 flex items-center justify-center">
           <p>Cargando...</p>
         </div>
@@ -106,8 +104,6 @@ export default function ProfilePage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
-
       <div className="container py-12">
         <h1 className="text-3xl font-semibold mb-8">Mi Cuenta</h1>
 

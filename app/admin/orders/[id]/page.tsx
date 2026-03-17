@@ -9,6 +9,14 @@ import { Separator } from "@/components/ui/separator"
 import { ArrowLeft } from "lucide-react"
 import { UpdateOrderStatus } from "@/components/admin/update-order-status"
 
+type OrderItem = {
+  id: string | number
+  product_image: string | null
+  product_name: string
+  price: number | string
+  quantity: number
+}
+
 export default async function OrderDetailPage({ params }: { params: { id: string } }) {
   const cookieStore = await cookies()
   const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
@@ -176,7 +184,7 @@ export default async function OrderDetailPage({ params }: { params: { id: string
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {order.items.map((item) => (
+            {(order.items as OrderItem[]).map((item) => (
               <div key={item.id} className="flex gap-4">
                 <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border">
                   <Image

@@ -1,8 +1,15 @@
-import { type NextRequest, NextResponse } from "next/server"
+﻿import { type NextRequest, NextResponse } from "next/server"
 import { getServerSupabase } from "@/lib/server-supabase"
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-  const supabase = getServerSupabase()
+type ReviewRouteContext = {
+  params: Promise<{
+    id: string
+  }>
+}
+
+export async function GET(_request: NextRequest, context: ReviewRouteContext) {
+  const supabase: any = await getServerSupabase()
+  const { id } = await context.params
 
   const { data, error } = await supabase
     .from("reviews")
@@ -10,7 +17,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
       *,
       user:profiles(first_name, last_name)
     `)
-    .eq("id", params.id)
+    .eq("id", id)
     .single()
 
   if (error) {
@@ -25,10 +32,10 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   return NextResponse.json(data)
 }
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
-  const supabase = getServerSupabase()
+export async function PATCH(request: NextRequest, context: ReviewRouteContext) {
+  const supabase: any = await getServerSupabase()
+  const { id } = await context.params
 
-  // Verificar si el usuario está autenticado
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -40,7 +47,6 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
   try {
     const { approved } = await request.json()
 
-    // Verificar si el usuario es administrador
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select("role")
@@ -51,8 +57,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
       return NextResponse.json({ error: "Unauthorized" }, { status: 403 })
     }
 
-    // Actualizar la reseña
-    const { data, error } = await supabase.from("reviews").update({ approved }).eq("id", params.id).select()
+    const { data, error } = await supabase.from("reviews").update({ approved }).eq("id", id).select()
 
     if (error) {
       console.error("Error updating review:", error)
@@ -66,10 +71,10 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
-  const supabase = getServerSupabase()
+export async function DELETE(_request: NextRequest, context: ReviewRouteContext) {
+  const supabase: any = await getServerSupabase()
+  const { id } = await context.params
 
-  // Verificar si el usuario está autenticado
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -78,11 +83,10 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 
-  // Verificar si el usuario es el propietario de la reseña o un administrador
   const { data: review, error: reviewError } = await supabase
     .from("reviews")
     .select("user_id")
-    .eq("id", params.id)
+    .eq("id", id)
     .single()
 
   if (reviewError || !review) {
@@ -90,7 +94,6 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
   }
 
   if (review.user_id !== session.user.id) {
-    // Verificar si el usuario es administrador
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select("role")
@@ -102,8 +105,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     }
   }
 
-  // Eliminar la reseña
-  const { error } = await supabase.from("reviews").delete().eq("id", params.id)
+  const { error } = await supabase.from("reviews").delete().eq("id", id)
 
   if (error) {
     console.error("Error deleting review:", error)
@@ -112,3 +114,4 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
 
   return NextResponse.json({ success: true })
 }
+

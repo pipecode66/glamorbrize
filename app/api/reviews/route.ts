@@ -1,4 +1,4 @@
-import { type NextRequest, NextResponse } from "next/server"
+﻿import { type NextRequest, NextResponse } from "next/server"
 import { getServerSupabase } from "@/lib/server-supabase"
 
 export async function GET(request: NextRequest) {
@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Product ID is required" }, { status: 400 })
   }
 
-  const supabase = await getServerSupabase()
+  const supabase: any = await getServerSupabase()
 
   const { data, error } = await supabase
     .from("reviews")
@@ -30,9 +30,9 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const supabase = await getServerSupabase()
+  const supabase: any = await getServerSupabase()
 
-  // Verificar si el usuario está autenticado
+  // Verificar si el usuario estÃ¡ autenticado
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 })
     }
 
-    // Verificar si el usuario ya ha dejado una reseña para este producto
+    // Verificar si el usuario ya ha dejado una reseÃ±a para este producto
     const { data: existingReview, error: existingReviewError } = await supabase
       .from("reviews")
       .select("id")
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "You have already reviewed this product" }, { status: 400 })
     }
 
-    // Crear la reseña
+    // Crear la reseÃ±a
     const { data, error } = await supabase
       .from("reviews")
       .insert({
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
         rating,
         title,
         content,
-        approved: false, // Las reseñas requieren aprobación
+        approved: false, // Las reseÃ±as requieren aprobaciÃ³n
       })
       .select()
 
@@ -96,3 +96,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
+

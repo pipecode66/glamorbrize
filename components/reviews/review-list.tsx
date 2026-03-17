@@ -1,26 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ReviewItem } from "./review-item"
+import { ReviewItem, type ReviewListItem } from "./review-item"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@/context/auth-context"
 import { fetchProductReviews } from "@/lib/api-client"
-
-interface Review {
-  id: number
-  product_id: number
-  user_id: string
-  rating: number
-  title: string | null
-  content: string | null
-  approved: boolean
-  created_at: string
-  user?: {
-    first_name: string | null
-    last_name: string | null
-  }
-}
 
 interface ReviewListProps {
   productId: number
@@ -28,7 +13,7 @@ interface ReviewListProps {
 }
 
 export function ReviewList({ productId, onAddReview }: ReviewListProps) {
-  const [reviews, setReviews] = useState<Review[]>([])
+  const [reviews, setReviews] = useState<ReviewListItem[]>([])
   const [loading, setLoading] = useState(true)
   const { user } = useAuth()
 

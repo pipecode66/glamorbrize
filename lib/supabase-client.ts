@@ -1,4 +1,5 @@
 import { createBrowserClient } from "@supabase/ssr"
+import { requirePublicSupabaseConfig } from "@/lib/supabase-config"
 import type { Database } from "@/types/supabase"
 
 // Singleton pattern para evitar múltiples instancias
@@ -9,9 +10,11 @@ export function getSupabaseClient() {
     return browserClient
   }
 
+  const { anonKey, url } = requirePublicSupabaseConfig()
+
   browserClient = createBrowserClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    url,
+    anonKey,
   )
 
   return browserClient

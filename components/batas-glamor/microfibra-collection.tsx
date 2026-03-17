@@ -671,10 +671,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
 
           <TabsContent value="modelo3" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...modelo3Product} 
-              uniformesGColors={colors} 
-              complementaryProduct={modelo3Product.complementaryProduct}
-              />
+              <ProductDisplay {...modelo3Product} uniformesGColors={colors} />
             </div>
           </TabsContent>
 

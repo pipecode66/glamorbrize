@@ -4,21 +4,26 @@ import type React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
 
 export type CartItem = {
-  id: number
+  id: number | string
   name: string
   price: number
   quantity: number
   image?: string
-  slug: string
+  slug?: string
   size?: string
   color?: string
+  category?: string
+  variant?: string
+  bordadoOption?: string
+  product_id?: number
 }
 
 type CartContextType = {
   items: CartItem[]
   addItem: (item: Omit<CartItem, "quantity"> & { quantity?: number }) => void
-  removeItem: (id: number) => void
-  updateQuantity: (id: number, quantity: number) => void
+  addToCart: (item: Omit<CartItem, "quantity"> & { quantity?: number }) => void
+  removeItem: (id: number | string) => void
+  updateQuantity: (id: number | string, quantity: number) => void
   clearCart: () => void
   totalItems: number
   totalPrice: number
@@ -29,32 +34,42 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([])
 
-  // Cargar carrito desde localStorage al montar
   useEffect(() => {
     const savedCart = localStorage.getItem("cart")
-    if (savedCart) {
-      try {
-        setItems(JSON.parse(savedCart))
-      } catch (error) {
-        console.error("Error loading cart:", error)
-      }
+    if (!savedCart) {
+      return
+    }
+
+    try {
+      setItems(JSON.parse(savedCart))
+    } catch (error) {
+      console.error("Error loading cart:", error)
     }
   }, [])
 
-  // Guardar carrito en localStorage cuando cambie
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(items))
   }, [items])
 
   const addItem = (item: Omit<CartItem, "quantity"> & { quantity?: number }) => {
     setItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id && i.size === item.size && i.color === item.color)
+      const existingItem = prevItems.find((currentItem) => {
+        return (
+          currentItem.id === item.id &&
+          currentItem.size === item.size &&
+          currentItem.color === item.color &&
+          currentItem.variant === item.variant
+        )
+      })
 
       if (existingItem) {
-        return prevItems.map((i) =>
-          i.id === item.id && i.size === item.size && i.color === item.color
-            ? { ...i, quantity: i.quantity + (item.quantity || 1) }
-            : i,
+        return prevItems.map((currentItem) =>
+          currentItem.id === item.id &&
+          currentItem.size === item.size &&
+          currentItem.color === item.color &&
+          currentItem.variant === item.variant
+            ? { ...currentItem, quantity: currentItem.quantity + (item.quantity || 1) }
+            : currentItem,
         )
       }
 
@@ -62,11 +77,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
-  const removeItem = (id: number) => {
+  const removeItem = (id: number | string) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id))
   }
 
-  const updateQuantity = (id: number, quantity: number) => {
+  const updateQuantity = (id: number | string, quantity: number) => {
     if (quantity <= 0) {
       removeItem(id)
       return
@@ -85,6 +100,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const value = {
     items,
     addItem,
+    addToCart: addItem,
     removeItem,
     updateQuantity,
     clearCart,

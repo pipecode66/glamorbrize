@@ -17,14 +17,11 @@ interface ProductsPageProps {
 
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
   const categories = await getCategories()
-
-  // Obtener precios mínimo y máximo para el slider
   const allProducts = await getProducts({ limit: 1000 })
   const prices = allProducts.map((product) => product.price)
-  const minPrice = Math.min(...prices, 0)
-  const maxPrice = Math.max(...prices, 100000)
+  const minPrice = prices.length > 0 ? Math.min(...prices) : 0
+  const maxPrice = prices.length > 0 ? Math.max(...prices) : 100000
 
-  // Filtrar productos según los parámetros de búsqueda
   const search = searchParams.search || null
   const categoryIds = searchParams.categories ? searchParams.categories.split(",").map(Number) : null
   const minPriceFilter = searchParams.minPrice ? Number.parseInt(searchParams.minPrice) : null
@@ -32,32 +29,27 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const inStock = searchParams.inStock === "true"
   const featured = searchParams.featured === "true"
 
-  // Filtrar productos en el cliente para evitar múltiples llamadas a la API
   const filteredProducts = allProducts.filter((product) => {
-    // Filtrar por búsqueda
     if (search && !product.name.toLowerCase().includes(search.toLowerCase())) {
       return false
     }
 
-    // Filtrar por categoría
-    if (categoryIds && !categoryIds.includes(product.category_id)) {
+    if (categoryIds && product.category_id !== null && !categoryIds.includes(product.category_id)) {
       return false
     }
 
-    // Filtrar por precio
-    if (minPriceFilter && product.price < minPriceFilter) {
-      return false
-    }
-    if (maxPriceFilter && product.price > maxPriceFilter) {
+    if (minPriceFilter !== null && product.price < minPriceFilter) {
       return false
     }
 
-    // Filtrar por stock
+    if (maxPriceFilter !== null && product.price > maxPriceFilter) {
+      return false
+    }
+
     if (inStock && product.inventory_quantity <= 0) {
       return false
     }
 
-    // Filtrar por destacados
     if (featured && !product.featured) {
       return false
     }
@@ -72,7 +64,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
       <ProductSearch categories={categories} minPrice={minPrice} maxPrice={maxPrice} />
 
       <Suspense fallback={<ProductListSkeleton />}>
-        <ProductList products={filteredProducts} />
+        <ProductList initialProducts={filteredProducts} />
       </Suspense>
     </div>
   )

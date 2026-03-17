@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import type { Product } from "@/lib/db-utils"
 import ProductCard from "@/components/product-card"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -17,28 +17,30 @@ export default function ProductList({ initialProducts, categorySlug, featured, l
   const [isLoading, setIsLoading] = useState(!initialProducts)
 
   useEffect(() => {
-    if (!initialProducts) {
-      const fetchProducts = async () => {
-        setIsLoading(true)
-        try {
-          const response = await fetch(
-            `/api/products?${new URLSearchParams({
-              ...(categorySlug ? { category: categorySlug } : {}),
-              ...(featured !== undefined ? { featured: featured.toString() } : {}),
-              limit: limit.toString(),
-            })}`,
-          )
-          const data = await response.json()
-          setProducts(data)
-        } catch (error) {
-          console.error("Error fetching products:", error)
-        } finally {
-          setIsLoading(false)
-        }
-      }
-
-      fetchProducts()
+    if (initialProducts) {
+      return
     }
+
+    const fetchProducts = async () => {
+      setIsLoading(true)
+      try {
+        const response = await fetch(
+          `/api/products?${new URLSearchParams({
+            ...(categorySlug ? { category: categorySlug } : {}),
+            ...(featured !== undefined ? { featured: featured.toString() } : {}),
+            limit: limit.toString(),
+          })}`,
+        )
+        const data = await response.json()
+        setProducts(data)
+      } catch (error) {
+        console.error("Error fetching products:", error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchProducts()
   }, [initialProducts, categorySlug, featured, limit])
 
   if (isLoading) {
@@ -68,8 +70,8 @@ export default function ProductList({ initialProducts, categorySlug, featured, l
           id={product.id}
           name={product.name}
           price={product.price}
-          image={product.images[0]?.url || "/placeholder.svg?height=600&width=500"}
-          description={product.description}
+          image={product.images?.[0]?.url ?? "/placeholder.svg?height=600&width=500"}
+          description={product.description ?? undefined}
           category={product.category?.slug || ""}
           slug={product.slug}
         />
