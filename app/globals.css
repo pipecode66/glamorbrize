@@ -289,10 +289,6 @@
   @apply max-w-6xl mx-auto px-4 md:px-8;
 }
 
-.section-content-width-compact {
-  @apply max-w-5xl mx-auto px-4 md:px-8;
-}
-
 .category-card {
   position: relative;
   overflow: hidden;
@@ -330,10 +326,6 @@
 /* Responsive styles */
 @media (max-width: 640px) {
   .section-content-width {
-    @apply px-4;
-  }
-
-  .section-content-width-compact {
     @apply px-4;
   }
 

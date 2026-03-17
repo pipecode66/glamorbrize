@@ -392,7 +392,7 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
   const bannerData = getBannerImages()
 
   return (
-    <div className="section-content-width py-8 sm:py-10 md:py-12">
+    <div className="container mx-auto px-4 py-8 sm:py-10 md:py-12">
       <div className="space-y-6 sm:space-y-8">
         <div>
           <h2
