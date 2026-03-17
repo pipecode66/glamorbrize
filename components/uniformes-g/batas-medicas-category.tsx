@@ -53,7 +53,7 @@ export default function BatasMedicasCategory() {
 
   return (
     <div className="py-8 sm:py-10 md:py-12">
-      <div className="container mx-auto px-4">
+      <div className="section-content-width">
         {/* Tabs Navigation */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="mb-6 grid h-auto w-full grid-cols-2 gap-2 sm:mb-8 sm:grid-cols-4">

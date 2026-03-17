@@ -73,8 +73,8 @@ export default function BordadosPage() {
 
       {/* Descripción del Servicio */}
       <section className="bg-accent/10 py-12 sm:py-14">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="section-content-width-compact">
+          <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-12">
             <div>
               <h2 className="text-3xl font-eagers mb-6 text-secondary">Servicio de Bordado Profesional</h2>
               <p className="mb-4 text-muted">
@@ -119,7 +119,7 @@ export default function BordadosPage() {
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <Image
                   src="/images/bordado-bata-blanca-2.jpeg"
                   alt="Bordado en Bata Blanca"
@@ -142,7 +142,7 @@ export default function BordadosPage() {
 
       {/* Galería de Ejemplos */}
       <section className="py-12">
-        <div className="container mx-auto px-4">
+        <div className="section-content-width-compact">
           <h2 className="text-3xl font-eagers text-center mb-8">Ejemplos de Nuestros Bordados</h2>
           <p className="text-center text-muted max-w-2xl mx-auto mb-12">
             Descubre algunos de nuestros trabajos realizados para diferentes empresas y profesionales del sector salud,
@@ -286,7 +286,7 @@ export default function BordadosPage() {
 
       {/* Proceso de Bordado */}
       <section className="py-12 bg-gradient-to-r from-[#354358]/10 to-[#74A4AB]/10">
-        <div className="container mx-auto px-4">
+        <div className="section-content-width-compact">
           <h2 className="text-3xl font-eagers text-center mb-8">Nuestro Proceso de Bordado</h2>
           <p className="text-center text-muted max-w-2xl mx-auto mb-12">
             Conoce el proceso que seguimos para crear bordados personalizados de alta calidad para tu empresa o negocio.
@@ -342,7 +342,7 @@ export default function BordadosPage() {
 
       {/* Opciones de Bordado */}
       <section className="py-12">
-        <div className="container mx-auto px-4">
+        <div className="section-content-width-compact">
           <h2 className="text-3xl font-eagers text-center mb-8">Opciones de Bordado</h2>
           <p className="text-center text-muted max-w-2xl mx-auto mb-12">
             Ofrecemos diferentes opciones de bordado para adaptarnos a tus necesidades y presupuesto.
@@ -466,7 +466,7 @@ export default function BordadosPage() {
 
       {/* Pedidos Empresariales */}
       <section className="py-12 bg-accent/10">
-  <div className="container mx-auto px-4">
+  <div className="section-content-width-compact">
     <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
       <div>
         <h2 className="text-3xl font-eagers mb-6">Pedidos Empresariales</h2>
@@ -514,7 +514,7 @@ export default function BordadosPage() {
 
       {/* FAQ */}
       <section className="py-12">
-        <div className="container">
+        <div className="section-content-width-compact">
           <h2 className="text-3xl font-eagers text-center mb-8">Preguntas Frecuentes</h2>
           <div className="max-w-3xl mx-auto">
             <div className="space-y-6">
