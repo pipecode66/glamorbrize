@@ -499,13 +499,13 @@ export default function BordadosPage() {
           Cotizar
         </Button>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="flex justify-center md:justify-end">
         <Image
-          src="/images/bordado-bata-blanca-3.jpeg"
+          src="/images/pedidos-empresariales-banner.png"
           alt="Pedidos Empresariales"
-          width={250}
-          height={300}
-          className="rounded-md shadow-md"
+          width={360}
+          height={450}
+          className="rounded-md shadow-md object-cover"
         />
       </div>
     </div>
