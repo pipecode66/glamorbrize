@@ -23,7 +23,7 @@ export default function BatasMedicasPage() {
         <h1 className="sr-only">{"Batas M\u00e9dicas"}</h1>
         <div className="container mx-auto px-4">
           <div className="relative mx-auto max-w-6xl">
-            <div className="relative h-[35vh] overflow-hidden rounded-lg shadow-lg sm:h-[40vh] sm:rounded-xl sm:shadow-xl md:h-[45vh] lg:h-[50vh] lg:rounded-2xl lg:shadow-2xl xl:h-[55vh]">
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg shadow-lg sm:rounded-xl sm:shadow-xl lg:rounded-2xl lg:shadow-2xl">
               <Image
                 src="/images/uniformes-g-batas-medicas-banner.png"
                 alt={"Banner de batas m\u00e9dicas"}
