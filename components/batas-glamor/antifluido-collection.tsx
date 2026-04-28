@@ -51,11 +51,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     name: "BATA - ANTIFLUIDO",
     basePrice: 95000,
     pricing: {
-      S: 95000,
-      M: 95000,
-      L: 95000,
-      XL: 95000,
-      XXL: 95000,
+      "Talla única": 95000,
     },
     bordadoPricing: {
       delantero: 95000,
@@ -65,16 +61,30 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       "Bata antifluido profesional con tecnología de protección avanzada. Diseño funcional con acabados de alta calidad que garantizan durabilidad y confort.",
     colorVariants: [
       {
+        name: "BLANCO",
+        color: "#f2f2f2",
+        description: "Tono blanco profesional",
+        images: ["/images/bata-medica-antifluido.png"],
+      },
+      {
         name: "NEGRO",
         color: "#19161e",
         description: "Color principal elegante y versátil",
         images: ["/images/antifluido/16.png"],
       },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris profesional",
+        images: ["/images/antifluido/19.png"],
+      },
     ],
     specs: [
       { name: "Material", value: "Antifluido premium" },
       { name: "Referencia", value: "ANTI-001" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "Talla", value: "Única" },
+      { name: "Medidas", value: "Busto 124 cm / largo 92 cm / manga 33 cm" },
+      { name: "Colores", value: "Blanco, negro y gris" },
       { name: "Precio desde", value: "$95.000" },
       { name: "Bordado delantero", value: "$95.000" },
       { name: "Bordado trasero", value: "$100.000" },
@@ -87,35 +97,43 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       "Diseño profesional",
       "Durabilidad garantizada",
     ],
-    colors: ["NEGRO"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO", "NEGRO", "GRIS"],
+    sizes: ["Talla única"],
   }
 
   const modelo2Product = {
     id: 2,
     name: "ESTRAPLERA - ANTIFLUIDO",
     basePrice: 60000,
-    pricing: {
-      S: 60000,
-      M: 60000,
-      L: 60000,
-      XL: 60000,
-      XXL: 60000,
-    },
+    pricing: {},
     description:
       "Estraplera antifluido premium con diseño exclusivo. Ideal para quienes buscan protección y máxima calidad.",
     colorVariants: [
+      {
+        name: "BLANCO",
+        color: "#f2f2f2",
+        description: "Tono blanco profesional",
+        images: ["/images/estraplera-antifluidos.png"],
+      },
       {
         name: "NEGRO",
         color: "#19161e",
         description: "Tono clásico y profesional",
         images: ["/images/antifluido/18.png"],
       },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris profesional",
+        images: ["/images/antifluido/17.png"],
+      },
     ],
     specs: [
       { name: "Material", value: "Antifluido premium" },
       { name: "Referencia", value: "ANTI-003" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "Talla", value: "Única" },
+      { name: "Medidas", value: "140 cm ancho x 70 cm largo" },
+      { name: "Colores", value: "Blanco, negro y gris" },
       { name: "Bordado delantero", value: "$60.000" },
     ],
     features: [
@@ -125,35 +143,43 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       "Acabados premium",
       "Durabilidad garantizada",
     ],
-    colors: ["NEGRO"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO", "NEGRO", "GRIS"],
+    sizes: [],
   }
 
   const modelo3Product = {
     id: 3,
     name: "BALACA - ANTIFLUIDO",
     basePrice: 20000,
-    pricing: {
-      S: 20000,
-      M: 20000,
-      L: 20000,
-      XL: 20000,
-      XXL: 20000,
-    },
+    pricing: {},
     description: "Balaca antifluido versátil y práctica. Para los amantes del estilo contemporáneo.",
     colorVariants: [
+      {
+        name: "BLANCO",
+        color: "#f2f2f2",
+        description: "Tono blanco profesional",
+        images: ["/images/balaca-microfibra.png"],
+      },
       {
         name: "NEGRO",
         color: "#19161e",
         description: "Tono clásico y profesional",
         images: ["/images/turbamicro.png"],
       },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris profesional",
+        images: ["/images/balaca-microfibra.png"],
+      },
     ],
     specs: [
       { name: "Material", value: "Antifluido premium" },
       { name: "Referencia", value: "ANTI-004" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "Precio desde", value: "$28.000" },
+      { name: "Medidas", value: "Circular 54 cm x 8 cm ancho" },
+      { name: "Ajuste", value: "Caucho" },
+      { name: "Colores", value: "Blanco, negro y gris" },
+      { name: "Precio desde", value: "$20.000" },
     ],
     features: [
       "Diseño contemporáneo",
@@ -162,17 +188,23 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       "Múltiples colores",
       "Ideal para regalo",
     ],
-    colors: ["NEGRO"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO", "NEGRO", "GRIS"],
+    sizes: [],
   }
 
   const getBannerImages = () => {
     const defaultImages = [
       {
+        src: "/images/bata-medica-antifluido.png",
+        alt: "Bata antifluido blanca",
+        color: "#f2f2f2",
+        name: "BATA - BLANCO",
+      },
+      {
         src: "/images/antifluido/16.png",
         alt: "Producto Antifluido 1",
-        color: "#e8e8e9",
-        name: "BATAS",
+        color: "#19161e",
+        name: "BATA - NEGRO",
       },
       {
         src: "/images/antifluido/17.png",

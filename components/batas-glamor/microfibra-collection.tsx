@@ -47,29 +47,25 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
     return () => window.removeEventListener("resize", updateItemsPerView)
   }, [])
 
-  // Producto Modelo 1 - Microfibra
   const modelo1Product = {
     id: 1,
     name: "BATA - MICROFIBRA",
     basePrice: 85000,
     pricing: {
-      S: 85000,
-      M: 85000,
-      L: 85000,
-      XL: 85000,
-      XXL: 85000,
+      "M dama": 85000,
+      "L caballero": 85000,
     },
     bordadoPricing: {
       delantero: 85000,
       trasero: 90000,
     },
     description:
-      "Bata de microfibra suave y cómoda, perfecta para uso diario. Diseño elegante con acabados de alta calidad que garantizan durabilidad y confort.",
+      "Bata de microfibra suave y cómoda, disponible en M dama y L caballero. Diseño elegante con acabados de alta calidad.",
     colorVariants: [
       {
-        name: "BLANCO",
+        name: "BLANCO CON ORILLOS",
         color: "#e8e8e9",
-        description: "Color principal elegante y versátil",
+        description: "Blanco con orillos disponibles en blanco, gris y dorado",
         images: ["/images/microfibra/1.png"],
       },
       {
@@ -88,7 +84,11 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
     specs: [
       { name: "Material", value: "Microfibra premium" },
       { name: "Referencia", value: "MICRO-001" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "Tallas disponibles", value: "M dama y L caballero" },
+      { name: "M dama", value: "Busto 100 cm / largo 100 cm" },
+      { name: "L caballero", value: "Espalda 45 cm / largo 115 cm" },
+      { name: "Colores", value: "Blanco con orillos, gris y perla" },
+      { name: "Orillos blanco", value: "Blanco, gris y dorado" },
       { name: "Precio desde", value: "$85.000" },
       { name: "Bordado delantero", value: "$85.000" },
       { name: "Bordado trasero", value: "$90.000" },
@@ -101,34 +101,33 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       "Diseño elegante",
       "Colores duraderos",
     ],
-    colors: ["BLANCO", "GRIS", "PERLA"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    sizes: ["M dama", "L caballero"],
   }
 
-  // Producto Modelo 2 - Microfibra
   const modelo2Product = {
     id: 2,
     name: "ESTRAPLERA - MICROFIBRA",
     basePrice: 55000,
-    pricing: {
-      S: 55000,
-      M: 55000,
-      L: 55000,
-      XL: 55000,
-      XXL: 55000,
-    },
+    pricing: {},
     bordadoPricing: {
       delantero: 55000,
       balaca: 16000,
     },
     description:
-      "Estraplera de microfibra con diseño moderno y funcional. Perfecta para profesionales que buscan comodidad y estilo en su día a día.",
+      "Estraplera de microfibra talla única, moderna y funcional para tratamientos de spa, estética y bienestar.",
     colorVariants: [
       {
-        name: "BLANCO",
+        name: "BLANCO CON ORILLOS",
         color: "#e8e8e9",
-        description: "Tono clasico y profesional",
+        description: "Blanco con orillos disponibles en blanco, gris y dorado",
         images: ["/images/microfibra/2.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris unicolor",
+        images: ["/images/microfibra/6.png"],
       },
       {
         name: "PERLA",
@@ -140,10 +139,12 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
     specs: [
       { name: "Material", value: "Microfibra premium" },
       { name: "Referencia", value: "MICRO-002" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "Talla", value: "Única" },
+      { name: "Medidas", value: "140 cm ancho x 70 cm largo" },
+      { name: "Colores", value: "Blanco con orillos, gris y perla" },
+      { name: "Orillos blanco", value: "Blanco, gris y dorado" },
       { name: "Precio desde", value: "$55.000" },
       { name: "Bordado delantero", value: "$55.000" },
-      { name: "Balaca", value: "$16.000" },
     ],
     features: [
       "Diseño moderno y funcional",
@@ -152,39 +153,43 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       "Fácil de lavar",
       "Acabados perfectos",
     ],
-    colors: ["BLANCO", "PERLA"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    sizes: [],
   }
 
-  // Producto Modelo 3 - Microfibra
   const modelo3Product = {
   id: 3,
   name: "BABERO - MICROFIBRA",
   basePrice: 25000,
-  pricing: {
-    S: 25000,
-    M: 25000,
-    L: 25000,
-    XL: 25000,
-    XXL: 25000,
-  },
-  bordadoPricing: {
-    balaca: 16000,
-  },
+  pricing: {},
   description:
-    "Babero de microfibra premium con diseño exclusivo. Ideal para quienes buscan elegancia y máxima calidad.",
+    "Babero de microfibra premium con diseño práctico para servicios de estética y bienestar.",
   colorVariants: [
     {
-      name: "BLANCO",
+      name: "BLANCO CON ORILLOS",
       color: "#e8e8e9",
-      description: "Tono clasico y profesional",
+      description: "Blanco con orillos disponibles en blanco, gris y dorado",
+      images: ["/images/microfibra/7.png"],
+    },
+    {
+      name: "GRIS",
+      color: "#9d9aa1",
+      description: "Tono gris unicolor",
+      images: ["/images/microfibra/7.png"],
+    },
+    {
+      name: "PERLA",
+      color: "#CFD1D3",
+      description: "Tono perla unicolor",
       images: ["/images/microfibra/7.png"],
     },
   ],
   specs: [
     { name: "Material", value: "Microfibra premium" },
     { name: "Referencia", value: "MICRO-003" },
-    { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+    { name: "Medidas", value: "40 cm ancho x 52 cm largo" },
+    { name: "Colores", value: "Blanco con orillos, gris y perla" },
+    { name: "Orillos blanco", value: "Blanco, gris y dorado" },
   ],
   features: [
     "Diseño exclusivo",
@@ -193,43 +198,42 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
     "Acabados premium",
     "Durabilidad garantizada",
   ],
-  colors: ["BLANCO"],
-  sizes: ["S", "M", "L", "XL", "XXL"],
-  // NUEVA PROPIEDAD PARA PRODUCTOS COMPLEMENTARIOS
-  complementaryProducts: [
-    {
-      name: "BALACA - MICROFIBRA",
-      price: 16000,
-      description: "Complemento en microfibra de la misma calidad premium"
-    }
-  ]
+  colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+  sizes: [],
 }
 
-  // Producto Modelo 4 - Microfibra
   const modelo4Product = {
     id: 4,
     name: "TURBANTE - MICROFIBRA",
     basePrice: 25000,
-    pricing: {
-      S: 25000,
-      M: 25000,
-      L: 25000,
-      XL: 25000,
-      XXL: 25000,
-    },
+    pricing: {},
     description: "Turbante de microfibra versátil y práctica. Para los amantes del estilo contemporáneo.",
     colorVariants: [
       {
-        name: "BLANCO",
+        name: "BLANCO CON ORILLOS",
         color: "#e8e8e9",
-        description: "Tono clasico y profesional",
+        description: "Blanco con orillos disponibles en blanco, gris y dorado",
+        images: ["/images/microfibra/8.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris unicolor",
+        images: ["/images/microfibra/8.png"],
+      },
+      {
+        name: "PERLA",
+        color: "#CFD1D3",
+        description: "Tono perla unicolor",
         images: ["/images/microfibra/8.png"],
       },
     ],
     specs: [
       { name: "Material", value: "Microfibra premium" },
       { name: "Referencia", value: "MICRO-004" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "Medidas", value: "52 cm ancho x 75 cm largo" },
+      { name: "Colores", value: "Blanco con orillos, gris y perla" },
+      { name: "Orillos blanco", value: "Blanco, gris y dorado" },
       { name: "Precio desde", value: "$25.000" },
     ],
     features: [
@@ -239,242 +243,101 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       "Múltiples colores",
       "Ideal para regalo",
     ],
-    colors: ["BLANCO"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    sizes: [],
   }
 
-  const getBannerImages = () => {
-    switch (activeTab) {
-      case "modelo1":
-        return {
-          title: "PRODUCTOS - MICROFIBRA",
-          images: [
-            {
-              src: "/images/microfibra/1.png",
-              alt: "Modelo 1",
-              color: "#e8e8e9",
-              name: "BATA DE BAÑO",
-            },
-            {
-              src: "/images/microfibra/2.png",
-              alt: "Modelo 1",
-              color: "#e9e5f3",
-              name: "ESTRAPLERA",
-            },
-            {
-              src: "/images/microfibra/3.png",
-              alt: "Modelo 1",
-              color: "#CFD1D3",
-              name: "BATA DE BAÑO - PERLA",
-            },
-            {
-              src: "/images/microfibra/4.png",
-              alt: "Modelo 1 - Vista adicional 1",
-              color: "#CFD1D3",
-              name: "ESTRAPLERA - PERLA",
-            },
-            {
-              src: "/images/microfibra/5.png",
-              alt: "Modelo 1 - Vista adicional 2",
-              color: "#9d9aa1",
-              name: "BATA DE BAÑO - GRIS",
-            },
-            {
-              src: "/images/microfibra/6.png",
-              alt: "Modelo 1 - Vista adicional 3",
-              color: "#9d9aa1",
-              name: "ESTRAPLERA - GRIS",
-            },
-            {
-              src: "/images/microfibra/7.png",
-              alt: "Modelo 1 - Vista adicional 4",
-              color: "#e8e8e9",
-              name: "BALACA - BABERO",
-            },
-            {
-              src: "/images/microfibra/8.png",
-              alt: "Modelo 1 - Vista adicional 5",
-              color: "#e9e5f3",
-              name: "TURBANTE",
-            },
-          ],
-        }
-      case "modelo2":
-        return {
-          title: "PRODUCTOS - MICROFIBRA",
-          images: [
-            {
-              src: "/images/microfibra/1.png",
-              alt: "Modelo 1",
-              color: "#e8e8e9",
-              name: "BATA DE BAÑO",
-            },
-            {
-              src: "/images/microfibra/2.png",
-              alt: "Modelo 1",
-              color: "#e9e5f3",
-              name: "ESTRAPLERA",
-            },
-            {
-              src: "/images/microfibra/3.png",
-              alt: "Modelo 1",
-              color: "#CFD1D3",
-              name: "BATA DE BAÑO - PERLA",
-            },
-            {
-              src: "/images/microfibra/4.png",
-              alt: "Modelo 1 - Vista adicional 1",
-              color: "#CFD1D3",
-              name: "ESTRAPLERA - PERLA",
-            },
-            {
-              src: "/images/microfibra/5.png",
-              alt: "Modelo 1 - Vista adicional 2",
-              color: "#9d9aa1",
-              name: "BATA DE BAÑO - GRIS",
-            },
-            {
-              src: "/images/microfibra/6.png",
-              alt: "Modelo 1 - Vista adicional 3",
-              color: "#9d9aa1",
-              name: "ESTRAPLERA - GRIS",
-            },
-            {
-              src: "/images/microfibra/7.png",
-              alt: "Modelo 1 - Vista adicional 4",
-              color: "#e8e8e9",
-              name: "BALACA - BABERO",
-            },
-            {
-              src: "/images/microfibra/8.png",
-              alt: "Modelo 1 - Vista adicional 5",
-              color: "#e9e5f3",
-              name: "TURBANTE",
-            },
-          ],
-        }
-      case "modelo3":
-        return {
-          title: "PRODUCTOS - MICROFIBRA",
-          images: [
-            {
-              src: "/images/microfibra/1.png",
-              alt: "Modelo 1",
-              color: "#e8e8e9",
-              name: "BATA DE BAÑO",
-            },
-            {
-              src: "/images/microfibra/2.png",
-              alt: "Modelo 1",
-              color: "#e9e5f3",
-              name: "ESTRAPLERA",
-            },
-            {
-              src: "/images/microfibra/3.png",
-              alt: "Modelo 1",
-              color: "#CFD1D3",
-              name: "BATA DE BAÑO - PERLA",
-            },
-            {
-              src: "/images/microfibra/4.png",
-              alt: "Modelo 1 - Vista adicional 1",
-              color: "#CFD1D3",
-              name: "ESTRAPLERA - PERLA",
-            },
-            {
-              src: "/images/microfibra/5.png",
-              alt: "Modelo 1 - Vista adicional 2",
-              color: "#9d9aa1",
-              name: "BATA DE BAÑO - GRIS",
-            },
-            {
-              src: "/images/microfibra/6.png",
-              alt: "Modelo 1 - Vista adicional 3",
-              color: "#9d9aa1",
-              name: "ESTRAPLERA - GRIS",
-            },
-            {
-              src: "/images/microfibra/7.png",
-              alt: "Modelo 1 - Vista adicional 4",
-              color: "#e8e8e9",
-              name: "BALACA - BABERO",
-            },
-            {
-              src: "/images/microfibra/8.png",
-              alt: "Modelo 1 - Vista adicional 5",
-              color: "#e9e5f3",
-              name: "TURBANTE",
-            },
-          ],
-        }
-      case "modelo4":
-        return {
-          title: "PRODUCTOS - MICROFIBRA",
-          images: [
-            {
-              src: "/images/microfibra/1.png",
-              alt: "Modelo 1",
-              color: "#e8e8e9",
-              name: "BATA DE BAÑO",
-            },
-            {
-              src: "/images/microfibra/2.png",
-              alt: "Modelo 1",
-              color: "#e9e5f3",
-              name: "ESTRAPLERA",
-            },
-            {
-              src: "/images/microfibra/3.png",
-              alt: "Modelo 1",
-              color: "#CFD1D3",
-              name: "BATA DE BAÑO - PERLA",
-            },
-            {
-              src: "/images/microfibra/4.png",
-              alt: "Modelo 1 - Vista adicional 1",
-              color: "#CFD1D3",
-              name: "ESTRAPLERA - PERLA",
-            },
-            {
-              src: "/images/microfibra/5.png",
-              alt: "Modelo 1 - Vista adicional 2",
-              color: "#9d9aa1",
-              name: "BATA DE BAÑO - GRIS",
-            },
-            {
-              src: "/images/microfibra/6.png",
-              alt: "Modelo 1 - Vista adicional 3",
-              color: "#9d9aa1",
-              name: "ESTRAPLERA - GRIS",
-            },
-            {
-              src: "/images/microfibra/7.png",
-              alt: "Modelo 1 - Vista adicional 4",
-              color: "#e8e8e9",
-              name: "BALACA - BABERO",
-            },
-            {
-              src: "/images/microfibra/8.png",
-              alt: "Modelo 1 - Vista adicional 5",
-              color: "#e9e5f3",
-              name: "TURBANTE",
-            },
-          ],
-        }
-      default:
-        return {
-          title: "Modelo 1 - Microfibra",
-          images: [
-            {
-              src: "/placeholder.svg?height=500&width=300",
-              alt: "Modelo 1",
-              color: "#74A4AB",
-              name: "Color 1",
-            },
-          ],
-        }
-    }
+  const modelo5Product = {
+    id: 5,
+    name: "BALACA - MICROFIBRA",
+    basePrice: 16000,
+    pricing: {},
+    description: "Balaca de microfibra con velcro, pensada como complemento para la línea de microfibra.",
+    colorVariants: [
+      {
+        name: "BLANCO CON ORILLOS",
+        color: "#e8e8e9",
+        description: "Blanco con orillos disponibles en blanco, gris y dorado",
+        images: ["/images/balaca-microfibra.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris unicolor",
+        images: ["/images/balaca-microfibra.png"],
+      },
+      {
+        name: "PERLA",
+        color: "#CFD1D3",
+        description: "Tono perla unicolor",
+        images: ["/images/balaca-microfibra.png"],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Microfibra premium" },
+      { name: "Referencia", value: "MICRO-005" },
+      { name: "Medidas", value: "68 cm largo x 8 cm ancho" },
+      { name: "Cierre", value: "Velcro" },
+      { name: "Colores", value: "Blanco con orillos, gris y perla" },
+      { name: "Precio desde", value: "$16.000" },
+    ],
+    features: [
+      "Complemento en microfibra",
+      "Ajuste con velcro",
+      "Ligera y cómoda",
+      "Disponible en tonos de la colección",
+    ],
+    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    sizes: [],
   }
+
+  const getBannerImages = () => ({
+    title: "PRODUCTOS - MICROFIBRA",
+    images: [
+      {
+        src: "/images/microfibra/1.png",
+        alt: "Bata microfibra blanca",
+        color: "#e8e8e9",
+        name: "BATA - BLANCO CON ORILLOS",
+      },
+      {
+        src: "/images/microfibra/3.png",
+        alt: "Bata microfibra perla",
+        color: "#CFD1D3",
+        name: "BATA - PERLA",
+      },
+      {
+        src: "/images/microfibra/5.png",
+        alt: "Bata microfibra gris",
+        color: "#9d9aa1",
+        name: "BATA - GRIS",
+      },
+      {
+        src: "/images/microfibra/2.png",
+        alt: "Estraplera microfibra blanca",
+        color: "#e8e8e9",
+        name: "ESTRAPLERA",
+      },
+      {
+        src: "/images/balaca-microfibra.png",
+        alt: "Balaca microfibra",
+        color: "#e8e8e9",
+        name: "BALACA",
+      },
+      {
+        src: "/images/microfibra/7.png",
+        alt: "Babero microfibra",
+        color: "#e8e8e9",
+        name: "BABERO",
+      },
+      {
+        src: "/images/microfibra/8.png",
+        alt: "Turbante microfibra",
+        color: "#e8e8e9",
+        name: "TURBANTE",
+      },
+    ],
+  })
 
   const bannerData = getBannerImages()
 
@@ -627,7 +490,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         {/* Tabs para los diferentes modelos */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid h-auto w-full max-w-2xl grid-cols-2 gap-2 sm:grid-cols-4">
+            <TabsList className="grid h-auto w-full max-w-3xl grid-cols-2 gap-2 sm:grid-cols-5">
               <TabsTrigger
                 value="modelo1"
                 className="min-h-[44px] text-xs sm:text-sm font-semibold"
@@ -656,6 +519,13 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
               >
                 TURBANTE
               </TabsTrigger>
+              <TabsTrigger
+                value="modelo5"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                BALACA
+              </TabsTrigger>
             </TabsList>
           </div>
 
@@ -680,6 +550,12 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
           <TabsContent value="modelo4" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
               <ProductDisplay {...modelo4Product} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="modelo5" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...modelo5Product} uniformesGColors={colors} />
             </div>
           </TabsContent>
         </Tabs>

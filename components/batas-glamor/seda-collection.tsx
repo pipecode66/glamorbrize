@@ -51,11 +51,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
     name: "BATA - SEDA",
     basePrice: 85000,
     pricing: {
-      S: 85000,
-      M: 85000,
-      L: 85000,
-      XL: 85000,
-      XXL: 85000,
+      "Talla única": 85000,
     },
     bordadoPricing: {
       delantero: 85000,
@@ -69,6 +65,12 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
         color: "#e8eff3",
         description: "Color principal elegante y versátil",
         images: ["/images/seda/12.png"],
+      },
+      {
+        name: "NEGRO",
+        color: "#211d1f",
+        description: "Tono clásico y elegante",
+        images: ["/images/seda/15.png"],
       },
       {
         name: "BEIGE",
@@ -86,7 +88,9 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
     specs: [
       { name: "Material", value: "Seda premium" },
       { name: "Referencia", value: "SEDA-001" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "Talla", value: "Única" },
+      { name: "Medidas", value: "Busto 124 cm / largo 92 cm / manga 33 cm" },
+      { name: "Colores", value: "Blanco, negro, beige y rosado" },
       { name: "Precio desde", value: "$85.000" },
       { name: "Bordado delantero", value: "$85.000" },
       { name: "Bordado trasero", value: "$90.000" },
@@ -99,21 +103,15 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       "Diseño elegante",
       "Colores duraderos",
     ],
-    colors: ["BLANCO", "BEIGE", "ROSADO"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO", "NEGRO", "BEIGE", "ROSADO"],
+    sizes: ["Talla única"],
   }
 
   const modelo2Product = {
     id: 2,
     name: "ESTRAPLERA - SEDA",
     basePrice: 55000,
-    pricing: {
-      S: 55000,
-      M: 55000,
-      L: 55000,
-      XL: 55000,
-      XXL: 55000,
-    },
+    pricing: {},
     bordadoPricing: {
       delantero: 55000,
       balaca: 20000,
@@ -122,19 +120,38 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       "Estraplera de seda con diseño moderno y funcional. Perfecta para profesionales que buscan comodidad y estilo en su día a día.",
     colorVariants: [
       {
+        name: "BLANCO",
+        color: "#e8eff3",
+        description: "Tono blanco elegante",
+        images: ["/images/estraplera-seda.png"],
+      },
+      {
         name: "NEGRO",
         color: "#211d1f",
         description: "Tono clásico y profesional",
         images: ["/images/seda/15.png"],
       },
+      {
+        name: "BEIGE",
+        color: "#e6dfd1",
+        description: "Tono beige elegante",
+        images: ["/images/seda/13.png"],
+      },
+      {
+        name: "ROSADO",
+        color: "#efb3af",
+        description: "Tono rosado suave",
+        images: ["/images/seda/14.png"],
+      },
     ],
     specs: [
       { name: "Material", value: "Seda premium" },
       { name: "Referencia", value: "SEDA-002" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "Talla", value: "Única" },
+      { name: "Medidas", value: "140 cm ancho x 70 cm largo" },
+      { name: "Colores", value: "Blanco, negro, beige y rosado" },
       { name: "Precio desde", value: "$55.000" },
       { name: "Bordado delantero", value: "$55.000" },
-      { name: "Balaca", value: "$20.000" },
     ],
     features: [
       "Diseño moderno y funcional",
@@ -143,8 +160,58 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       "Fácil de lavar",
       "Acabados perfectos",
     ],
-    colors: ["NEGRO"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["BLANCO", "NEGRO", "BEIGE", "ROSADO"],
+    sizes: [],
+  }
+
+  const modelo3Product = {
+    id: 3,
+    name: "BALACA - SEDA",
+    basePrice: 20000,
+    pricing: {},
+    description: "Balaca de seda con caucho, disponible en los mismos colores de las batas de seda.",
+    colorVariants: [
+      {
+        name: "BLANCO",
+        color: "#e8eff3",
+        description: "Tono blanco elegante",
+        images: ["/images/balaca-microfibra.png"],
+      },
+      {
+        name: "NEGRO",
+        color: "#211d1f",
+        description: "Tono negro elegante",
+        images: ["/images/balaca-microfibra.png"],
+      },
+      {
+        name: "BEIGE",
+        color: "#e6dfd1",
+        description: "Tono beige elegante",
+        images: ["/images/balaca-microfibra.png"],
+      },
+      {
+        name: "ROSADO",
+        color: "#efb3af",
+        description: "Tono rosado suave",
+        images: ["/images/balaca-microfibra.png"],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Seda premium" },
+      { name: "Referencia", value: "SEDA-003" },
+      { name: "Medidas", value: "Circular 54 cm x 8 cm ancho" },
+      { name: "Ajuste", value: "Caucho" },
+      { name: "Colores", value: "Blanco, negro, beige y rosado" },
+      { name: "Precio desde", value: "$20.000" },
+    ],
+    features: [
+      "Balaca con caucho",
+      "Complemento en seda",
+      "Disponible en tonos de la colección",
+      "Ligera y cómoda",
+    ],
+    colors: ["BLANCO", "NEGRO", "BEIGE", "ROSADO"],
+    sizes: [],
   }
 
   const getBannerImages = () => {
@@ -166,6 +233,12 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
         alt: "Producto Seda 3",
         color: "#efb3af",
         name: "BATA - SEDA",
+      },
+      {
+        src: "/images/balaca-microfibra.png",
+        alt: "Balaca Seda",
+        color: "#e8eff3",
+        name: "BALACA - SEDA",
       },
       {
         src: "/images/seda/15.png",
@@ -329,7 +402,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
         {/* Tabs para los diferentes modelos */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid h-auto w-full max-w-xl grid-cols-2 gap-2">
+            <TabsList className="grid h-auto w-full max-w-xl grid-cols-3 gap-2">
               <TabsTrigger
                 value="modelo1"
                 className="min-h-[44px] text-xs sm:text-sm font-semibold"
@@ -344,6 +417,13 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
               >
                 ESTRAPLERA
               </TabsTrigger>
+              <TabsTrigger
+                value="modelo3"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                BALACA
+              </TabsTrigger>
             </TabsList>
           </div>
 
@@ -356,6 +436,12 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
           <TabsContent value="modelo2" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
               <ProductDisplay {...modelo2Product} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="modelo3" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...modelo3Product} uniformesGColors={colors} />
             </div>
           </TabsContent>
         </Tabs>

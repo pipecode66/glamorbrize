@@ -23,13 +23,7 @@ interface ProductDisplayProps {
   id: number
   name: string
   basePrice: number
-  pricing: {
-    S: number
-    M: number
-    L: number
-    XL: number
-    XXL: number
-  }
+  pricing: Record<string, number>
   description: string
   colorVariants: ColorVariant[]
   specs: Array<{ name: string; value: string }>
@@ -69,6 +63,7 @@ export default function ProductDisplay({
   pricing,
   description,
   colorVariants,
+  specs,
   features,
   colors,
   sizes,
@@ -83,12 +78,12 @@ export default function ProductDisplay({
   }
 
   const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.name || colors[0] || "")
-  const [selectedSize, setSelectedSize] = useState(sizes[0] || "S")
+  const [selectedSize, setSelectedSize] = useState(sizes[0] || "")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const currentVariant = colorVariants.find((variant) => variant.name === selectedColor) || colorVariants[0]
   const currentImages = currentVariant?.images ?? []
-  const currentPrice = pricing[selectedSize as keyof typeof pricing] || basePrice
+  const currentPrice = (selectedSize && pricing[selectedSize]) || basePrice
   const extraProducts = useMemo(
     () => (complementaryProduct ? [complementaryProduct, ...complementaryProducts] : complementaryProducts),
     [complementaryProduct, complementaryProducts],
@@ -264,11 +259,30 @@ export default function ProductDisplay({
             </div>
           )}
 
+          {specs.length > 0 && (
+            <div className="space-y-3">
+              <h3
+                className="text-center text-lg font-semibold sm:text-xl lg:text-left"
+                style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                Medidas y detalles
+              </h3>
+              <dl className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {specs.map((spec) => (
+                  <div key={`${spec.name}-${spec.value}`} className="rounded-md border border-gray-200 bg-gray-50 p-3">
+                    <dt className="text-xs font-semibold uppercase text-gray-500">{spec.name}</dt>
+                    <dd className="mt-1 text-sm font-medium text-gray-800">{spec.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
+
           <QuoteButton
             productName={name}
             productPrice={formatPrice(currentPrice)}
             selectedColor={selectedColor}
-            selectedSize={selectedSize}
+            selectedSize={selectedSize || undefined}
             className="w-full py-3 text-sm font-semibold sm:py-4 sm:text-base md:text-lg"
             style={{
               backgroundColor: palette.primary,
