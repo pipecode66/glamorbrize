@@ -192,6 +192,177 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     sizes: [],
   }
 
+  const modelo4Product = {
+    id: 4,
+    name: "BABERO - ANTIFLUIDO",
+    basePrice: 38000,
+    pricing: {},
+    description: "Babero antifluido para servicios de estética, spa y bienestar. Disponible en los colores de la línea.",
+    colorVariants: [
+      {
+        name: "BLANCO",
+        color: "#f2f2f2",
+        description: "Tono blanco profesional",
+        images: ["/images/bata-medica-antifluido.png"],
+      },
+      {
+        name: "NEGRO",
+        color: "#19161e",
+        description: "Tono negro profesional",
+        images: ["/images/antifluido/21.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris profesional",
+        images: ["/images/antifluido/19.png"],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Antifluido premium" },
+      { name: "Referencia", value: "ANTI-005" },
+      { name: "Colores", value: "Blanco, negro y gris" },
+      { name: "Precio", value: "$38.000" },
+    ],
+    features: [
+      "Protección para tratamientos",
+      "Tela suave antifluido",
+      "Fácil limpieza",
+      "Personalizable con bordado",
+    ],
+    colors: ["BLANCO", "NEGRO", "GRIS"],
+    sizes: [],
+  }
+
+  const modelo5Product = {
+    id: 5,
+    name: "CAPA-BABERO - ANTIFLUIDO",
+    basePrice: 60000,
+    pricing: {},
+    description: "Capa-babero antifluido de mayor cobertura para procedimientos de estética y cuidado personal.",
+    colorVariants: [
+      {
+        name: "BLANCO",
+        color: "#f2f2f2",
+        description: "Tono blanco profesional",
+        images: ["/images/bata-medica-antifluido.png"],
+      },
+      {
+        name: "NEGRO",
+        color: "#19161e",
+        description: "Tono negro profesional",
+        images: ["/images/antifluido/21.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris profesional",
+        images: ["/images/antifluido/19.png"],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Antifluido premium" },
+      { name: "Referencia", value: "ANTI-006" },
+      { name: "Colores", value: "Blanco, negro y gris" },
+      { name: "Precio", value: "$60.000" },
+    ],
+    features: [
+      "Mayor cobertura",
+      "Tela antifluido suave",
+      "Ideal para cabina",
+      "Personalizable con bordado",
+    ],
+    colors: ["BLANCO", "NEGRO", "GRIS"],
+    sizes: [],
+  }
+
+  const modelo6Product = {
+    id: 6,
+    name: "FUNDAS - ANTIFLUIDO",
+    basePrice: 90000,
+    pricing: {},
+    description: "Set de fundas antifluido para camilla, ideal para centros de estética y bienestar.",
+    colorVariants: [
+      {
+        name: "BLANCO",
+        color: "#f2f2f2",
+        description: "Tono blanco profesional",
+        images: ["/images/antifluido/20.png"],
+      },
+      {
+        name: "NEGRO",
+        color: "#19161e",
+        description: "Tono negro profesional",
+        images: ["/images/antifluido/20.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris profesional",
+        images: ["/images/antifluido/20.png"],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Antifluido premium" },
+      { name: "Referencia", value: "ANTI-007" },
+      { name: "Incluye", value: "2 fundas de 45x65 cm" },
+      { name: "Colores", value: "Blanco, negro y gris" },
+      { name: "Precio", value: "$90.000" },
+    ],
+    features: [
+      "Set para camilla",
+      "Resistente a fluidos",
+      "Personalizable con logo",
+      "Fácil mantenimiento",
+    ],
+    colors: ["BLANCO", "NEGRO", "GRIS"],
+    sizes: [],
+  }
+
+  const modelo7Product = {
+    id: 7,
+    name: "SÁBANA + FUNDA - ANTIFLUIDO",
+    basePrice: 145000,
+    pricing: {},
+    description: "Kit de sábana antifluido para camilla con funda incluida, pensado para uso profesional.",
+    colorVariants: [
+      {
+        name: "BLANCO",
+        color: "#f2f2f2",
+        description: "Tono blanco profesional",
+        images: ["/images/antifluido/20.png"],
+      },
+      {
+        name: "NEGRO",
+        color: "#19161e",
+        description: "Tono negro profesional",
+        images: ["/images/antifluido/20.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris profesional",
+        images: ["/images/antifluido/20.png"],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Antifluido premium" },
+      { name: "Referencia", value: "ANTI-008" },
+      { name: "Sábana", value: "1,35 x 1,80 m" },
+      { name: "Funda", value: "1 funda de 45x65 cm" },
+      { name: "Colores", value: "Blanco, negro y gris" },
+      { name: "Precio", value: "$145.000" },
+    ],
+    features: [
+      "Kit completo para camilla",
+      "Tela antifluido",
+      "Personalizable con logo",
+      "Disponible en tres colores",
+    ],
+    colors: ["BLANCO", "NEGRO", "GRIS"],
+    sizes: [],
+  }
+
   const getBannerImages = () => {
     const defaultImages = [
       {
@@ -224,7 +395,31 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
         color: "#CFD1D3",
         name: "BALACA",
       },
-    ] // Added missing closing bracket for defaultImages array
+      {
+        src: "/images/antifluido/21.png",
+        alt: "Babero antifluido",
+        color: "#19161e",
+        name: "BABERO",
+      },
+      {
+        src: "/images/antifluido/21.png",
+        alt: "Capa-babero antifluido",
+        color: "#19161e",
+        name: "CAPA-BABERO",
+      },
+      {
+        src: "/images/antifluido/20.png",
+        alt: "Fundas antifluido",
+        color: "#f2f2f2",
+        name: "FUNDAS",
+      },
+      {
+        src: "/images/antifluido/20.png",
+        alt: "Sábana y funda antifluido",
+        color: "#f2f2f2",
+        name: "SÁBANA + FUNDA",
+      },
+    ]
 
     return {
       title: "PRODUCTOS - ANTIFLUIDO",
@@ -380,7 +575,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
         {/* Tabs para los diferentes modelos */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid h-auto w-full max-w-xl grid-cols-2 gap-2 sm:grid-cols-3">
+            <TabsList className="grid h-auto w-full max-w-5xl grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
               <TabsTrigger
                 value="modelo1"
                 className="min-h-[44px] text-xs sm:text-sm font-semibold"
@@ -402,6 +597,34 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
               >
                 BALACA
               </TabsTrigger>
+              <TabsTrigger
+                value="modelo4"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                BABERO
+              </TabsTrigger>
+              <TabsTrigger
+                value="modelo5"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                CAPA
+              </TabsTrigger>
+              <TabsTrigger
+                value="modelo6"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                FUNDAS
+              </TabsTrigger>
+              <TabsTrigger
+                value="modelo7"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                SÁBANAS
+              </TabsTrigger>
             </TabsList>
           </div>
 
@@ -420,6 +643,30 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
           <TabsContent value="modelo3" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
               <ProductDisplay {...modelo3Product} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="modelo4" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...modelo4Product} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="modelo5" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...modelo5Product} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="modelo6" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...modelo6Product} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="modelo7" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...modelo7Product} uniformesGColors={colors} />
             </div>
           </TabsContent>
         </Tabs>
