@@ -55,7 +55,7 @@ export function generateWhatsAppMessage(data: QuoteData): string {
   return encodeURIComponent(lines.join("\n"))
 }
 
-export function openWhatsApp(data: QuoteData, phoneNumber = "573209951491") {
+export function openWhatsApp(data: QuoteData, phoneNumber = "573156614208") {
   const message = generateWhatsAppMessage(data)
   const url = `https://wa.me/${phoneNumber}?text=${message}`
   window.open(url, "_blank", "noopener,noreferrer")

@@ -21,7 +21,7 @@ const bordadosColors = {
 export default function BordadosPage() {
 
   const handleWhatsAppEmpresarial = () => {
-    const phoneNumber = "573209951491"
+    const phoneNumber = "573156614208"
     const message = encodeURIComponent("Hola, estoy interesado en solicitar una cotización empresarial para el servicio de bordados personalizados")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }

@@ -459,7 +459,7 @@ export default function ProductPageClient({ params }: ProductPageClientProps) {
                   className="border-primary text-primary hover:bg-primary/10"
                   onClick={() =>
                     window.open(
-                      `https://wa.me/573209951491?text=${encodeURIComponent(
+                      `https://wa.me/573156614208?text=${encodeURIComponent(
                         `Hola, quiero cotizar ${product.name} - ${selectedColor || "sin color"} - ${selectedSize || "sin talla"} - cantidad ${quantity}`,
                       )}`,
                       "_blank",

@@ -102,7 +102,7 @@ export default function AntifluidoPage() {
               asChild
             >
               <Link
-                href="https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20linea%20de%20batas%20antifluido"
+                href="https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20linea%20de%20batas%20antifluido"
                 target="_blank"
                 rel="noopener noreferrer"
               >

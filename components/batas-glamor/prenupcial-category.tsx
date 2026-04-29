@@ -29,7 +29,7 @@ export default function PreNupcialCategory() {
         "Empaque especial para regalo",
       ],
       colors: ["Blanco", "Rosado", "Beige", "Azul"],
-      sizes: ["S", "M", "L"],
+      sizes: ["M", "L"],
     },
     {
       id: 2,
@@ -56,7 +56,7 @@ export default function PreNupcialCategory() {
         "Descuentos disponibles para pedidos múltiples",
       ],
       colors: ["Blanco", "Rosado", "Beige", "Azul"],
-      sizes: ["S", "M", "L"],
+      sizes: ["M", "L"],
     },
     {
       id: 3,
@@ -83,7 +83,7 @@ export default function PreNupcialCategory() {
         "Descuento especial por compra del set",
       ],
       colors: ["Blanco", "Rosado", "Beige", "Azul"],
-      sizes: ["S", "M", "L"],
+      sizes: ["M", "L"],
     },
   ]
 

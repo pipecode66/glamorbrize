@@ -86,7 +86,7 @@ export default function UniformesGPage() {
               asChild
             >
               <Link
-                href="https://wa.me/573209951491?text=Hola,%20quiero%20una%20cotizacion%20empresarial%20de%20Uniformes%20G"
+                href="https://wa.me/573156614208?text=Hola,%20quiero%20una%20cotizacion%20empresarial%20de%20Uniformes%20G"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -10,6 +10,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { useAuth } from "@/context/auth-context"
 
+const showBordadosNavigation = false
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [batasGlamorOpen, setBatasGlamorOpen] = useState(false)
@@ -60,6 +62,18 @@ export default function Header() {
                   <span>Antifluido</span>
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/batas-glamor/kits-empresariales" className="flex items-center space-x-2 min-h-[44px]">
+                  <Users className="h-4 w-4" />
+                  <span>Kits Empresariales</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/batas-glamor/toallas-cobijas" className="flex items-center space-x-2 min-h-[44px]">
+                  <Sparkles className="h-4 w-4" />
+                  <span>Toallas y Cobijas</span>
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -85,15 +99,17 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link
-            href="/bordados"
-            className="text-sm font-medium text-white hover:text-gray-300 min-h-[44px] flex items-center px-2"
-          >
-            <div className="flex items-center space-x-1">
-              <Palette className="h-4 w-4" />
-              <span>Bordados</span>
-            </div>
-          </Link>
+          {showBordadosNavigation && (
+            <Link
+              href="/bordados"
+              className="text-sm font-medium text-white hover:text-gray-300 min-h-[44px] flex items-center px-2"
+            >
+              <div className="flex items-center space-x-1">
+                <Palette className="h-4 w-4" />
+                <span>Bordados</span>
+              </div>
+            </Link>
+          )}
           <Link
             href="/quienes-somos"
             className="text-sm font-medium text-white hover:text-gray-300 min-h-[44px] flex items-center px-2"
@@ -160,6 +176,20 @@ export default function Header() {
                     >
                       Antifluido
                     </Link>
+                    <Link
+                      href="/batas-glamor/kits-empresariales"
+                      className="block text-base text-muted-foreground hover:text-primary py-2 min-h-[44px]"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Kits Empresariales
+                    </Link>
+                    <Link
+                      href="/batas-glamor/toallas-cobijas"
+                      className="block text-base text-muted-foreground hover:text-primary py-2 min-h-[44px]"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Toallas y Cobijas
+                    </Link>
                   </CollapsibleContent>
                 </Collapsible>
 
@@ -187,13 +217,15 @@ export default function Header() {
                   </CollapsibleContent>
                 </Collapsible>
 
-                <Link
-                  href="/bordados"
-                  className="text-lg font-medium hover:text-primary min-h-[44px] flex items-center"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Bordados
-                </Link>
+                {showBordadosNavigation && (
+                  <Link
+                    href="/bordados"
+                    className="text-lg font-medium hover:text-primary min-h-[44px] flex items-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Bordados
+                  </Link>
+                )}
                 <Link
                   href="/quienes-somos"
                   className="text-lg font-medium hover:text-primary min-h-[44px] flex items-center"

@@ -1,12 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -26,41 +25,22 @@ interface MicrofibraCollectionProps {
 
 export default function MicrofibraCollection({ colors = batasGlamorColors }: MicrofibraCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [itemsPerView, setItemsPerView] = useState(3)
-  const quoteHref = "https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20coleccion%20microfibra"
-
-  // Responsive items per view
-  useEffect(() => {
-    const updateItemsPerView = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerView(1)
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(2)
-      } else {
-        setItemsPerView(3)
-      }
-    }
-
-    updateItemsPerView()
-    window.addEventListener("resize", updateItemsPerView)
-    return () => window.removeEventListener("resize", updateItemsPerView)
-  }, [])
+  const quoteHref = "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20coleccion%20microfibra"
 
   const modelo1Product = {
     id: 1,
     name: "BATA - MICROFIBRA",
     basePrice: 85000,
     pricing: {
-      "M dama": 85000,
-      "L caballero": 85000,
+      M: 85000,
+      L: 85000,
     },
     bordadoPricing: {
       delantero: 85000,
       trasero: 90000,
     },
     description:
-      "Bata de microfibra suave y cómoda, disponible en M dama y L caballero. Diseño elegante con acabados de alta calidad.",
+      "Bata de microfibra suave y cómoda, disponible en M y L. Diseño elegante con acabados de alta calidad.",
     colorVariants: [
       {
         name: "BLANCO CON ORILLOS",
@@ -84,9 +64,9 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
     specs: [
       { name: "Material", value: "Microfibra premium" },
       { name: "Referencia", value: "MICRO-001" },
-      { name: "Tallas disponibles", value: "M dama y L caballero" },
-      { name: "M dama", value: "Busto 100 cm / largo 100 cm" },
-      { name: "L caballero", value: "Espalda 45 cm / largo 115 cm" },
+      { name: "Tallas disponibles", value: "M y L" },
+      { name: "M", value: "Busto 100 cm / largo 100 cm" },
+      { name: "L", value: "Espalda 45 cm / largo 115 cm" },
       { name: "Colores", value: "Blanco con orillos, gris y perla" },
       { name: "Orillos blanco", value: "Blanco, gris y dorado" },
       { name: "Precio desde", value: "$85.000" },
@@ -102,7 +82,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       "Colores duraderos",
     ],
     colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
-    sizes: ["M dama", "L caballero"],
+    sizes: ["M", "L"],
   }
 
   const modelo2Product = {
@@ -290,77 +270,6 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
     colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
     sizes: [],
   }
-
-  const getBannerImages = () => ({
-    title: "PRODUCTOS - MICROFIBRA",
-    images: [
-      {
-        src: "/images/microfibra/1.png",
-        alt: "Bata microfibra blanca",
-        color: "#e8e8e9",
-        name: "BATA - BLANCO CON ORILLOS",
-      },
-      {
-        src: "/images/microfibra/3.png",
-        alt: "Bata microfibra perla",
-        color: "#CFD1D3",
-        name: "BATA - PERLA",
-      },
-      {
-        src: "/images/microfibra/5.png",
-        alt: "Bata microfibra gris",
-        color: "#9d9aa1",
-        name: "BATA - GRIS",
-      },
-      {
-        src: "/images/microfibra/2.png",
-        alt: "Estraplera microfibra blanca",
-        color: "#e8e8e9",
-        name: "ESTRAPLERA",
-      },
-      {
-        src: "/images/balaca-microfibra.png",
-        alt: "Balaca microfibra",
-        color: "#e8e8e9",
-        name: "BALACA",
-      },
-      {
-        src: "/images/microfibra/7.png",
-        alt: "Babero microfibra",
-        color: "#e8e8e9",
-        name: "BABERO",
-      },
-      {
-        src: "/images/microfibra/8.png",
-        alt: "Turbante microfibra",
-        color: "#e8e8e9",
-        name: "TURBANTE",
-      },
-    ],
-  })
-
-  const bannerData = getBannerImages()
-
-  // Funciones de navegación del carrusel
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + itemsPerView >= bannerData.images.length ? 0 : prev + itemsPerView))
-  }
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(0, bannerData.images.length - itemsPerView) : Math.max(0, prev - itemsPerView),
-    )
-  }
-
-  const visibleImages = bannerData.images.slice(currentIndex, currentIndex + itemsPerView)
-  const totalPages = Math.ceil(bannerData.images.length / itemsPerView)
-  const currentPage = Math.floor(currentIndex / itemsPerView)
-
-  // Reiniciar el índice cuando cambia la pestaña
-  useEffect(() => {
-    setCurrentIndex(0)
-  }, [activeTab])
-
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
       <div className="space-y-6 sm:space-y-8">
@@ -378,113 +287,6 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
             Descubre nuestra colección de batas en microfibra, diseñadas para ofrecer máxima comodidad y elegancia.
             Perfectas para profesionales de la estética y el bienestar.
           </p>
-        </div>
-
-        {/* Banner dinámico con carrusel */}
-        <div className="py-8 sm:py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-gray-800"
-              style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-            >
-              {bannerData.title}
-            </h2>
-
-            {/* Controles de navegación del carrusel */}
-            {bannerData.images.length > itemsPerView && (
-              <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={prevSlide}
-                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-transparent border-gray-300"
-                  disabled={currentIndex === 0}
-                  aria-label="Imágenes anteriores"
-                >
-                  <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Button>
-
-                {/* Indicadores de página */}
-                <div className="flex gap-1.5 sm:gap-2 items-center">
-                  {(() => {
-                    const maxDotsToShow = 3
-                    const halfWindow = Math.floor(maxDotsToShow / 2)
-
-                    let startPage = Math.max(0, currentPage - halfWindow)
-                    const endPage = Math.min(totalPages, startPage + maxDotsToShow)
-
-                    // Adjust if we're near the end
-                    if (endPage - startPage < maxDotsToShow) {
-                      startPage = Math.max(0, endPage - maxDotsToShow)
-                    }
-
-                    const visiblePages = Array.from({ length: endPage - startPage }, (_, i) => startPage + i)
-
-                    return (
-                      <>
-                        {startPage > 0 && <span className="text-gray-400 text-xs">...</span>}
-                        {visiblePages.map((pageIndex) => (
-                          <button
-                            key={pageIndex}
-                            onClick={() => setCurrentIndex(pageIndex * itemsPerView)}
-                            aria-label={`Ir a página ${pageIndex + 1}`}
-                            className={`w-3 h-3 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                              currentPage === pageIndex ? "bg-primary scale-110" : "bg-gray-300 hover:bg-gray-400"
-                            }`}
-                          />
-                        ))}
-                        {endPage < totalPages && <span className="text-gray-400 text-xs">...</span>}
-                      </>
-                    )
-                  })()}
-                </div>
-
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={nextSlide}
-                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-transparent border-gray-300"
-                  disabled={currentIndex + itemsPerView >= bannerData.images.length}
-                  aria-label="Imágenes siguientes"
-                >
-                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Button>
-              </div>
-            )}
-
-            {/* Grid de imágenes del carrusel */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10 md:mb-12">
-              {visibleImages.map((image, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative aspect-[3/4] max-w-[200px] sm:max-w-[220px] md:max-w-[250px] mx-auto mb-3 sm:mb-4">
-                    <Image
-                      src={image.src || "/placeholder.svg"}
-                      alt={image.alt}
-                      fill
-                      className="object-cover rounded-lg shadow-lg"
-                      sizes="(max-width: 640px) 200px, (max-width: 768px) 220px, 250px"
-                    />
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <div
-                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border border-gray-200 ${
-                        image.color === "#FFFFFF" || image.color === "#FFF" || image.color.toLowerCase() === "white"
-                          ? "shadow-sm"
-                          : ""
-                      }`}
-                      style={{ backgroundColor: image.color }}
-                    ></div>
-                    <span
-                      className="text-sm sm:text-base font-semibold text-gray-700"
-                      style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-                    >
-                      {image.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Tabs para los diferentes modelos */}

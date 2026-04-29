@@ -1,12 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -26,56 +25,38 @@ interface SedaCollectionProps {
 
 export default function SedaCollection({ colors = batasGlamorColors }: SedaCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [itemsPerView, setItemsPerView] = useState(3)
-  const quoteHref = "https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20coleccion%20seda"
-
-  useEffect(() => {
-    const updateItemsPerView = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerView(1)
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(2)
-      } else {
-        setItemsPerView(3)
-      }
-    }
-
-    updateItemsPerView()
-    window.addEventListener("resize", updateItemsPerView)
-    return () => window.removeEventListener("resize", updateItemsPerView)
-  }, [])
+  const quoteHref = "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20coleccion%20seda"
 
   const modelo1Product = {
     id: 1,
     name: "BATA - SEDA",
     basePrice: 85000,
     pricing: {
-      "Talla única": 85000,
+      "Única": 85000,
     },
     bordadoPricing: {
       delantero: 85000,
       trasero: 90000,
     },
     description:
-      "Bata de seda suave y elegante, perfecta para ocasiones especiales. Diseño sofisticado con acabados de alta calidad que garantizan durabilidad y confort.",
+      "Bata de seda suave y elegante, perfecta para ocasiones especiales. DiseÃ±o sofisticado con acabados de alta calidad que garantizan durabilidad y confort.",
     colorVariants: [
       {
         name: "BLANCO",
         color: "#e8eff3",
-        description: "Color principal elegante y versátil",
+        description: "Color principal elegante y versÃ¡til",
         images: ["/images/seda/12.png"],
       },
       {
         name: "NEGRO",
         color: "#211d1f",
-        description: "Tono clásico y elegante",
+        description: "Tono clÃ¡sico y elegante",
         images: ["/images/seda/15.png"],
       },
       {
         name: "BEIGE",
         color: "#e6dfd1",
-        description: "Algo más imponente y lujoso",
+        description: "Algo mÃ¡s imponente y lujoso",
         images: ["/images/seda/13.png"],
       },
       {
@@ -88,7 +69,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
     specs: [
       { name: "Material", value: "Seda premium" },
       { name: "Referencia", value: "SEDA-001" },
-      { name: "Talla", value: "Única" },
+      { name: "Talla", value: "Ãnica" },
       { name: "Medidas", value: "Busto 124 cm / largo 92 cm / manga 33 cm" },
       { name: "Colores", value: "Blanco, negro, beige y rosado" },
       { name: "Precio desde", value: "$85.000" },
@@ -97,14 +78,14 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
     ],
     features: [
       "Seda suave al tacto",
-      "Secado rápido",
+      "Secado rÃ¡pido",
       "Resistente al uso diario",
-      "Fácil mantenimiento",
-      "Diseño elegante",
+      "FÃ¡cil mantenimiento",
+      "DiseÃ±o elegante",
       "Colores duraderos",
     ],
     colors: ["BLANCO", "NEGRO", "BEIGE", "ROSADO"],
-    sizes: ["Talla única"],
+    sizes: ["Única"],
   }
 
   const modelo2Product = {
@@ -117,7 +98,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       balaca: 20000,
     },
     description:
-      "Estraplera de seda con diseño moderno y funcional. Perfecta para profesionales que buscan comodidad y estilo en su día a día.",
+      "Estraplera de seda con diseÃ±o moderno y funcional. Perfecta para profesionales que buscan comodidad y estilo en su dÃ­a a dÃ­a.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -128,7 +109,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       {
         name: "NEGRO",
         color: "#211d1f",
-        description: "Tono clásico y profesional",
+        description: "Tono clÃ¡sico y profesional",
         images: ["/images/seda/15.png"],
       },
       {
@@ -147,17 +128,17 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
     specs: [
       { name: "Material", value: "Seda premium" },
       { name: "Referencia", value: "SEDA-002" },
-      { name: "Talla", value: "Única" },
+      { name: "Talla", value: "Ãnica" },
       { name: "Medidas", value: "140 cm ancho x 70 cm largo" },
       { name: "Colores", value: "Blanco, negro, beige y rosado" },
       { name: "Precio desde", value: "$55.000" },
       { name: "Bordado delantero", value: "$55.000" },
     ],
     features: [
-      "Diseño moderno y funcional",
+      "DiseÃ±o moderno y funcional",
       "Seda de alta calidad",
-      "Transpirable y cómoda",
-      "Fácil de lavar",
+      "Transpirable y cÃ³moda",
+      "FÃ¡cil de lavar",
       "Acabados perfectos",
     ],
     colors: ["BLANCO", "NEGRO", "BEIGE", "ROSADO"],
@@ -207,72 +188,12 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
     features: [
       "Balaca con caucho",
       "Complemento en seda",
-      "Disponible en tonos de la colección",
-      "Ligera y cómoda",
+      "Disponible en tonos de la colecciÃ³n",
+      "Ligera y cÃ³moda",
     ],
     colors: ["BLANCO", "NEGRO", "BEIGE", "ROSADO"],
     sizes: [],
   }
-
-  const getBannerImages = () => {
-    const defaultImages = [
-      {
-        src: "/images/seda/12.png",
-        alt: "Producto Seda 1",
-        color: "#e8eff3",
-        name: "BATA - SEDA",
-      },
-      {
-        src: "/images/seda/13.png",
-        alt: "Producto Seda 2",
-        color: "#e6dfd1",
-        name: "BATA - SEDA",
-      },
-      {
-        src: "/images/seda/14.png",
-        alt: "Producto Seda 3",
-        color: "#efb3af",
-        name: "BATA - SEDA",
-      },
-      {
-        src: "/images/balaca-microfibra.png",
-        alt: "Balaca Seda",
-        color: "#e8eff3",
-        name: "BALACA - SEDA",
-      },
-      {
-        src: "/images/seda/15.png",
-        alt: "Producto Seda 4",
-        color: "#211d1f",
-        name: "ESTRAPLERA - SEDA",
-      },
-    ]
-
-    return {
-      title: "PRODUCTOS - SEDA",
-      images: defaultImages,
-    }
-  }
-
-  const bannerData = getBannerImages()
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + itemsPerView >= bannerData.images.length ? 0 : prev + itemsPerView))
-  }
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(0, bannerData.images.length - itemsPerView) : Math.max(0, prev - itemsPerView),
-    )
-  }
-
-  const visibleImages = bannerData.images.slice(currentIndex, currentIndex + itemsPerView)
-  const totalPages = Math.ceil(bannerData.images.length / itemsPerView)
-  const currentPage = Math.floor(currentIndex / itemsPerView)
-
-  useEffect(() => {
-    setCurrentIndex(0)
-  }, [activeTab])
 
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
@@ -282,121 +203,15 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
             className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 px-2"
             style={{ color: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           >
-            Colección Seda - Batas Glamor
+            ColecciÃ³n Seda - Batas Glamor
           </h2>
           <p
             className="text-center max-w-3xl mx-auto text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg px-4"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            Descubre nuestra colección de batas en seda, diseñadas para ofrecer máxima comodidad y elegancia. Perfectas
-            para profesionales de la estética y el bienestar.
+            Descubre nuestra colecciÃ³n de batas en seda, diseÃ±adas para ofrecer mÃ¡xima comodidad y elegancia. Perfectas
+            para profesionales de la estÃ©tica y el bienestar.
           </p>
-        </div>
-
-        {/* Banner dinámico con carrusel */}
-        <div className="py-8 sm:py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-gray-800"
-              style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-            >
-              {bannerData.title}
-            </h2>
-
-            {/* Controles de navegación del carrusel */}
-            {bannerData.images.length > itemsPerView && (
-              <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={prevSlide}
-                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-transparent border-gray-300"
-                  disabled={currentIndex === 0}
-                  aria-label="Imágenes anteriores"
-                >
-                  <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Button>
-
-                {/* Indicadores de página */}
-                <div className="flex gap-1.5 sm:gap-2 items-center">
-                  {(() => {
-                    const maxDotsToShow = 3
-                    const halfWindow = Math.floor(maxDotsToShow / 2)
-
-                    let startPage = Math.max(0, currentPage - halfWindow)
-                    const endPage = Math.min(totalPages, startPage + maxDotsToShow)
-
-                    if (endPage - startPage < maxDotsToShow) {
-                      startPage = Math.max(0, endPage - maxDotsToShow)
-                    }
-
-                    const visiblePages = Array.from({ length: endPage - startPage }, (_, i) => startPage + i)
-
-                    return (
-                      <>
-                        {startPage > 0 && <span className="text-gray-400 text-xs">...</span>}
-                        {visiblePages.map((pageIndex) => (
-                          <button
-                            key={pageIndex}
-                            onClick={() => setCurrentIndex(pageIndex * itemsPerView)}
-                            aria-label={`Ir a página ${pageIndex + 1}`}
-                            className={`w-3 h-3 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                              currentPage === pageIndex ? "bg-primary scale-110" : "bg-gray-300 hover:bg-gray-400"
-                            }`}
-                          />
-                        ))}
-                        {endPage < totalPages && <span className="text-gray-400 text-xs">...</span>}
-                      </>
-                    )
-                  })()}
-                </div>
-
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={nextSlide}
-                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-transparent border-gray-300"
-                  disabled={currentIndex + itemsPerView >= bannerData.images.length}
-                  aria-label="Imágenes siguientes"
-                >
-                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Button>
-              </div>
-            )}
-
-            {/* Grid de imágenes del carrusel */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10 md:mb-12">
-              {visibleImages.map((image, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative aspect-[3/4] max-w-[200px] sm:max-w-[220px] md:max-w-[250px] mx-auto mb-3 sm:mb-4">
-                    <Image
-                      src={image.src || "/placeholder.svg"}
-                      alt={image.alt}
-                      fill
-                      className="object-cover rounded-lg shadow-lg"
-                      sizes="(max-width: 640px) 200px, (max-width: 768px) 220px, 250px"
-                    />
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <div
-                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border border-gray-200 ${
-                        image.color === "#FFFFFF" || image.color === "#FFF" || image.color.toLowerCase() === "white"
-                          ? "shadow-sm"
-                          : ""
-                      }`}
-                      style={{ backgroundColor: image.color }}
-                    ></div>
-                    <span
-                      className="text-sm sm:text-base font-semibold text-gray-700"
-                      style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-                    >
-                      {image.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Tabs para los diferentes modelos */}
@@ -446,7 +261,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
           </TabsContent>
         </Tabs>
 
-      {/* NUEVA SECCIÓN INDEPENDIENTE - 3 imágenes fijas cuadradas */}
+      {/* NUEVA SECCIÃN INDEPENDIENTE - 3 imÃ¡genes fijas cuadradas */}
       <div className="py-8 sm:py-12 md:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
@@ -455,7 +270,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
               <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                 <Image
                   src="/images/seda/12.png"
-                  alt="Diseño personalizado de bata 1"
+                  alt="DiseÃ±o personalizado de bata 1"
                   fill
                   className="object-cover rounded-lg shadow-lg"
                   sizes="(max-width: 640px) 250px, (max-width: 768px) 280px, 320px"
@@ -465,7 +280,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
                 className="text-sm sm:text-base font-semibold text-gray-700"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                Diseño Exclusivo
+                DiseÃ±o Exclusivo
               </span>
             </div>
 
@@ -474,7 +289,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
               <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                 <Image
                   src="/images/seda/14.png"
-                  alt="Diseño personalizado de bata 2"
+                  alt="DiseÃ±o personalizado de bata 2"
                   fill
                   className="object-cover rounded-lg shadow-lg"
                   sizes="(max-width: 640px) 250px, (max-width: 768px) 280px, 320px"
@@ -484,7 +299,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
                 className="text-sm sm:text-base font-semibold text-gray-700"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                Personalización Única
+                PersonalizaciÃ³n Ãnica
               </span>
             </div>
 
@@ -493,7 +308,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
               <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                 <Image
                   src="/images/seda/15.png"
-                  alt="Diseño personalizado de bata 3"
+                  alt="DiseÃ±o personalizado de bata 3"
                   fill
                   className="object-cover rounded-lg shadow-lg"
                   sizes="(max-width: 640px) 250px, (max-width: 768px) 280px, 320px"
@@ -503,18 +318,18 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
                 className="text-sm sm:text-base font-semibold text-gray-700"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                Creación Original
+                CreaciÃ³n Original
               </span>
             </div>
           </div>
 
-          {/* Texto de personalización */}
+          {/* Texto de personalizaciÃ³n */}
           <div className="text-center">
             <p 
               className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 italic max-w-2xl mx-auto px-4"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
             >
-              "Así quedan tus diseños personalizados de nuestras batas, ¿Qué esperas a tener el tuyo?"
+              "AsÃ­ quedan tus diseÃ±os personalizados de nuestras batas, Â¿QuÃ© esperas a tener el tuyo?"
             </p>
           </div>
         </div>
@@ -527,13 +342,13 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
                 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4"
                 style={{ color: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                ¿Te interesa nuestra Colección Seda?
+                Â¿Te interesa nuestra ColecciÃ³n Seda?
               </h3>
               <p
                 className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
-                Solicita nuestro catálogo completo y descubre todas las opciones disponibles
+                Solicita nuestro catÃ¡logo completo y descubre todas las opciones disponibles
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button

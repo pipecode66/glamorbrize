@@ -2,6 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react"
 
+const showBordadosNavigation = false
+
 export default function Footer() {
   return (
     <footer className="bg-secondary text-white">
@@ -64,14 +66,16 @@ export default function Footer() {
                   Uniformes G
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/bordados"
-                  className="hover:text-accent transition-colors text-sm sm:text-base block py-2 min-h-[44px] flex items-center"
-                >
-                  Bordado Personalizado
-                </Link>
-              </li>
+              {showBordadosNavigation && (
+                <li>
+                  <Link
+                    href="/bordados"
+                    className="hover:text-accent transition-colors text-sm sm:text-base block py-2 min-h-[44px] flex items-center"
+                  >
+                    Bordado Personalizado
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -108,8 +112,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3 min-h-[44px]">
                 <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-accent mt-0.5 flex-shrink-0" />
-                <a href="tel:+573001234567" className="text-sm sm:text-base hover:text-accent transition-colors">
-                  320 995 1491
+                <a href="tel:+573156614208" className="text-sm sm:text-base hover:text-accent transition-colors">
+                  315 661 4208
                 </a>
               </li>
               <li className="flex items-start gap-3 min-h-[44px]">

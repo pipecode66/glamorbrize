@@ -1,12 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -26,39 +25,21 @@ interface AntifluidoCollectionProps {
 
 export default function AntifluidoCollection({ colors = batasGlamorColors }: AntifluidoCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [itemsPerView, setItemsPerView] = useState(3)
-  const quoteHref = "https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20coleccion%20antifluido"
-
-  useEffect(() => {
-    const updateItemsPerView = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerView(1)
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(2)
-      } else {
-        setItemsPerView(3)
-      }
-    }
-
-    updateItemsPerView()
-    window.addEventListener("resize", updateItemsPerView)
-    return () => window.removeEventListener("resize", updateItemsPerView)
-  }, [])
+  const quoteHref = "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20coleccion%20antifluido"
 
   const modelo1Product = {
     id: 1,
     name: "BATA - ANTIFLUIDO",
     basePrice: 95000,
     pricing: {
-      "Talla única": 95000,
+      "Única": 95000,
     },
     bordadoPricing: {
       delantero: 95000,
       trasero: 100000,
     },
     description:
-      "Bata antifluido profesional con tecnología de protección avanzada. Diseño funcional con acabados de alta calidad que garantizan durabilidad y confort.",
+      "Bata antifluido profesional con tecnologÃ­a de protecciÃ³n avanzada. DiseÃ±o funcional con acabados de alta calidad que garantizan durabilidad y confort.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -69,7 +50,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       {
         name: "NEGRO",
         color: "#19161e",
-        description: "Color principal elegante y versátil",
+        description: "Color principal elegante y versÃ¡til",
         images: ["/images/antifluido/16.png"],
       },
       {
@@ -82,7 +63,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     specs: [
       { name: "Material", value: "Antifluido premium" },
       { name: "Referencia", value: "ANTI-001" },
-      { name: "Talla", value: "Única" },
+      { name: "Talla", value: "Ãnica" },
       { name: "Medidas", value: "Busto 124 cm / largo 92 cm / manga 33 cm" },
       { name: "Colores", value: "Blanco, negro y gris" },
       { name: "Precio desde", value: "$95.000" },
@@ -90,15 +71,15 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       { name: "Bordado trasero", value: "$100.000" },
     ],
     features: [
-      "Protección antifluido certificada",
-      "Resistente a líquidos",
-      "Fácil limpieza",
-      "Fácil mantenimiento",
-      "Diseño profesional",
+      "ProtecciÃ³n antifluido certificada",
+      "Resistente a lÃ­quidos",
+      "FÃ¡cil limpieza",
+      "FÃ¡cil mantenimiento",
+      "DiseÃ±o profesional",
       "Durabilidad garantizada",
     ],
     colors: ["BLANCO", "NEGRO", "GRIS"],
-    sizes: ["Talla única"],
+    sizes: ["Única"],
   }
 
   const modelo2Product = {
@@ -107,7 +88,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     basePrice: 60000,
     pricing: {},
     description:
-      "Estraplera antifluido premium con diseño exclusivo. Ideal para quienes buscan protección y máxima calidad.",
+      "Estraplera antifluido premium con diseÃ±o exclusivo. Ideal para quienes buscan protecciÃ³n y mÃ¡xima calidad.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -118,7 +99,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       {
         name: "NEGRO",
         color: "#19161e",
-        description: "Tono clásico y profesional",
+        description: "Tono clÃ¡sico y profesional",
         images: ["/images/antifluido/18.png"],
       },
       {
@@ -131,15 +112,15 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     specs: [
       { name: "Material", value: "Antifluido premium" },
       { name: "Referencia", value: "ANTI-003" },
-      { name: "Talla", value: "Única" },
+      { name: "Talla", value: "Ãnica" },
       { name: "Medidas", value: "140 cm ancho x 70 cm largo" },
       { name: "Colores", value: "Blanco, negro y gris" },
       { name: "Bordado delantero", value: "$60.000" },
     ],
     features: [
-      "Diseño exclusivo",
+      "DiseÃ±o exclusivo",
       "Antifluido de alta densidad",
-      "Confort máximo",
+      "Confort mÃ¡ximo",
       "Acabados premium",
       "Durabilidad garantizada",
     ],
@@ -152,7 +133,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     name: "BALACA - ANTIFLUIDO",
     basePrice: 20000,
     pricing: {},
-    description: "Balaca antifluido versátil y práctica. Para los amantes del estilo contemporáneo.",
+    description: "Balaca antifluido versÃ¡til y prÃ¡ctica. Para los amantes del estilo contemporÃ¡neo.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -163,7 +144,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       {
         name: "NEGRO",
         color: "#19161e",
-        description: "Tono clásico y profesional",
+        description: "Tono clÃ¡sico y profesional",
         images: ["/images/turbamicro.png"],
       },
       {
@@ -182,10 +163,10 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       { name: "Precio desde", value: "$20.000" },
     ],
     features: [
-      "Diseño contemporáneo",
+      "DiseÃ±o contemporÃ¡neo",
       "Antifluido absorbente",
       "Peso ligero",
-      "Múltiples colores",
+      "MÃºltiples colores",
       "Ideal para regalo",
     ],
     colors: ["BLANCO", "NEGRO", "GRIS"],
@@ -197,7 +178,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     name: "BABERO - ANTIFLUIDO",
     basePrice: 38000,
     pricing: {},
-    description: "Babero antifluido para servicios de estética, spa y bienestar. Disponible en los colores de la línea.",
+    description: "Babero antifluido para servicios de estÃ©tica, spa y bienestar. Disponible en los colores de la lÃ­nea.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -225,9 +206,9 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       { name: "Precio", value: "$38.000" },
     ],
     features: [
-      "Protección para tratamientos",
+      "ProtecciÃ³n para tratamientos",
       "Tela suave antifluido",
-      "Fácil limpieza",
+      "FÃ¡cil limpieza",
       "Personalizable con bordado",
     ],
     colors: ["BLANCO", "NEGRO", "GRIS"],
@@ -239,7 +220,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     name: "CAPA-BABERO - ANTIFLUIDO",
     basePrice: 60000,
     pricing: {},
-    description: "Capa-babero antifluido de mayor cobertura para procedimientos de estética y cuidado personal.",
+    description: "Capa-babero antifluido de mayor cobertura para procedimientos de estÃ©tica y cuidado personal.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -281,7 +262,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     name: "FUNDAS - ANTIFLUIDO",
     basePrice: 90000,
     pricing: {},
-    description: "Set de fundas antifluido para camilla, ideal para centros de estética y bienestar.",
+    description: "Set de fundas antifluido para camilla, ideal para centros de estÃ©tica y bienestar.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -313,7 +294,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
       "Set para camilla",
       "Resistente a fluidos",
       "Personalizable con logo",
-      "Fácil mantenimiento",
+      "FÃ¡cil mantenimiento",
     ],
     colors: ["BLANCO", "NEGRO", "GRIS"],
     sizes: [],
@@ -321,10 +302,10 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
 
   const modelo7Product = {
     id: 7,
-    name: "SÁBANA + FUNDA - ANTIFLUIDO",
+    name: "SÃBANA + FUNDA - ANTIFLUIDO",
     basePrice: 145000,
     pricing: {},
-    description: "Kit de sábana antifluido para camilla con funda incluida, pensado para uso profesional.",
+    description: "Kit de sÃ¡bana antifluido para camilla con funda incluida, pensado para uso profesional.",
     colorVariants: [
       {
         name: "BLANCO",
@@ -348,7 +329,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     specs: [
       { name: "Material", value: "Antifluido premium" },
       { name: "Referencia", value: "ANTI-008" },
-      { name: "Sábana", value: "1,35 x 1,80 m" },
+      { name: "SÃ¡bana", value: "1,35 x 1,80 m" },
       { name: "Funda", value: "1 funda de 45x65 cm" },
       { name: "Colores", value: "Blanco, negro y gris" },
       { name: "Precio", value: "$145.000" },
@@ -363,90 +344,6 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
     sizes: [],
   }
 
-  const getBannerImages = () => {
-    const defaultImages = [
-      {
-        src: "/images/bata-medica-antifluido.png",
-        alt: "Bata antifluido blanca",
-        color: "#f2f2f2",
-        name: "BATA - BLANCO",
-      },
-      {
-        src: "/images/antifluido/16.png",
-        alt: "Producto Antifluido 1",
-        color: "#19161e",
-        name: "BATA - NEGRO",
-      },
-      {
-        src: "/images/antifluido/17.png",
-        alt: "Producto Antifluido 2",
-        color: "#e9e5f3",
-        name: "ESTRAPLERA",
-      },
-      {
-        src: "/images/antifluido/18.png",
-        alt: "Producto Antifluido 3",
-        color: "#CFD1D3",
-        name: "ESTRAPLERA",
-      },
-      {
-        src: "/images/turbamicro.png",
-        alt: "Producto Antifluido 4",
-        color: "#CFD1D3",
-        name: "BALACA",
-      },
-      {
-        src: "/images/antifluido/21.png",
-        alt: "Babero antifluido",
-        color: "#19161e",
-        name: "BABERO",
-      },
-      {
-        src: "/images/antifluido/21.png",
-        alt: "Capa-babero antifluido",
-        color: "#19161e",
-        name: "CAPA-BABERO",
-      },
-      {
-        src: "/images/antifluido/20.png",
-        alt: "Fundas antifluido",
-        color: "#f2f2f2",
-        name: "FUNDAS",
-      },
-      {
-        src: "/images/antifluido/20.png",
-        alt: "Sábana y funda antifluido",
-        color: "#f2f2f2",
-        name: "SÁBANA + FUNDA",
-      },
-    ]
-
-    return {
-      title: "PRODUCTOS - ANTIFLUIDO",
-      images: defaultImages,
-    }
-  }
-
-  const bannerData = getBannerImages()
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + itemsPerView >= bannerData.images.length ? 0 : prev + itemsPerView))
-  }
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(0, bannerData.images.length - itemsPerView) : Math.max(0, prev - itemsPerView),
-    )
-  }
-
-  const visibleImages = bannerData.images.slice(currentIndex, currentIndex + itemsPerView)
-  const totalPages = Math.ceil(bannerData.images.length / itemsPerView)
-  const currentPage = Math.floor(currentIndex / itemsPerView)
-
-  useEffect(() => {
-    setCurrentIndex(0)
-  }, [activeTab])
-
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
       <div className="space-y-6 sm:space-y-8">
@@ -455,121 +352,15 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
             className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 sm:mb-6 px-2"
             style={{ color: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           >
-            Colección Antifluido - Batas Glamor
+            ColecciÃ³n Antifluido - Batas Glamor
           </h2>
           <p
             className="text-center max-w-3xl mx-auto text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg px-4"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            Descubre nuestra colección de batas antifluido, diseñadas para ofrecer máxima protección y comodidad.
-            Perfectas para profesionales de la salud y estética.
+            Descubre nuestra colecciÃ³n de batas antifluido, diseÃ±adas para ofrecer mÃ¡xima protecciÃ³n y comodidad.
+            Perfectas para profesionales de la salud y estÃ©tica.
           </p>
-        </div>
-
-        {/* Banner dinámico con carrusel */}
-        <div className="py-8 sm:py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-gray-800"
-              style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-            >
-              {bannerData.title}
-            </h2>
-
-            {/* Controles de navegación del carrusel */}
-            {bannerData.images.length > itemsPerView && (
-              <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={prevSlide}
-                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-transparent border-gray-300"
-                  disabled={currentIndex === 0}
-                  aria-label="Imágenes anteriores"
-                >
-                  <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Button>
-
-                {/* Indicadores de página */}
-                <div className="flex gap-1.5 sm:gap-2 items-center">
-                  {(() => {
-                    const maxDotsToShow = 3
-                    const halfWindow = Math.floor(maxDotsToShow / 2)
-
-                    let startPage = Math.max(0, currentPage - halfWindow)
-                    const endPage = Math.min(totalPages, startPage + maxDotsToShow)
-
-                    if (endPage - startPage < maxDotsToShow) {
-                      startPage = Math.max(0, endPage - maxDotsToShow)
-                    }
-
-                    const visiblePages = Array.from({ length: endPage - startPage }, (_, i) => startPage + i)
-
-                    return (
-                      <>
-                        {startPage > 0 && <span className="text-gray-400 text-xs">...</span>}
-                        {visiblePages.map((pageIndex) => (
-                          <button
-                            key={pageIndex}
-                            onClick={() => setCurrentIndex(pageIndex * itemsPerView)}
-                            aria-label={`Ir a página ${pageIndex + 1}`}
-                            className={`w-3 h-3 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                              currentPage === pageIndex ? "bg-primary scale-110" : "bg-gray-300 hover:bg-gray-400"
-                            }`}
-                          />
-                        ))}
-                        {endPage < totalPages && <span className="text-gray-400 text-xs">...</span>}
-                      </>
-                    )
-                  })()}
-                </div>
-
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={nextSlide}
-                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-transparent border-gray-300"
-                  disabled={currentIndex + itemsPerView >= bannerData.images.length}
-                  aria-label="Imágenes siguientes"
-                >
-                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
-                </Button>
-              </div>
-            )}
-
-            {/* Grid de imágenes del carrusel */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10 md:mb-12">
-              {visibleImages.map((image, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative aspect-[3/4] max-w-[200px] sm:max-w-[220px] md:max-w-[250px] mx-auto mb-3 sm:mb-4">
-                    <Image
-                      src={image.src || "/placeholder.svg"}
-                      alt={image.alt}
-                      fill
-                      className="object-cover rounded-lg shadow-lg"
-                      sizes="(max-width: 640px) 200px, (max-width: 768px) 220px, 250px"
-                    />
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <div
-                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border border-gray-200 ${
-                        image.color === "#FFFFFF" || image.color === "#FFF" || image.color.toLowerCase() === "white"
-                          ? "shadow-sm"
-                          : ""
-                      }`}
-                      style={{ backgroundColor: image.color }}
-                    ></div>
-                    <span
-                      className="text-sm sm:text-base font-semibold text-gray-700"
-                      style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-                    >
-                      {image.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Tabs para los diferentes modelos */}
@@ -623,7 +414,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
                 className="min-h-[44px] text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                SÁBANAS
+                SÃBANAS
               </TabsTrigger>
             </TabsList>
           </div>
@@ -671,7 +462,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
           </TabsContent>
         </Tabs>
 
-        {/* NUEVA SECCIÓN INDEPENDIENTE - 3 imágenes fijas cuadradas */}
+        {/* NUEVA SECCIÃN INDEPENDIENTE - 3 imÃ¡genes fijas cuadradas */}
         <div className="py-8 sm:py-12 md:py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
@@ -680,7 +471,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
                     src="/images/antifluido/20.png"
-                    alt="Diseño personalizado de bata 1"
+                    alt="DiseÃ±o personalizado de bata 1"
                     fill
                     className="object-cover rounded-lg shadow-lg"
                     sizes="(max-width: 640px) 250px, (max-width: 768px) 280px, 320px"
@@ -690,7 +481,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
                   className="text-sm sm:text-base font-semibold text-gray-700"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
-                  Diseño Exclusivo
+                  DiseÃ±o Exclusivo
                 </span>
               </div>
 
@@ -699,7 +490,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
                     src="/images/antifluido/21.png"
-                    alt="Diseño personalizado de bata 2"
+                    alt="DiseÃ±o personalizado de bata 2"
                     fill
                     className="object-cover rounded-lg shadow-lg"
                     sizes="(max-width: 640px) 250px, (max-width: 768px) 280px, 320px"
@@ -709,7 +500,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
                   className="text-sm sm:text-base font-semibold text-gray-700"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
-                  Personalización Única
+                  PersonalizaciÃ³n Ãnica
                 </span>
               </div>
 
@@ -718,7 +509,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
                     src="/images/antifluido/22.png"
-                    alt="Diseño personalizado de bata 3"
+                    alt="DiseÃ±o personalizado de bata 3"
                     fill
                     className="object-cover rounded-lg shadow-lg"
                     sizes="(max-width: 640px) 250px, (max-width: 768px) 280px, 320px"
@@ -728,18 +519,18 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
                   className="text-sm sm:text-base font-semibold text-gray-700"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
-                  Creación Original
+                  CreaciÃ³n Original
                 </span>
               </div>
             </div>
 
-            {/* Texto de personalización */}
+            {/* Texto de personalizaciÃ³n */}
             <div className="text-center">
               <p
                 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 italic max-w-2xl mx-auto px-4"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
               >
-                "Así quedan tus diseños personalizados de nuestras batas, ¿Qué esperas a tener el tuyo?"
+                "AsÃ­ quedan tus diseÃ±os personalizados de nuestras batas, Â¿QuÃ© esperas a tener el tuyo?"
               </p>
             </div>
           </div>
@@ -752,13 +543,13 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
               className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4"
               style={{ color: colors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
             >
-              ¿Te interesa nuestra Colección Antifluido?
+              Â¿Te interesa nuestra ColecciÃ³n Antifluido?
             </h3>
             <p
               className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
-              Solicita nuestro catálogo completo y descubre todas las opciones disponibles
+              Solicita nuestro catÃ¡logo completo y descubre todas las opciones disponibles
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button

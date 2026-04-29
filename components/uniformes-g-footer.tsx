@@ -2,6 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react"
 
+const showBordadosNavigation = false
+
 export default function UniformesGFooter() {
   return (
     <footer style={{ backgroundColor: "#354358", color: "#CFC2B6" }}>
@@ -46,11 +48,11 @@ export default function UniformesGFooter() {
                 </div>
               </a>
               <a
-                href="tel:3105586767"
+                href="tel:+573156614208"
                 className="text-[#CFC2B6] hover:text-white transition-colors flex items-center gap-2"
               >
                 <Phone className="h-5 w-5" />
-                <span>320 995 1491</span>
+                <span>315 661 4208</span>
               </a>
             </div>
           </div>
@@ -69,11 +71,13 @@ export default function UniformesGFooter() {
                   Línea Priveé
                 </Link>
               </li>
-              <li>
-                <Link href="/bordados" className="hover:text-white transition-colors">
-                  Bordado Personalizado
-                </Link>
-              </li>
+              {showBordadosNavigation && (
+                <li>
+                  <Link href="/bordados" className="hover:text-white transition-colors">
+                    Bordado Personalizado
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -108,7 +112,7 @@ export default function UniformesGFooter() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-[#A78786] mt-0.5" />
-                <span>320 995 1491</span>
+                <span>315 661 4208</span>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-[#A78786] mt-0.5" />

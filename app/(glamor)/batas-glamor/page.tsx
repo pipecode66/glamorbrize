@@ -8,8 +8,10 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import EmpresarialCategory from "@/components/batas-glamor/empresarial-category"
+import KitsEmpresarialesCategory from "@/components/batas-glamor/kits-empresariales-category"
 import PersonalCategory from "@/components/batas-glamor/personal-category"
 import PreNupcialCategory from "@/components/batas-glamor/prenupcial-category"
+import ToallasCobijasCategory from "@/components/batas-glamor/toallas-cobijas-category"
 
 // Definimos los colores de Batas Glamor
 const batasGlamorColors = {
@@ -81,8 +83,10 @@ function BatasGlamorContent() {
         <div className="container">
           <Tabs defaultValue={activeTab} className="w-full">
             <div className="flex justify-center mb-8">
-              <TabsList className="grid w-full max-w-3xl grid-cols-1 gap-2 sm:grid-cols-3">
+              <TabsList className="grid h-auto w-full max-w-5xl grid-cols-1 gap-2 sm:grid-cols-5">
                 <TabsTrigger value="empresarial">Empresarial</TabsTrigger>
+                <TabsTrigger value="kits-empresariales">Kits Empresariales</TabsTrigger>
+                <TabsTrigger value="toallas-cobijas">Toallas y Cobijas</TabsTrigger>
                 <TabsTrigger value="personal">Personal</TabsTrigger>
                 <TabsTrigger value="prenupcial">Prenupcial</TabsTrigger>
               </TabsList>
@@ -91,6 +95,16 @@ function BatasGlamorContent() {
             {/* Empresarial Tab */}
             <TabsContent value="empresarial">
               <EmpresarialCategory />
+            </TabsContent>
+
+            {/* Kits Empresariales Tab */}
+            <TabsContent value="kits-empresariales">
+              <KitsEmpresarialesCategory />
+            </TabsContent>
+
+            {/* Toallas y Cobijas Tab */}
+            <TabsContent value="toallas-cobijas">
+              <ToallasCobijasCategory />
             </TabsContent>
 
             {/* Personal Tab */}
@@ -120,7 +134,7 @@ function BatasGlamorContent() {
             </p>
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white" asChild>
               <Link
-                href="https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20un%20pedido%20empresarial%20de%20Batas%20Glamor"
+                href="https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20un%20pedido%20empresarial%20de%20Batas%20Glamor"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -26,7 +26,7 @@ interface PriveeCategoryProps {
 export default function PriveeCategory({ colors = uniformesGColors }: PriveeCategoryProps) {
   const [activeTab, setActiveTab] = useState("amatista")
   const quoteHref =
-    "https://wa.me/573209951491?text=Hola,%20quiero%20cotizar%20la%20Linea%20Privee%20de%20Uniformes%20G"
+    "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20Linea%20Privee%20de%20Uniformes%20G"
 
   // Producto AMATISTA con precios actualizados según PDF
   const amatistaProduct = {

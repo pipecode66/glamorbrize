@@ -10,9 +10,11 @@ import ServiceCard from "@/components/service-card"
 import FeatureCard from "@/components/feature-card"
 import TestimonialCard from "@/components/testimonial-card"
 
+const showBordadosNavigation = false
+
 export default function Home() {
   const handleWhatsAppQuote = () => {
-    const phoneNumber = "573209951491"
+    const phoneNumber = "573156614208"
     const message = encodeURIComponent("Hola, me gustaría solicitar una cotización")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
@@ -60,7 +62,11 @@ export default function Home() {
       Ofrecemos soluciones personalizadas para profesionales y empresas que buscan destacar con productos de calidad.
     </p>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4">
+    <div
+      className={`grid grid-cols-1 gap-6 px-4 sm:gap-8 ${
+        showBordadosNavigation ? "md:grid-cols-3" : "md:grid-cols-2"
+      }`}
+    >
       <div className="h-full">
         <Link href="/batas-glamor/microfibra" passHref>
           <div className="cursor-pointer h-full">
@@ -85,17 +91,19 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="h-full">
-        <Link href="/bordados" passHref>
-          <div className="cursor-pointer h-full">
-            <ServiceCard
-              title="Bordado Personalizado"
-              description="Servicio de bordado profesional para personalizar tus prendas. Aplicamos logos en diversas prendas."
-              icon="Scissors"
-            />
-          </div>
-        </Link>
-      </div>
+      {showBordadosNavigation && (
+        <div className="h-full">
+          <Link href="/bordados" passHref>
+            <div className="cursor-pointer h-full">
+              <ServiceCard
+                title="Bordado Personalizado"
+                description="Servicio de bordado profesional para personalizar tus prendas. Aplicamos logos en diversas prendas."
+                icon="Scissors"
+              />
+            </div>
+          </Link>
+        </div>
+      )}
     </div>
   </div>
 </section>
