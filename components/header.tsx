@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-[#3E5860]/95 backdrop-blur supports-[backdrop-filter]:bg-[#3E5860]/90">
-      <div className="container flex h-24 md:h-28 items-center min-h-[80px]">
+      <div className="flex h-24 min-h-[80px] w-full items-center px-4 sm:px-6 md:h-28 lg:px-8">
         {/* Logo */}
         <div className="mr-4 flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2">
