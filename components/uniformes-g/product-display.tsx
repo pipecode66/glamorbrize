@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Image from "next/image"
 import { Check } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
@@ -11,6 +11,7 @@ interface ColorVariant {
   color: string
   description: string
   images: string[]
+  sizes?: string[]
 }
 
 interface ComplementaryProduct {
@@ -24,12 +25,15 @@ interface ProductDisplayProps {
   name: string
   basePrice: number
   pricing: Record<string, number>
+  variantPricing?: Record<string, Record<string, number>>
   description: string
   colorVariants: ColorVariant[]
   specs: Array<{ name: string; value: string }>
   features: string[]
   colors: string[]
   sizes: string[]
+  sizeLabel?: string
+  badgeLabel?: string
   uniformesGColors?: {
     primary: string
     secondary: string
@@ -61,12 +65,15 @@ export default function ProductDisplay({
   name,
   basePrice,
   pricing,
+  variantPricing,
   description,
   colorVariants,
   specs,
   features,
   colors,
   sizes,
+  sizeLabel = "Talla",
+  badgeLabel = "Linea Privee",
   uniformesGColors,
   complementaryProduct,
   complementaryProducts = [],
@@ -78,12 +85,16 @@ export default function ProductDisplay({
   }
 
   const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.name || colors[0] || "")
-  const [selectedSize, setSelectedSize] = useState(sizes[0] || "")
+  const [selectedSize, setSelectedSize] = useState(colorVariants[0]?.sizes?.[0] || sizes[0] || "")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const currentVariant = colorVariants.find((variant) => variant.name === selectedColor) || colorVariants[0]
+  const availableSizes = currentVariant?.sizes ?? sizes
+  const availableSizesKey = availableSizes.join("|")
   const currentImages = currentVariant?.images ?? []
-  const currentPrice = (selectedSize && pricing[selectedSize]) || basePrice
+  const sizePrice = selectedSize ? pricing[selectedSize] : undefined
+  const selectedVariantPricing = variantPricing?.[selectedColor]
+  const currentPrice = selectedVariantPricing ? selectedVariantPricing[selectedSize] ?? basePrice : sizePrice ?? basePrice
   const extraProducts = useMemo(
     () => (complementaryProduct ? [complementaryProduct, ...complementaryProducts] : complementaryProducts),
     [complementaryProduct, complementaryProducts],
@@ -93,6 +104,19 @@ export default function ProductDisplay({
     setSelectedColor(colorName)
     setCurrentImageIndex(0)
   }
+
+  useEffect(() => {
+    if (availableSizes.length === 0) {
+      if (selectedSize) {
+        setSelectedSize("")
+      }
+      return
+    }
+
+    if (!availableSizes.includes(selectedSize)) {
+      setSelectedSize(availableSizes[0])
+    }
+  }, [availableSizes, availableSizesKey, selectedSize])
 
   const formatPrice = (price: number) =>
     price.toLocaleString("es-CO", {
@@ -160,7 +184,7 @@ export default function ProductDisplay({
                 {formatPrice(currentPrice)}
               </span>
               <Badge variant="secondary" className="text-xs sm:text-sm">
-                Linea Privee
+                {badgeLabel}
               </Badge>
             </div>
           </div>
@@ -231,21 +255,21 @@ export default function ProductDisplay({
             </div>
           )}
 
-          {sizes.length > 0 && (
+          {availableSizes.length > 0 && (
             <div className="space-y-3">
               <h3
                 className="text-center text-base font-semibold sm:text-lg lg:text-left"
                 style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                Talla
+                {sizeLabel}
               </h3>
-              <div className="mx-auto grid max-w-md grid-cols-5 gap-2 lg:mx-0">
-                {sizes.map((size) => (
+              <div className="mx-auto grid max-w-md grid-cols-2 gap-2 sm:grid-cols-3 lg:mx-0">
+                {availableSizes.map((size) => (
                   <button
                     key={size}
                     type="button"
                     onClick={() => setSelectedSize(size)}
-                    className={`h-9 rounded-md border-2 text-sm font-medium transition-all sm:h-10 sm:text-base ${
+                    className={`min-h-10 rounded-md border-2 px-2 py-2 text-xs font-medium transition-all sm:text-sm ${
                       selectedSize === size
                         ? "border-blue-500 bg-blue-50 text-blue-700"
                         : "border-gray-300 text-gray-700 hover:border-gray-400"
@@ -283,6 +307,7 @@ export default function ProductDisplay({
             productPrice={formatPrice(currentPrice)}
             selectedColor={selectedColor}
             selectedSize={selectedSize || undefined}
+            selectedSizeLabel={sizeLabel}
             className="w-full py-3 text-sm font-semibold sm:py-4 sm:text-base md:text-lg"
             style={{
               backgroundColor: palette.primary,

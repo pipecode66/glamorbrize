@@ -15,6 +15,7 @@ interface QuoteButtonProps {
   productPrice: string
   selectedColor?: string
   selectedSize?: string
+  selectedSizeLabel?: string
   quantity?: number
   className?: string
   style?: React.CSSProperties
@@ -27,6 +28,7 @@ export default function QuoteButton({
   productPrice,
   selectedColor,
   selectedSize,
+  selectedSizeLabel = "Talla",
   quantity = 1,
   className,
   style,
@@ -51,6 +53,7 @@ export default function QuoteButton({
     quantity,
     selectedColor,
     selectedSize,
+    selectedSizeLabel,
   })
 
   const resetForm = () => {
@@ -86,7 +89,7 @@ export default function QuoteButton({
               <p className="font-medium text-sm">{productName}</p>
               <p className="text-sm text-muted-foreground">{productPrice}</p>
               {selectedColor && <p className="text-sm text-muted-foreground">Color: {selectedColor}</p>}
-              {selectedSize && <p className="text-sm text-muted-foreground">Talla: {selectedSize}</p>}
+              {selectedSize && <p className="text-sm text-muted-foreground">{selectedSizeLabel}: {selectedSize}</p>}
               {quantity > 1 && <p className="text-sm text-muted-foreground">Cantidad: {quantity}</p>}
             </div>
 

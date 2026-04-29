@@ -3,6 +3,7 @@ export interface QuoteData {
   productPrice: string
   selectedColor?: string
   selectedSize?: string
+  selectedSizeLabel?: string
   quantity?: number
   customerName?: string
   customerEmail?: string
@@ -23,7 +24,7 @@ export function generateWhatsAppMessage(data: QuoteData): string {
   }
 
   if (data.selectedSize) {
-    lines.push(`Talla: ${data.selectedSize}`)
+    lines.push(`${data.selectedSizeLabel || "Talla"}: ${data.selectedSize}`)
   }
 
   if (data.quantity && data.quantity > 1) {
