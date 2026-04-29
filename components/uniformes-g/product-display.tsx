@@ -20,12 +20,18 @@ interface ComplementaryProduct {
   description?: string
 }
 
+interface SizeVariant {
+  images?: string[]
+  description?: string
+}
+
 interface ProductDisplayProps {
   id: number
   name: string
   basePrice: number
   pricing: Record<string, number>
   variantPricing?: Record<string, Record<string, number>>
+  sizeVariants?: Record<string, SizeVariant>
   description: string
   colorVariants: ColorVariant[]
   specs: Array<{ name: string; value: string }>
@@ -66,6 +72,7 @@ export default function ProductDisplay({
   basePrice,
   pricing,
   variantPricing,
+  sizeVariants,
   description,
   colorVariants,
   specs,
@@ -91,7 +98,9 @@ export default function ProductDisplay({
   const currentVariant = colorVariants.find((variant) => variant.name === selectedColor) || colorVariants[0]
   const availableSizes = currentVariant?.sizes ?? sizes
   const availableSizesKey = availableSizes.join("|")
-  const currentImages = currentVariant?.images ?? []
+  const currentSizeVariant = selectedSize ? sizeVariants?.[selectedSize] : undefined
+  const currentImages = currentSizeVariant?.images ?? currentVariant?.images ?? []
+  const currentDescription = currentSizeVariant?.description ?? description
   const sizePrice = selectedSize ? pricing[selectedSize] : undefined
   const selectedVariantPricing = variantPricing?.[selectedColor]
   const currentPrice = selectedVariantPricing ? selectedVariantPricing[selectedSize] ?? basePrice : sizePrice ?? basePrice
@@ -136,7 +145,7 @@ export default function ProductDisplay({
           <div className="relative mx-auto aspect-[4/5] max-w-xs overflow-hidden rounded-lg bg-gray-50 sm:max-w-sm">
             <Image
               src={currentImages[currentImageIndex] || "/placeholder.svg"}
-              alt={`${name} - ${selectedColor || "principal"}`}
+              alt={`${name} - ${selectedSize || selectedColor || "principal"}`}
               fill
               className="object-cover"
               sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
@@ -193,7 +202,7 @@ export default function ProductDisplay({
             className="max-w-xl text-center text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-left"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            {description}
+            {currentDescription}
           </p>
 
           {extraProducts.length > 0 && (
@@ -225,7 +234,7 @@ export default function ProductDisplay({
             </div>
           )}
 
-          {colorVariants.length > 0 && (
+          {colorVariants.length > 0 && colors.length > 0 && (
             <div className="space-y-3">
               <h3
                 className="text-center text-base font-semibold sm:text-lg lg:text-left"
@@ -268,7 +277,10 @@ export default function ProductDisplay({
                   <button
                     key={size}
                     type="button"
-                    onClick={() => setSelectedSize(size)}
+                    onClick={() => {
+                      setSelectedSize(size)
+                      setCurrentImageIndex(0)
+                    }}
                     className={`min-h-10 rounded-md border-2 px-2 py-2 text-xs font-medium transition-all sm:text-sm ${
                       selectedSize === size
                         ? "border-blue-500 bg-blue-50 text-blue-700"
@@ -305,7 +317,7 @@ export default function ProductDisplay({
           <QuoteButton
             productName={name}
             productPrice={formatPrice(currentPrice)}
-            selectedColor={selectedColor}
+            selectedColor={selectedColor || undefined}
             selectedSize={selectedSize || undefined}
             selectedSizeLabel={sizeLabel}
             className="w-full py-3 text-sm font-semibold sm:py-4 sm:text-base md:text-lg"
