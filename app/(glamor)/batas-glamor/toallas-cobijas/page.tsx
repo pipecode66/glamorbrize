@@ -18,7 +18,7 @@ export default function ToallasCobijasPage() {
           <div className="relative mx-auto max-w-6xl">
             <div className="relative h-[32vh] overflow-hidden rounded-lg shadow-xl sm:h-[38vh] md:h-[44vh] lg:h-[50vh]">
               <Image
-                src="/images/cobijas-piel-conejo.png"
+                src="/images/kit-cobijas-fundas-flannel.png"
                 alt="Toallas y Cobijas Batas Glamor"
                 fill
                 className="object-cover object-center"

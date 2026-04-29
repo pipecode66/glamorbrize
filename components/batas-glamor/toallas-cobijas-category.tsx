@@ -7,7 +7,7 @@ export default function ToallasCobijasCategory() {
       name: "Toalla Blanca 40x60",
       price: 22000,
       description: "Toalla blanca para cabina, spa o uso profesional. Tamano 40x60 cm.",
-      images: ["/images/toallas.png"],
+      images: ["/images/toallas-blancas.png"],
       specs: [
         { name: "Color", value: "Blanco" },
         { name: "Tamano", value: "40x60 cm" },
@@ -22,7 +22,7 @@ export default function ToallasCobijasCategory() {
       name: "Toalla Blanca 70x130",
       price: 48000,
       description: "Toalla blanca para tratamientos, spa o uso en cabina. Tamano 70x130 cm.",
-      images: ["/images/toallas.webp"],
+      images: ["/images/toallas-blancas.png"],
       specs: [
         { name: "Color", value: "Blanco" },
         { name: "Tamano", value: "70x130 cm" },
@@ -37,7 +37,7 @@ export default function ToallasCobijasCategory() {
       name: "Toalla Blanca 90x180",
       price: 60000,
       description: "Toalla blanca grande para camilla o tratamientos corporales. Tamano 90x180 cm.",
-      images: ["/images/toallas.png"],
+      images: ["/images/toallas-blancas.png"],
       specs: [
         { name: "Color", value: "Blanco" },
         { name: "Tamano", value: "90x180 cm" },
@@ -82,7 +82,7 @@ export default function ToallasCobijasCategory() {
       name: "Toalla Cannon 460g 40x60",
       price: 28000,
       description: "Toalla Cannon de 460 g para uso profesional. Tamano 40x60 cm.",
-      images: ["/images/toallas.png"],
+      images: ["/images/toallas-cannon.png"],
       specs: [
         { name: "Gramaje", value: "460 g" },
         { name: "Tamano", value: "40x60 cm" },
@@ -97,7 +97,7 @@ export default function ToallasCobijasCategory() {
       name: "Toalla Cannon 460g 70x130",
       price: 60000,
       description: "Toalla Cannon de 460 g para uso profesional. Tamano 70x130 cm.",
-      images: ["/images/toallas.png"],
+      images: ["/images/toallas-cannon.png"],
       specs: [
         { name: "Gramaje", value: "460 g" },
         { name: "Tamano", value: "70x130 cm" },
@@ -112,7 +112,7 @@ export default function ToallasCobijasCategory() {
       name: "Kit Flannel 1 - Fundas",
       price: 70000,
       description: "Kit de tela flannel para camilla. Incluye 2 fundas de 45x65 cm.",
-      images: ["/images/cobijas-piel-conejo.png"],
+      images: ["/images/kit-cobijas-fundas-flannel.png"],
       specs: [
         { name: "Material", value: "Tela flannel 250g" },
         { name: "Incluye", value: "2 fundas de 45x65 cm" },
@@ -128,7 +128,7 @@ export default function ToallasCobijasCategory() {
       name: "Kit Flannel 2 - Cobija + Funda",
       price: 120000,
       description: "Kit de cobija para camilla en tela flannel con funda incluida.",
-      images: ["/images/cobijas-piel-conejo.png"],
+      images: ["/images/kit-cobijas-fundas-flannel.png"],
       specs: [
         { name: "Material", value: "Tela flannel 250g" },
         { name: "Incluye", value: "Cobija 1,80x1,35 m + 1 funda 45x65 cm" },
@@ -144,7 +144,7 @@ export default function ToallasCobijasCategory() {
       name: "Kit Flannel 3 - Cobija + 2 Fundas",
       price: 160000,
       description: "Kit completo de cobija para camilla en tela flannel con 2 fundas.",
-      images: ["/images/cobijas-piel-conejo.png"],
+      images: ["/images/kit-cobijas-fundas-flannel.png"],
       specs: [
         { name: "Material", value: "Tela flannel 250g" },
         { name: "Incluye", value: "Cobija 1,60x1,80 m + 2 fundas 45x65 cm" },

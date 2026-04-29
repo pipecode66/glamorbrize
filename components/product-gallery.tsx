@@ -51,7 +51,7 @@ const products = [
     id: 6,
     name: "Balaca Antifluido",
     price: 35000,
-    image: "/images/turbamicro.png",
+    image: "/images/balaca-antifluido.png",
     category: "Batas Glamor",
     type: "antifluido",
   },
