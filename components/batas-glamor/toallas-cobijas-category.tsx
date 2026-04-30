@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
+import CustomDesignShowcase from "./custom-design-showcase"
 import ProductTabSlider from "./product-tab-slider"
 
 const batasGlamorColors = {
@@ -219,6 +220,8 @@ export default function ToallasCobijasCategory() {
             </div>
           </TabsContent>
         </Tabs>
+
+        <CustomDesignShowcase />
       </div>
     </div>
   )

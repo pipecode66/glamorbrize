@@ -2,6 +2,7 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
+import CustomDesignShowcase from "./custom-design-showcase"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -121,6 +122,8 @@ export default function KitsEmpresarialesCategory() {
             </div>
           </TabsContent>
         </Tabs>
+
+        <CustomDesignShowcase />
       </div>
     </div>
   )
