@@ -146,7 +146,7 @@ export default function ToallasCobijasCategory() {
             className="px-2 text-center text-xl font-bold sm:text-2xl md:text-3xl"
             style={{ color: batasGlamorColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           >
-            Toallas y Kits - Batas Glamor
+            Toallas y Cobijas - Batas Glamor
           </h2>
           <p
             className="mx-auto mt-4 max-w-3xl px-4 text-center text-sm text-muted-foreground sm:text-base md:text-lg"
