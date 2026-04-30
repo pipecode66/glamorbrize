@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -323,74 +322,6 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
     sizes: ["S", "M", "L", "XL", "XXL"],
   }
 
-  // Función para obtener las imágenes del banner según la colección activa
-  const getBannerImages = () => {
-    switch (activeTab) {
-      case "amatista":
-        return {
-          title: "Colección AMATISTA",
-          images: [
-            { src: "/images/amatista-1.jpg", alt: "AMATISTA Coral", color: "#FF6B6B", name: "Coral" },
-            { src: "/images/amatista-cielo-4.jpg", alt: "AMATISTA Cielo", color: "#4A90E2", name: "Cielo" },
-            { src: "/images/amatista-negro-3.jpg", alt: "AMATISTA Gris", color: "#6b7280", name: "Gris" },
-          ],
-        }
-      case "agata":
-        return {
-          title: "Colección ÁGATA",
-          images: [
-            { src: "/images/agata-turquesa-10.jpg", alt: "ÁGATA Turquesa", color: "#20B2AA", name: "Turquesa" },
-            { src: "/images/agata-arena-1.jpg", alt: "ÁGATA Arena", color: "#D2B48C", name: "Arena" },
-            { src: "/images/agata-rosa-1.jpg", alt: "ÁGATA Rosa", color: "#E6A8B8", name: "Rosa" },
-          ],
-        }
-      case "perla":
-        return {
-          title: "Colección PERLA",
-          images: [
-            { src: "/images/perla-azul-2.jpg", alt: "PERLA Azul Marino", color: "#1E3A8A", name: "Azul Marino" },
-            { src: "/images/perla-gris-1.jpg", alt: "PERLA Gris Salvia", color: "#9CA3AF", name: "Gris Salvia" },
-            { src: "/images/perla-gris-5.jpg", alt: "PERLA Verde Menta", color: "#98D8C8", name: "Verde Menta" },
-          ],
-        }
-      case "esmeralda":
-        return {
-          title: "Colección ESMERALDA",
-          images: [
-            {
-              src: "/images/esmeralda-turquesa-1.jpg",
-              alt: "ESMERALDA Azul Turquesa",
-              color: "#40E0D0",
-              name: "Azul Turquesa",
-            },
-            {
-              src: "/images/esmeralda-turquesa-8.jpg",
-              alt: "ESMERALDA Verde Esmeralda",
-              color: "#50C878",
-              name: "Verde Esmeralda",
-            },
-            { src: "/images/esmeralda-negro-1.jpg", alt: "ESMERALDA Gris Élite", color: "#708090", name: "Gris Élite" },
-          ],
-        }
-      case "jade":
-        return {
-          title: "Colección JADE",
-          images: [{ src: "/images/jade-1.jpg", alt: "JADE Rosa Jade", color: "#F8BBD9", name: "Rosa Jade" }],
-        }
-      default:
-        return {
-          title: "Colección AMATISTA",
-          images: [
-            { src: "/images/amatista-1.jpg", alt: "AMATISTA Coral", color: "#FF6B6B", name: "Coral" },
-            { src: "/images/amatista-cielo-4.jpg", alt: "AMATISTA Cielo", color: "#4A90E2", name: "Cielo" },
-            { src: "/images/amatista-negro-3.jpg", alt: "AMATISTA Gris", color: "#6b7280", name: "Gris" },
-          ],
-        }
-    }
-  }
-
-  const bannerData = getBannerImages()
-
   return (
     <div className="container mx-auto px-4 py-8 sm:py-10 md:py-12">
       <div className="space-y-6 sm:space-y-8">
@@ -409,43 +340,6 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
             para profesionales que buscan la perfecta combinación entre elegancia, funcionalidad y comodidad en su
             entorno laboral.
           </p>
-        </div>
-
-        {/* Banner dinámico que cambia según la colección activa - Responsive */}
-        <div className="py-8 sm:py-12 md:py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-gray-800"
-              style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-            >
-              {bannerData.title}
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10 md:mb-12">
-              {bannerData.images.map((image, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative aspect-[3/4] max-w-[200px] sm:max-w-[220px] md:max-w-[250px] mx-auto mb-3 sm:mb-4">
-                    <Image
-                      src={image.src || "/placeholder.svg"}
-                      alt={image.alt}
-                      fill
-                      className="object-cover rounded-lg shadow-lg"
-                      sizes="(max-width: 640px) 200px, (max-width: 768px) 220px, 250px"
-                    />
-                  </div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full" style={{ backgroundColor: image.color }}></div>
-                    <span
-                      className="text-sm sm:text-base font-semibold text-gray-700"
-                      style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-                    >
-                      {image.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Tabs para las diferentes colecciones - Responsive con 5 tabs */}
