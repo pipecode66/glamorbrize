@@ -40,6 +40,10 @@ interface ProductDisplayProps {
   sizes: string[]
   sizeLabel?: string
   badgeLabel?: string
+  imageAspectRatio?: "portrait" | "square"
+  imageWidth?: number
+  imageHeight?: number
+  imageSizes?: string
   uniformesGColors?: {
     primary: string
     secondary: string
@@ -81,6 +85,10 @@ export default function ProductDisplay({
   sizes,
   sizeLabel = "Talla",
   badgeLabel = "Línea Privée",
+  imageAspectRatio = "portrait",
+  imageWidth,
+  imageHeight,
+  imageSizes,
   uniformesGColors,
   complementaryProduct,
   complementaryProducts = [],
@@ -137,19 +145,40 @@ export default function ProductDisplay({
 
   const leftFeatures = features.slice(0, Math.ceil(features.length / 2))
   const rightFeatures = features.slice(Math.ceil(features.length / 2))
+  const mainImageWrapperClassName =
+    imageAspectRatio === "square"
+      ? "relative mx-auto aspect-square max-w-sm overflow-hidden rounded-lg bg-gray-50 sm:max-w-md lg:max-w-lg"
+      : "relative mx-auto aspect-[4/5] max-w-xs overflow-hidden rounded-lg bg-gray-50 sm:max-w-sm"
+  const mainImageSizes =
+    imageSizes ??
+    (imageAspectRatio === "square"
+      ? "(max-width: 640px) 90vw, (max-width: 1024px) 450px, 540px"
+      : "(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px")
+  const mainImage = currentImages[currentImageIndex] || "/placeholder.svg"
 
   return (
     <div className="mx-auto max-w-7xl rounded-lg bg-white p-4 shadow-lg sm:p-6 md:p-8">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-4">
-          <div className="relative mx-auto aspect-[4/5] max-w-xs overflow-hidden rounded-lg bg-gray-50 sm:max-w-sm">
-            <Image
-              src={currentImages[currentImageIndex] || "/placeholder.svg"}
-              alt={`${name} - ${selectedSize || selectedColor || "principal"}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 500px"
-            />
+          <div className={mainImageWrapperClassName}>
+            {imageWidth && imageHeight ? (
+              <Image
+                src={mainImage}
+                alt={`${name} - ${selectedSize || selectedColor || "principal"}`}
+                width={imageWidth}
+                height={imageHeight}
+                className="h-full w-full object-cover"
+                sizes={mainImageSizes}
+              />
+            ) : (
+              <Image
+                src={mainImage}
+                alt={`${name} - ${selectedSize || selectedColor || "principal"}`}
+                fill
+                className="object-cover"
+                sizes={mainImageSizes}
+              />
+            )}
           </div>
 
           {currentImages.length > 1 && (

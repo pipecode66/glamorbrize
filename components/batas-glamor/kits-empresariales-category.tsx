@@ -76,6 +76,10 @@ const kitProduct = {
   sizes: kitOptions,
   sizeLabel: "Kit",
   badgeLabel: "Kits Empresariales",
+  imageAspectRatio: "square" as const,
+  imageWidth: 1080,
+  imageHeight: 1080,
+  imageSizes: "(max-width: 640px) 90vw, (max-width: 1024px) 450px, 540px",
 }
 
 export default function KitsEmpresarialesCategory() {
