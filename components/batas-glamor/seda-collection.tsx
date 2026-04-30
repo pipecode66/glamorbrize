@@ -53,13 +53,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
         name: "NEGRO",
         color: "#211d1f",
         description: "Tono negro clásico",
-        images: ["/images/seda/15.png"],
-      },
-      {
-        name: "AZUL",
-        color: "#315E82",
-        description: "Tono azul elegante",
-        images: ["/images/batas-seda.png"],
+        images: ["/images/seda/12.png"],
       },
       {
         name: "BEIGE",
@@ -79,7 +73,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       { name: "Referencia", value: "SEDA-001" },
       { name: "Talla", value: "Única" },
       { name: "Medidas", value: "Busto 124 cm / largo 92 cm / manga 33 cm" },
-      { name: "Colores", value: "Blanco, Negro, Azul, Beige y Rosado" },
+      { name: "Colores", value: "Blanco, Negro, Beige y Rosado" },
       { name: "Bordado delantero", value: "$85.000" },
       { name: "Bordado espalda", value: "$90.000" },
     ],
@@ -91,7 +85,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
       "Diseño elegante",
       "Colores duraderos",
     ],
-    colors: sedaColors,
+    colors: ["BLANCO", "NEGRO", "BEIGE", "ROSADO"],
     sizes: ["Única"],
   }
 
