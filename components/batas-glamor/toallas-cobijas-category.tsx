@@ -1,7 +1,9 @@
 "use client"
 
+import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
+import ProductTabSlider from "./product-tab-slider"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -14,6 +16,12 @@ const batasGlamorColors = {
   white: "#FFFFFF",
   black: "#000000",
 }
+
+const toallasCobijasTabs = [
+  { value: "toallas", label: "TOALLAS" },
+  { value: "cannon", label: "CANNON" },
+  { value: "flannel", label: "FLANNEL" },
+]
 
 const toallaProduct = {
   id: 1,
@@ -139,6 +147,8 @@ const flannelProduct = {
 }
 
 export default function ToallasCobijasCategory() {
+  const [activeTab, setActiveTab] = useState("toallas")
+
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
       <div className="space-y-6 sm:space-y-8">
@@ -157,8 +167,15 @@ export default function ToallasCobijasCategory() {
           </p>
         </div>
 
-        <Tabs defaultValue="toallas" className="w-full">
-          <div className="mb-6 flex justify-center sm:mb-8">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <ProductTabSlider
+            tabs={toallasCobijasTabs}
+            activeValue={activeTab}
+            onValueChange={setActiveTab}
+            triggerStyle={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+          />
+
+          <div className="mb-8 hidden justify-center sm:flex">
             <TabsList className="grid h-auto w-full max-w-3xl grid-cols-1 gap-2 sm:grid-cols-3">
               <TabsTrigger
                 value="toallas"

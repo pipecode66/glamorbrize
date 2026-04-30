@@ -4,8 +4,9 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
+import ProductTabSlider from "./product-tab-slider"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -22,6 +23,14 @@ const batasGlamorColors = {
 interface MicrofibraCollectionProps {
   colors?: typeof batasGlamorColors
 }
+
+const microfibraTabs = [
+  { value: "modelo1", label: "BATAS" },
+  { value: "modelo2", label: "ESTRAPLERA" },
+  { value: "modelo3", label: "BABERO" },
+  { value: "modelo4", label: "TURBANTE" },
+  { value: "modelo5", label: "BALACA" },
+]
 
 export default function MicrofibraCollection({ colors = batasGlamorColors }: MicrofibraCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
@@ -298,45 +307,13 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid h-auto w-full max-w-3xl grid-cols-2 gap-2 sm:grid-cols-5">
-              <TabsTrigger
-                value="modelo1"
-                className="min-h-[44px] text-xs sm:text-sm font-semibold"
-                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-              >
-                BATAS
-              </TabsTrigger>
-              <TabsTrigger
-                value="modelo2"
-                className="min-h-[44px] text-xs sm:text-sm font-semibold"
-                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-              >
-                ESTRAPLERA
-              </TabsTrigger>
-              <TabsTrigger
-                value="modelo3"
-                className="min-h-[44px] text-xs sm:text-sm font-semibold"
-                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-              >
-                BABERO
-              </TabsTrigger>
-              <TabsTrigger
-                value="modelo4"
-                className="min-h-[44px] text-xs sm:text-sm font-semibold"
-                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-              >
-                TURBANTE
-              </TabsTrigger>
-              <TabsTrigger
-                value="modelo5"
-                className="min-h-[44px] text-xs sm:text-sm font-semibold"
-                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
-              >
-                BALACA
-              </TabsTrigger>
-            </TabsList>
-          </div>
+          <ProductTabSlider
+            tabs={microfibraTabs}
+            activeValue={activeTab}
+            onValueChange={setActiveTab}
+            desktopListClassName="grid h-auto w-full max-w-3xl grid-cols-5 gap-2"
+            triggerStyle={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+          />
 
           <TabsContent value="modelo1" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">

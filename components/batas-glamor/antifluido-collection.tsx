@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
+import ProductTabSlider from "./product-tab-slider"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -22,6 +23,16 @@ const batasGlamorColors = {
 interface AntifluidoCollectionProps {
   colors?: typeof batasGlamorColors
 }
+
+const antifluidoTabs = [
+  { value: "modelo1", label: "BATAS" },
+  { value: "modelo2", label: "ESTRAPLERA" },
+  { value: "modelo3", label: "BALACA" },
+  { value: "modelo4", label: "BABERO" },
+  { value: "modelo5", label: "CAPA" },
+  { value: "modelo6", label: "FUNDAS" },
+  { value: "modelo7", label: "SÁBANAS" },
+]
 
 export default function AntifluidoCollection({ colors = batasGlamorColors }: AntifluidoCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
@@ -363,7 +374,14 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <div className="flex justify-center mb-6 sm:mb-8">
+          <ProductTabSlider
+            tabs={antifluidoTabs}
+            activeValue={activeTab}
+            onValueChange={setActiveTab}
+            triggerStyle={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+          />
+
+          <div className="mb-8 hidden justify-center sm:flex">
             <TabsList className="grid h-auto w-full max-w-5xl grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
               <TabsTrigger
                 value="modelo1"
