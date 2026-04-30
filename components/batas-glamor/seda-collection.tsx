@@ -278,7 +278,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/seda/12.png"
+                    src="/images/antifluido/20.png"
                     alt="Diseño personalizado de bata 1"
                     fill
                     className="object-cover rounded-lg shadow-lg"
@@ -296,7 +296,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/seda/14.png"
+                    src="/images/antifluido/21.png"
                     alt="Diseño personalizado de bata 2"
                     fill
                     className="object-cover rounded-lg shadow-lg"
@@ -314,7 +314,7 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/seda/15.png"
+                    src="/images/antifluido/22.png"
                     alt="Diseño personalizado de bata 3"
                     fill
                     className="object-cover rounded-lg shadow-lg"

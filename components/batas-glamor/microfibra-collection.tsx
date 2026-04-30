@@ -375,7 +375,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/microfibra/6.png"
+                    src="/images/antifluido/20.png"
                     alt="Diseño personalizado de bata 1"
                     fill
                     className="object-cover rounded-lg shadow-lg"
@@ -393,7 +393,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/microfibra/7.png"
+                    src="/images/antifluido/21.png"
                     alt="Diseño personalizado de bata 2"
                     fill
                     className="object-cover rounded-lg shadow-lg"
@@ -411,7 +411,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
-                    src="/images/microfibra/8.png"
+                    src="/images/antifluido/22.png"
                     alt="Diseño personalizado de bata 3"
                     fill
                     className="object-cover rounded-lg shadow-lg"
