@@ -30,7 +30,7 @@ const kitProduct = {
     "KIT 6": 385000,
   },
   description:
-    "Kits empresariales listos para dotacion profesional. Elige el kit para actualizar la imagen, el precio y la cotizacion.",
+    "Kits empresariales listos para dotación profesional. Elige el kit para actualizar la imagen, el precio y la cotización.",
   colorVariants: [],
   sizeVariants: {
     "KIT 1": {
@@ -68,9 +68,9 @@ const kitProduct = {
   ],
   features: [
     "Pedidos empresariales desde 12 unidades",
-    "Productos combinables segun el kit seleccionado",
+    "Productos combinables según el kit seleccionado",
     "Personalizable con bordado",
-    "Ideal para spas, esteticas y equipos profesionales",
+    "Ideal para spas, estéticas y equipos profesionales",
   ],
   colors: [],
   sizes: kitOptions,
@@ -93,7 +93,7 @@ export default function KitsEmpresarialesCategory() {
             className="mx-auto mt-4 max-w-3xl px-4 text-center text-sm text-muted-foreground sm:text-base md:text-lg"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
-            Kits listos para dotacion empresarial en microfibra y antifluido, pensados para equipos de spa, estetica y
+            Kits listos para dotación empresarial en microfibra y antifluidos, pensados para equipos de spa, estética y
             bienestar.
           </p>
         </div>

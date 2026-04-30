@@ -43,7 +43,7 @@ export function generateWhatsAppMessage(data: QuoteData): string {
     }
 
     if (data.customerPhone) {
-      lines.push(`Telefono: ${data.customerPhone}`)
+      lines.push(`Teléfono: ${data.customerPhone}`)
     }
   }
 

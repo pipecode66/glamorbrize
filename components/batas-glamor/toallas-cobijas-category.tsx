@@ -55,10 +55,9 @@ const toallaProduct = {
   ],
   specs: [
     { name: "Producto", value: "Toalla profesional" },
-    { name: "Colores", value: "Blanca y negra" },
-    { name: "Blanca", value: "40x60, 70x1,30 y 90x1,80" },
-    { name: "Negra", value: "40x60 y 50x100" },
-    { name: "Precio desde", value: "$22.000" },
+    { name: "Colores", value: "Blanca y Negra" },
+    { name: "Toalla blanca", value: "40x60 - $22.000 / 70x1,30 - $48.000 / 90x1,80 - $60.000" },
+    { name: "Toalla negra", value: "40x60 - $24.000 / 50x100 - $37.000" },
   ],
   features: ["Suave al tacto", "Alta absorción", "Uso profesional", "Personalizable con bordado"],
   colors: ["BLANCA", "NEGRA"],
@@ -69,7 +68,7 @@ const toallaProduct = {
 
 const cannonProduct = {
   id: 2,
-  name: "TOALLA CANNON 460g",
+  name: "TOALLA CANNON 460 g",
   basePrice: 28000,
   pricing: {
     "40x60": 28000,
@@ -87,8 +86,7 @@ const cannonProduct = {
   specs: [
     { name: "Producto", value: "Toalla Cannon" },
     { name: "Gramaje", value: "460 g" },
-    { name: "Presentaciones", value: "40x60 y 70x1,30" },
-    { name: "Precio desde", value: "$28.000" },
+    { name: "Presentaciones", value: "40x60 - $28.000 / 70x1,30 - $60.000" },
   ],
   features: ["Mayor gramaje", "Textura suave", "Uso profesional", "Personalizable con bordado"],
   colors: ["BLANCA"],
@@ -99,12 +97,12 @@ const cannonProduct = {
 
 const flannelProduct = {
   id: 3,
-  name: "KIT COBIJAS Y FUNDAS - TELA FLANNEL",
+  name: "KIT DE COBIJAS Y FUNDAS - TELA FLANNEL",
   basePrice: 70000,
   pricing: {
-    "Kit 1: 2 fundas": 70000,
-    "Kit 2: cobija + funda": 120000,
-    "Kit 3: cobija + 2 fundas": 160000,
+    "Kit 1: 2 fundas de 45x65": 70000,
+    "Kit 2: cobija 1,80 x 1,35 + 1 funda": 120000,
+    "Kit 3: cobija 1,60 x 1,80 + 2 fundas": 160000,
   },
   description:
     "Kits de cobijas y fundas en tela flannel de 250 g para camilla. Selecciona el color y la presentación del kit.",
@@ -124,15 +122,18 @@ const flannelProduct = {
   ],
   specs: [
     { name: "Material", value: "Tela flannel 250 g" },
-    { name: "Colores", value: "Gris oscuro y beige" },
-    { name: "Kit 1", value: "2 fundas de 45x65 cm" },
-    { name: "Kit 2", value: "Cobija 1,80x1,35 m + 1 funda de 45x65 cm" },
-    { name: "Kit 3", value: "Cobija 1,60x1,80 m + 2 fundas de 45x65 cm" },
-    { name: "Precio desde", value: "$70.000" },
+    { name: "Colores", value: "Gris oscuro y Beige" },
+    { name: "Kit 1", value: "2 fundas de 45x65 - $70.000" },
+    { name: "Kit 2", value: "Cobija para camilla de 1,80 x 1,35 + 1 funda de 45x65 - $120.000" },
+    { name: "Kit 3", value: "Cobija para camilla de 1,60 x 1,80 + 2 fundas de 45x65 - $160.000" },
   ],
   features: ["Tela suave", "Set para camilla", "Disponible en dos tonos", "Ideal para cabina y spa"],
   colors: ["GRIS OSCURO", "BEIGE"],
-  sizes: ["Kit 1: 2 fundas", "Kit 2: cobija + funda", "Kit 3: cobija + 2 fundas"],
+  sizes: [
+    "Kit 1: 2 fundas de 45x65",
+    "Kit 2: cobija 1,80 x 1,35 + 1 funda",
+    "Kit 3: cobija 1,60 x 1,80 + 2 fundas",
+  ],
   sizeLabel: "Presentación",
   badgeLabel: "Toallas y Cobijas",
 }

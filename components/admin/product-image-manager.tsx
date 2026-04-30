@@ -39,7 +39,7 @@ export function ProductImageManager({ products, categoryName }: ProductImageMana
       console.error("Error loading product images:", error)
       toast({
         title: "Error",
-        description: "No se pudieron cargar las imagenes del producto.",
+        description: "No se pudieron cargar las imágenes del producto.",
         variant: "destructive",
       })
     } finally {
@@ -78,7 +78,7 @@ export function ProductImageManager({ products, categoryName }: ProductImageMana
       console.error("Error updating product images:", error)
       toast({
         title: "Error",
-        description: "No se pudieron actualizar las imagenes del producto.",
+        description: "No se pudieron actualizar las imágenes del producto.",
         variant: "destructive",
       })
     }
@@ -86,10 +86,10 @@ export function ProductImageManager({ products, categoryName }: ProductImageMana
 
   const getCategoryFromProduct = (product: ProductImageManagerProps["products"][number]) => {
     if (Array.isArray(product.categories)) {
-      return product.categories[0]?.name || "Sin categoria"
+      return product.categories[0]?.name || "Sin categoría"
     }
 
-    return product.categories?.name || "Sin categoria"
+    return product.categories?.name || "Sin categoría"
   }
 
   const getProductCategory = (product: ProductImageManagerProps["products"][number]) => {
@@ -102,7 +102,7 @@ export function ProductImageManager({ products, categoryName }: ProductImageMana
   return (
     <div className="space-y-4">
       {products.length === 0 ? (
-        <p className="py-8 text-center text-muted-foreground">No hay productos disponibles en esta categoria.</p>
+        <p className="py-8 text-center text-muted-foreground">No hay productos disponibles en esta categoría.</p>
       ) : (
         <Accordion type="single" collapsible className="w-full">
           {products.map((product) => (
@@ -120,7 +120,7 @@ export function ProductImageManager({ products, categoryName }: ProductImageMana
               </AccordionTrigger>
               <AccordionContent>
                 {isLoading[product.id] || selectedProduct === null ? (
-                  <div className="py-8 text-center">Cargando imagenes...</div>
+                  <div className="py-8 text-center">Cargando imágenes...</div>
                 ) : (
                   <ImageUploader
                     initialImages={productImages[product.id] || []}

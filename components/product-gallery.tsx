@@ -17,8 +17,8 @@ const products = [
   },
   {
     id: 2,
-    name: "Bata Seda Blanca",
-    price: 125000,
+    name: "Bata en seda blanca",
+    price: 85000,
     image: "/images/batasedablanca.png",
     category: "Batas Glamor",
     type: "seda",
@@ -26,7 +26,7 @@ const products = [
   {
     id: 3,
     name: "Estraplera Microfibra Blanca",
-    price: 65000,
+    price: 50000,
     image: "/images/estramicroblanca.png",
     category: "Batas Glamor",
     type: "microfibra",
@@ -42,7 +42,7 @@ const products = [
   {
     id: 5,
     name: "Estraplera Antifluidos Negra",
-    price: 125000,
+    price: 60000,
     image: "/images/estraantinegra.png",
     category: "Batas Glamor",
     type: "antifluido",
@@ -50,7 +50,7 @@ const products = [
   {
     id: 6,
     name: "Balaca Antifluido",
-    price: 35000,
+    price: 20000,
     image: "/images/balaca-antifluido.png",
     category: "Batas Glamor",
     type: "antifluido",
@@ -249,7 +249,7 @@ export default function ProductGallery() {
               </p>
               <Link href={`/batas-glamor/${product.type}`} passHref>
                 <Button className="w-full bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm py-2 min-h-[44px]">
-                  Ver Detalles
+                  Ver detalles
                 </Button>
               </Link>
             </div>

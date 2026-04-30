@@ -5,10 +5,10 @@ export default function PersonalCategory() {
   const products = [
     {
       id: 1,
-      name: "Bata de Bano Microfibra Blanca",
+      name: "Bata de baño microfibra blanca",
       price: 85000,
       description:
-        "Bata de bano en microfibra de alta calidad, ideal para uso personal en spa, salon de belleza o en casa. Suave al tacto y altamente absorbente.",
+        "Bata de baño en microfibra de alta calidad, ideal para uso personal en spa, salón de belleza o en casa. Suave al tacto y altamente absorbente.",
       images: [
         "/images/bata-microfibra-blanca.webp",
         "/placeholder.svg?height=600&width=500&text=Bata+Microfibra+2",
@@ -23,20 +23,20 @@ export default function PersonalCategory() {
       ],
       features: [
         "Suave y confortable al tacto",
-        "Alta capacidad de absorcion",
-        "Secado rapido",
+        "Alta capacidad de absorción",
+        "Secado rápido",
         "Detalles satinados en los bordes",
         "Personalizable con bordado",
       ],
-      colors: ["Blanco", "Gris"],
+      colors: ["Blanca", "Perla", "Gris"],
       sizes: ["M", "L"],
     },
     {
       id: 2,
-      name: "Estraplera Microfibra Blanca",
+      name: "Estraplera microfibra blanca",
       price: 50000,
       description:
-        "Estraplera en microfibra de alta calidad, perfecta para uso despues del bano o durante tratamientos de spa y belleza. Diseno comodo y funcional.",
+        "Estraplera en microfibra de alta calidad, perfecta para uso después del baño o durante tratamientos de spa y belleza. Diseño cómodo y funcional.",
       images: [
         "/images/estraplera-microfibra-blanca.webp",
         "/placeholder.svg?height=600&width=500&text=Estraplera+2",
@@ -48,20 +48,20 @@ export default function PersonalCategory() {
         { name: "Precio con bordado", value: "$50.000" },
       ],
       features: [
-        "Diseno ajustable con velcro",
+        "Diseño ajustable con velcro",
         "Suave y confortable",
         "Ideal para tratamientos faciales",
         "Personalizable con bordado",
       ],
-      colors: ["Blanco", "Gris"],
+      colors: ["Blanca", "Perla", "Gris"],
       sizes: ["Única"],
     },
     {
       id: 3,
-      name: "Turbante Microfibra Blanco",
-      price: 24000,
+      name: "Turbante microfibra blanco",
+      price: 25000,
       description:
-        "Turbante en microfibra de alta calidad, ideal para secar el cabello despues del bano o durante tratamientos capilares. Practico y comodo.",
+        "Turbante en microfibra de alta calidad, ideal para secar el cabello después del baño o durante tratamientos capilares. Práctico y cómodo.",
       images: [
         "/images/turbante-microfibra.webp",
         "/placeholder.svg?height=600&width=500&text=Turbante+2",
@@ -69,11 +69,11 @@ export default function PersonalCategory() {
       ],
       specs: [
         { name: "Material", value: "Microfibra de alta resistencia" },
-        { name: "Color", value: "Blanco (con sesgos)" },
-        { name: "Precio", value: "$24.000" },
+        { name: "Color", value: "Blanco con sesgos" },
+        { name: "Precio", value: "$25.000" },
       ],
-      features: ["Diseno ajustable", "Alta capacidad de absorcion", "Secado rapido", "Ligero y comodo"],
-      colors: ["Blanco", "Gris"],
+      features: ["Diseño ajustable", "Alta capacidad de absorción", "Secado rápido", "Ligero y cómodo"],
+      colors: ["Blanco con sesgos", "Gris", "Perla"],
       sizes: ["Única"],
     },
   ]
@@ -81,9 +81,9 @@ export default function PersonalCategory() {
   return (
     <div className="space-y-16">
       <div>
-        <h2 className="text-3xl font-eagers text-center mb-8">Productos para Uso Personal</h2>
+        <h2 className="text-3xl font-eagers text-center mb-8">Productos para uso personal</h2>
         <p className="text-center max-w-3xl mx-auto mb-12">
-          Nuestra linea personal incluye batas y accesorios disenados para brindar confort y elegancia en tu hogar o
+          Nuestra línea personal incluye batas y accesorios diseñados para brindar confort y elegancia en tu hogar o
           durante tratamientos de belleza y bienestar.
         </p>
       </div>
@@ -95,13 +95,13 @@ export default function PersonalCategory() {
       ))}
 
       <div className="bg-accent/10 p-8 rounded-md">
-        <h3 className="text-xl font-medium mb-4 text-center">Sets Personalizados</h3>
+        <h3 className="text-xl font-medium mb-4 text-center">Sets personalizados</h3>
         <p className="text-center mb-6">
-          Crea tu propio set personalizado combinando nuestros productos. Anade tu nombre o iniciales con nuestro
+          Crea tu propio set personalizado combinando nuestros productos. Añade tu nombre o iniciales con nuestro
           servicio de bordado exclusivo.
         </p>
         <div className="flex justify-center">
-          <Button className="bg-primary hover:bg-primary/90 text-white">Crear Set Personalizado</Button>
+          <Button className="bg-primary hover:bg-primary/90 text-white">Crear set personalizado</Button>
         </div>
       </div>
     </div>

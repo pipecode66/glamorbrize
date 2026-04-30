@@ -36,13 +36,13 @@ export async function PUT(request: Request, context: CategoryRouteContext) {
 
     if (categoryError) {
       console.error("Error updating category:", categoryError)
-      return NextResponse.json({ error: "Error al actualizar la categorÃ­a" }, { status: 500 })
+      return NextResponse.json({ error: "Error al actualizar la categoría" }, { status: 500 })
     }
 
     return NextResponse.json({ success: true, category: category[0] })
   } catch (error) {
     console.error("Error updating category:", error)
-    return NextResponse.json({ error: "Error al actualizar la categorÃ­a" }, { status: 500 })
+    return NextResponse.json({ error: "Error al actualizar la categoría" }, { status: 500 })
   }
 }
 
@@ -67,14 +67,14 @@ export async function DELETE(_request: Request, context: CategoryRouteContext) {
   const { count } = await supabase.from("products").select("*", { count: "exact", head: true }).eq("category_id", id)
 
   if (count && count > 0) {
-    return NextResponse.json({ error: "No se puede eliminar una categorÃ­a con productos asociados" }, { status: 400 })
+    return NextResponse.json({ error: "No se puede eliminar una categoría con productos asociados" }, { status: 400 })
   }
 
   const { error } = await supabase.from("categories").delete().eq("id", id)
 
   if (error) {
     console.error("Error deleting category:", error)
-    return NextResponse.json({ error: "Error al eliminar la categorÃ­a" }, { status: 500 })
+    return NextResponse.json({ error: "Error al eliminar la categoría" }, { status: 500 })
   }
 
   return NextResponse.json({ success: true })

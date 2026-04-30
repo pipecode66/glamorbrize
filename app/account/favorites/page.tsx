@@ -147,7 +147,7 @@ export default function FavoritesPage() {
                       onClick={() => handleAddToCart(favorite.product)}
                     >
                       <ShoppingCart className="mr-2 h-4 w-4" />
-                      Anadir al carrito
+                      Añadir al carrito
                     </Button>
                     <Button
                       variant="outline"

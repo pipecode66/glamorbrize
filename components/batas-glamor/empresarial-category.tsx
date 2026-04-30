@@ -7,7 +7,7 @@ export default function EmpresarialCategory() {
       name: "Bata Antifluidos Blanca",
       price: 95000,
       description:
-        "Bata antifluidos ideal para uso profesional en clinicas, spas y centros de estetica. Disenada con materiales de alta calidad que ofrecen proteccion y durabilidad.",
+        "Bata antifluidos ideal para uso profesional en clínicas, spas y centros de estética. Diseñada con materiales de alta calidad que ofrecen protección y durabilidad.",
       images: ["/images/bata-medica-antifluido.png"],
       specs: [
         { name: "Material", value: "Tela antifluidos" },
@@ -16,21 +16,21 @@ export default function EmpresarialCategory() {
         { name: "Bordado espalda", value: "$100.000" },
       ],
       features: [
-        "Resistente a liquidos y fluidos",
-        "Facil de limpiar y desinfectar",
-        "Diseno profesional y elegante",
+        "Resistente a líquidos y fluidos",
+        "Fácil de limpiar y desinfectar",
+        "Diseño profesional y elegante",
         "Bolsillos frontales amplios",
-        "Cierre con botones a presion",
+        "Cierre con botones a presión",
       ],
       colors: ["Blanco", "Negro", "Gris"],
       sizes: ["M", "L"],
     },
     {
       id: 2,
-      name: "Bata Medica Profesional",
+      name: "Bata Médica Profesional",
       price: 105000,
       description:
-        "Bata medica profesional disenada especificamente para personal de salud. Confeccionada con materiales de alta calidad que garantizan comodidad durante largas jornadas.",
+        "Bata médica profesional diseñada específicamente para personal de salud. Confeccionada con materiales de alta calidad que garantizan comodidad durante largas jornadas.",
       images: ["/images/uniformes-g-batas-medicas-banner.png"],
       specs: [
         { name: "Material", value: "Tela antifluidos premium" },
@@ -39,11 +39,11 @@ export default function EmpresarialCategory() {
         { name: "Bordado espalda", value: "$110.000" },
       ],
       features: [
-        "Diseno ergonomico para mayor comodidad",
-        "Bolsillos estrategicamente ubicados",
-        "Manga larga con puno ajustable",
+        "Diseño ergonómico para mayor comodidad",
+        "Bolsillos estratégicamente ubicados",
+        "Manga larga con puño ajustable",
         "Resistente a manchas y fluidos",
-        "Facil mantenimiento y lavado",
+        "Fácil mantenimiento y lavado",
       ],
       colors: ["Blanco"],
       sizes: ["M", "L"],
@@ -55,8 +55,8 @@ export default function EmpresarialCategory() {
       <div>
         <h2 className="text-3xl font-eagers text-center mb-8">Batas para Uso Empresarial</h2>
         <p className="text-center max-w-3xl mx-auto mb-12">
-          Nuestra linea empresarial esta disenada para profesionales que buscan proyectar una imagen impecable en su
-          entorno laboral. Para kits completos, revisa la categoria Kits Empresariales.
+          Nuestra línea empresarial está diseñada para profesionales que buscan proyectar una imagen impecable en su
+          entorno laboral. Para kits completos, revisa la categoría Kits Empresariales.
         </p>
       </div>
 

@@ -123,7 +123,7 @@ export default function ProductCard({ id, name, price, image, description, categ
         {description && <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{description}</p>}
         <Button className="mt-3 h-9 w-full bg-primary text-sm text-white hover:bg-primary/90" onClick={handleAddToCart}>
           <ShoppingCart className="mr-2 h-4 w-4" />
-          Anadir al carrito
+          Añadir al carrito
         </Button>
       </div>
     </div>

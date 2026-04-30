@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const supabase: any = await getServerSupabase()
 
-  // Verificar si el usuario estÃ¡ autenticado
+  // Verificar si el usuario está autenticado
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 })
     }
 
-    // Verificar si el usuario ya ha dejado una reseÃ±a para este producto
+    // Verificar si el usuario ya ha dejado una reseña para este producto
     const { data: existingReview, error: existingReviewError } = await supabase
       .from("reviews")
       .select("id")
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "You have already reviewed this product" }, { status: 400 })
     }
 
-    // Crear la reseÃ±a
+    // Crear la reseña
     const { data, error } = await supabase
       .from("reviews")
       .insert({
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
         rating,
         title,
         content,
-        approved: false, // Las reseÃ±as requieren aprobaciÃ³n
+        approved: false, // Las reseñas requieren aprobación
       })
       .select()
 

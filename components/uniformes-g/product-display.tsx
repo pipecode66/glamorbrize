@@ -80,7 +80,7 @@ export default function ProductDisplay({
   colors,
   sizes,
   sizeLabel = "Talla",
-  badgeLabel = "Linea Privee",
+  badgeLabel = "Línea Privée",
   uniformesGColors,
   complementaryProduct,
   complementaryProducts = [],
@@ -211,7 +211,7 @@ export default function ProductDisplay({
                 className="text-center text-base font-semibold sm:text-lg lg:text-left"
                 style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                Complementos Disponibles
+                Complementos disponibles
               </h3>
               <div className="space-y-2">
                 {extraProducts.map((product, index) => (
@@ -335,7 +335,7 @@ export default function ProductDisplay({
                 className="text-center text-lg font-semibold sm:text-xl lg:text-left"
                 style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                Caracteristicas
+                Características
               </h3>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {[leftFeatures, rightFeatures].map((column, columnIndex) => (
@@ -362,11 +362,11 @@ export default function ProductDisplay({
               className="text-center text-lg font-semibold sm:text-xl lg:text-left"
               style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
             >
-              Instrucciones de Cuidado
+              Instrucciones de cuidado
             </h3>
             <div className="space-y-2">
               {[
-                "Lavar a temperatura no mayor a 30 C",
+                "Lavar a temperatura no mayor a 30 °C",
                 "No usar blanqueador",
                 "Secar a la sombra",
                 "Planchar a temperatura media",

@@ -65,9 +65,9 @@ export default async function AdminImagesPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Imagenes de Productos</CardTitle>
+          <CardTitle>Imágenes de productos</CardTitle>
           <CardDescription>
-            Gestiona las imagenes de los productos por categoria. Puedes subir nuevas imagenes, reordenarlas y
+            Gestiona las imágenes de los productos por categoría. Puedes subir nuevas imágenes, reordenarlas y
             eliminarlas.
           </CardDescription>
         </CardHeader>

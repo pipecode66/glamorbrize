@@ -66,13 +66,13 @@ export async function createReview(
 ): Promise<{ success: boolean; error?: string }> {
   const supabaseClient: any = getReviewClient()
   if (!supabaseClient) {
-    return { success: false, error: "La configuraciÃ³n de Supabase no estÃ¡ disponible" }
+    return { success: false, error: "La configuración de Supabase no está disponible" }
   }
 
   const { data: sessionData } = await supabaseClient.auth.getSession()
 
   if (!sessionData.session) {
-    return { success: false, error: "No estÃ¡s autenticado" }
+    return { success: false, error: "No estás autenticado" }
   }
 
   const { data: existingReview } = await supabaseClient
@@ -83,7 +83,7 @@ export async function createReview(
     .maybeSingle()
 
   if (existingReview) {
-    return { success: false, error: "Ya has dejado una reseÃ±a para este producto" }
+    return { success: false, error: "Ya has dejado una reseña para este producto" }
   }
 
   const { error } = await supabaseClient.from("reviews").insert({
@@ -97,7 +97,7 @@ export async function createReview(
 
   if (error) {
     console.error("Error creating review:", error)
-    return { success: false, error: "Error al crear la reseÃ±a" }
+    return { success: false, error: "Error al crear la reseña" }
   }
 
   return { success: true }

@@ -25,40 +25,45 @@ interface MicrofibraCollectionProps {
 
 export default function MicrofibraCollection({ colors = batasGlamorColors }: MicrofibraCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
-  const quoteHref = "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20coleccion%20microfibra"
+  const quoteHref = "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20colecci%C3%B3n%20microfibra"
 
   const modelo1Product = {
     id: 1,
-    name: "BATA - MICROFIBRA",
+    name: "BATA DE BAÑO - MICROFIBRA",
     basePrice: 85000,
     pricing: {
       M: 85000,
       L: 85000,
+    },
+    variantPricing: {
+      BLANCA: { M: 85000, L: 85000 },
+      PERLA: { M: 90000, L: 90000 },
+      GRIS: { M: 90000, L: 90000 },
     },
     bordadoPricing: {
       delantero: 85000,
       trasero: 90000,
     },
     description:
-      "Bata de microfibra suave y cómoda, disponible en M y L. Diseño elegante con acabados de alta calidad.",
+      "Bata de baño en microfibra suave y cómoda, disponible en M y L. Diseño elegante con acabados de alta calidad.",
     colorVariants: [
       {
-        name: "BLANCO CON ORILLOS",
+        name: "BLANCA",
         color: "#e8e8e9",
-        description: "Blanco con orillos disponibles en blanco, gris y dorado",
+        description: "Blanca con sesgos satinados en los orillos",
         images: ["/images/microfibra/1.png"],
-      },
-      {
-        name: "GRIS",
-        color: "#9d9aa1",
-        description: "Algo más imponente y lujuso",
-        images: ["/images/microfibra/5.png"],
       },
       {
         name: "PERLA",
         color: "#CFD1D3",
-        description: "Tono suave y relajante",
+        description: "Tono perla suave y elegante",
         images: ["/images/microfibra/3.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris unicolor",
+        images: ["/images/microfibra/5.png"],
       },
     ],
     specs: [
@@ -67,11 +72,11 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       { name: "Tallas disponibles", value: "M y L" },
       { name: "M", value: "Busto 100 cm / largo 100 cm" },
       { name: "L", value: "Espalda 45 cm / largo 115 cm" },
-      { name: "Colores", value: "Blanco con orillos, gris y perla" },
-      { name: "Orillos blanco", value: "Blanco, gris y dorado" },
-      { name: "Precio desde", value: "$85.000" },
-      { name: "Bordado delantero", value: "$85.000" },
-      { name: "Bordado trasero", value: "$90.000" },
+      { name: "Colores", value: "Blanca, Perla y Gris" },
+      { name: "Blanca bordado delantero", value: "$85.000" },
+      { name: "Blanca bordado espalda", value: "$90.000" },
+      { name: "Perla o gris bordado delantero", value: "$90.000" },
+      { name: "Perla o gris bordado espalda", value: "$95.000" },
     ],
     features: [
       "Microfibra suave al tacto",
@@ -81,26 +86,37 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       "Diseño elegante",
       "Colores duraderos",
     ],
-    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    colors: ["BLANCA", "PERLA", "GRIS"],
     sizes: ["M", "L"],
   }
 
   const modelo2Product = {
     id: 2,
     name: "ESTRAPLERA - MICROFIBRA",
-    basePrice: 55000,
+    basePrice: 50000,
     pricing: {},
+    variantPricing: {
+      BLANCA: { "": 50000 },
+      PERLA: { "": 55000 },
+      GRIS: { "": 55000 },
+    },
     bordadoPricing: {
-      delantero: 55000,
+      delantero: 50000,
       balaca: 16000,
     },
     description:
       "Estraplera de microfibra talla única, moderna y funcional para tratamientos de spa, estética y bienestar.",
     colorVariants: [
       {
-        name: "BLANCO CON ORILLOS",
+        name: "BLANCA",
         color: "#e8e8e9",
-        description: "Blanco con orillos disponibles en blanco, gris y dorado",
+        description: "Blanca con sesgos satinados en los orillos",
+        images: ["/images/microfibra/4.png"],
+      },
+      {
+        name: "PERLA",
+        color: "#CFD1D3",
+        description: "Tono perla unicolor",
         images: ["/images/microfibra/4.png"],
       },
       {
@@ -109,22 +125,15 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         description: "Tono gris unicolor",
         images: ["/images/microfibra/6.png"],
       },
-      {
-        name: "PERLA",
-        color: "#CFD1D3",
-        description: "Tono sofisticado y relajado",
-        images: ["/images/microfibra/4.png"],
-      },
     ],
     specs: [
       { name: "Material", value: "Microfibra premium" },
       { name: "Referencia", value: "MICRO-002" },
       { name: "Talla", value: "Única" },
       { name: "Medidas", value: "140 cm ancho x 70 cm largo" },
-      { name: "Colores", value: "Blanco con orillos, gris y perla" },
-      { name: "Orillos blanco", value: "Blanco, gris y dorado" },
-      { name: "Precio desde", value: "$55.000" },
-      { name: "Bordado delantero", value: "$55.000" },
+      { name: "Colores", value: "Blanca, Perla y Gris" },
+      { name: "Blanca con bordado", value: "$50.000" },
+      { name: "Perla o gris con bordado", value: "$55.000" },
     ],
     features: [
       "Diseño moderno y funcional",
@@ -133,66 +142,65 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       "Fácil de lavar",
       "Acabados perfectos",
     ],
-    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    colors: ["BLANCA", "PERLA", "GRIS"],
     sizes: [],
   }
 
   const modelo3Product = {
-  id: 3,
-  name: "BABERO - MICROFIBRA",
-  basePrice: 25000,
-  pricing: {},
-  description:
-    "Babero de microfibra premium con diseño práctico para servicios de estética y bienestar.",
-  colorVariants: [
-    {
-      name: "BLANCO CON ORILLOS",
-      color: "#e8e8e9",
-      description: "Blanco con orillos disponibles en blanco, gris y dorado",
-      images: ["/images/babero-microfibra.png"],
-    },
-    {
-      name: "GRIS",
-      color: "#9d9aa1",
-      description: "Tono gris unicolor",
-      images: ["/images/babero-microfibra.png"],
-    },
-    {
-      name: "PERLA",
-      color: "#CFD1D3",
-      description: "Tono perla unicolor",
-      images: ["/images/babero-microfibra.png"],
-    },
-  ],
-  specs: [
-    { name: "Material", value: "Microfibra premium" },
-    { name: "Referencia", value: "MICRO-003" },
-    { name: "Medidas", value: "40 cm ancho x 52 cm largo" },
-    { name: "Colores", value: "Blanco con orillos, gris y perla" },
-    { name: "Orillos blanco", value: "Blanco, gris y dorado" },
-  ],
-  features: [
-    "Diseño exclusivo",
-    "Microfibra de alta densidad",
-    "Confort máximo",
-    "Acabados premium",
-    "Durabilidad garantizada",
-  ],
-  colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
-  sizes: [],
-}
+    id: 3,
+    name: "BABERO - MICROFIBRA",
+    basePrice: 25000,
+    pricing: {},
+    description: "Babero de microfibra premium con diseño práctico para servicios de estética y bienestar.",
+    colorVariants: [
+      {
+        name: "BLANCO CON SESGOS",
+        color: "#e8e8e9",
+        description: "Blanco con sesgos satinados",
+        images: ["/images/babero-microfibra.png"],
+      },
+      {
+        name: "GRIS",
+        color: "#9d9aa1",
+        description: "Tono gris unicolor",
+        images: ["/images/babero-microfibra.png"],
+      },
+      {
+        name: "PERLA",
+        color: "#CFD1D3",
+        description: "Tono perla unicolor",
+        images: ["/images/babero-microfibra.png"],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Microfibra premium" },
+      { name: "Referencia", value: "MICRO-003" },
+      { name: "Medidas", value: "40 cm ancho x 52 cm largo" },
+      { name: "Colores", value: "Blanco con sesgos, Gris y Perla" },
+      { name: "Precio", value: "$25.000" },
+    ],
+    features: [
+      "Diseño práctico",
+      "Microfibra de alta densidad",
+      "Confort máximo",
+      "Acabados premium",
+      "Durabilidad garantizada",
+    ],
+    colors: ["BLANCO CON SESGOS", "GRIS", "PERLA"],
+    sizes: [],
+  }
 
   const modelo4Product = {
     id: 4,
     name: "TURBANTE - MICROFIBRA",
     basePrice: 25000,
     pricing: {},
-    description: "Turbante de microfibra versátil y práctica. Para los amantes del estilo contemporáneo.",
+    description: "Turbante de microfibra versátil y práctico para complementar la línea de microfibra.",
     colorVariants: [
       {
-        name: "BLANCO CON ORILLOS",
+        name: "BLANCO CON SESGOS",
         color: "#e8e8e9",
-        description: "Blanco con orillos disponibles en blanco, gris y dorado",
+        description: "Blanco con sesgos satinados",
         images: ["/images/microfibra/8.png"],
       },
       {
@@ -212,18 +220,17 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       { name: "Material", value: "Microfibra premium" },
       { name: "Referencia", value: "MICRO-004" },
       { name: "Medidas", value: "52 cm ancho x 75 cm largo" },
-      { name: "Colores", value: "Blanco con orillos, gris y perla" },
-      { name: "Orillos blanco", value: "Blanco, gris y dorado" },
-      { name: "Precio desde", value: "$25.000" },
+      { name: "Colores", value: "Blanco con sesgos, Gris y Perla" },
+      { name: "Precio", value: "$25.000" },
     ],
     features: [
       "Diseño contemporáneo",
       "Microfibra absorbente",
       "Peso ligero",
       "Múltiples colores",
-      "Ideal para regalo",
+      "Ideal para cabina",
     ],
-    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    colors: ["BLANCO CON SESGOS", "GRIS", "PERLA"],
     sizes: [],
   }
 
@@ -235,9 +242,9 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
     description: "Balaca de microfibra con velcro, pensada como complemento para la línea de microfibra.",
     colorVariants: [
       {
-        name: "BLANCO CON ORILLOS",
+        name: "BLANCO CON SESGOS",
         color: "#e8e8e9",
-        description: "Blanco con orillos disponibles en blanco, gris y dorado",
+        description: "Blanco con sesgos satinados",
         images: ["/images/balaca-microfibra.png"],
       },
       {
@@ -258,8 +265,8 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       { name: "Referencia", value: "MICRO-005" },
       { name: "Medidas", value: "68 cm largo x 8 cm ancho" },
       { name: "Cierre", value: "Velcro" },
-      { name: "Colores", value: "Blanco con orillos, gris y perla" },
-      { name: "Precio desde", value: "$16.000" },
+      { name: "Colores", value: "Blanco con sesgos, Gris y Perla" },
+      { name: "Precio", value: "$16.000" },
     ],
     features: [
       "Complemento en microfibra",
@@ -267,9 +274,10 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       "Ligera y cómoda",
       "Disponible en tonos de la colección",
     ],
-    colors: ["BLANCO CON ORILLOS", "GRIS", "PERLA"],
+    colors: ["BLANCO CON SESGOS", "GRIS", "PERLA"],
     sizes: [],
   }
+
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
       <div className="space-y-6 sm:space-y-8">
@@ -289,7 +297,6 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
           </p>
         </div>
 
-        {/* Tabs para los diferentes modelos */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
             <TabsList className="grid h-auto w-full max-w-3xl grid-cols-2 gap-2 sm:grid-cols-5">
@@ -362,11 +369,9 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
           </TabsContent>
         </Tabs>
 
-        {/* NUEVA SECCIÓN INDEPENDIENTE - 3 imágenes fijas cuadradas */}
         <div className="py-8 sm:py-12 md:py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 mb-8 sm:mb-10 md:mb-12">
-              {/* Imagen 1 */}
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
@@ -381,11 +386,10 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
                   className="text-sm sm:text-base font-semibold text-gray-700"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
-                  Diseño Exclusivo
+                  Diseño exclusivo
                 </span>
               </div>
 
-              {/* Imagen 2 */}
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
@@ -400,11 +404,10 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
                   className="text-sm sm:text-base font-semibold text-gray-700"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
-                  Personalización Única
+                  Personalización única
                 </span>
               </div>
 
-              {/* Imagen 3 */}
               <div className="text-center">
                 <div className="relative aspect-square max-w-[250px] sm:max-w-[280px] md:max-w-[320px] mx-auto mb-3 sm:mb-4">
                   <Image
@@ -419,24 +422,22 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
                   className="text-sm sm:text-base font-semibold text-gray-700"
                   style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                 >
-                  Creación Original
+                  Creación original
                 </span>
               </div>
             </div>
 
-            {/* Texto de personalización */}
             <div className="text-center">
               <p
                 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 italic max-w-2xl mx-auto px-4"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
               >
-                "Así quedan tus diseños personalizados de nuestras batas, ¿Qué esperas a tener el tuyo?"
+                "Así quedan tus diseños personalizados de nuestras batas, ¿qué esperas para tener el tuyo?"
               </p>
             </div>
           </div>
         </div>
 
-        {/* CTA Section */}
         <div className="py-10 text-center sm:py-12">
           <div className="max-w-2xl mx-auto px-4">
             <h3
@@ -449,7 +450,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
               className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
-              Solicita nuestro catálogo completo y descubre todas las opciones disponibles
+              Solicita nuestro catálogo completo y descubre todas las opciones disponibles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button

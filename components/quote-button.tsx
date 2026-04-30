@@ -116,7 +116,7 @@ export default function QuoteButton({
               </div>
 
               <div>
-                <Label htmlFor="quote-phone">Telefono</Label>
+                <Label htmlFor="quote-phone">Teléfono</Label>
                 <Input
                   id="quote-phone"
                   value={customerData.phone}
@@ -131,7 +131,7 @@ export default function QuoteButton({
                   id="quote-notes"
                   value={customerData.notes}
                   onChange={(e) => setCustomerData((prev) => ({ ...prev, notes: e.target.value }))}
-                  placeholder="Informacion adicional sobre tu pedido..."
+                  placeholder="Información adicional sobre tu pedido..."
                   rows={3}
                 />
               </div>

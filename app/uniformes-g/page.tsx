@@ -72,7 +72,7 @@ export default function UniformesGPage() {
               className="mb-4 px-2 text-sm sm:mb-6 sm:text-base md:mb-8 md:text-lg"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
-              Contactanos para obtener una cotizacion personalizada para tu empresa o negocio.
+              Contáctanos para obtener una cotización personalizada para tu empresa o negocio.
             </p>
             <Button
               size="lg"
@@ -86,7 +86,7 @@ export default function UniformesGPage() {
               asChild
             >
               <Link
-                href="https://wa.me/573156614208?text=Hola,%20quiero%20una%20cotizacion%20empresarial%20de%20Uniformes%20G"
+                href="https://wa.me/573156614208?text=Hola,%20quiero%20una%20cotizaci%C3%B3n%20empresarial%20de%20Uniformes%20G"
                 target="_blank"
                 rel="noopener noreferrer"
               >

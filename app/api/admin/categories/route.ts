@@ -25,13 +25,13 @@ export async function POST(request: Request) {
 
     if (categoryError) {
       console.error("Error creating category:", categoryError)
-      return NextResponse.json({ error: "Error al crear la categorÃ­a" }, { status: 500 })
+      return NextResponse.json({ error: "Error al crear la categoría" }, { status: 500 })
     }
 
     return NextResponse.json({ success: true, category: category[0] })
   } catch (error) {
     console.error("Error creating category:", error)
-    return NextResponse.json({ error: "Error al crear la categorÃ­a" }, { status: 500 })
+    return NextResponse.json({ error: "Error al crear la categoría" }, { status: 500 })
   }
 }
 

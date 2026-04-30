@@ -112,7 +112,7 @@ export async function getProducts(
   return data || []
 }
 
-// Obtener todas las categorÃ­as
+// Obtener todas las categorías
 export async function getCategories(): Promise<Category[]> {
   if (!hasPublicSupabaseConfig()) {
     return []
@@ -157,7 +157,7 @@ export async function getUserFavorites(userId: string): Promise<Product[]> {
   return data?.map((item: any) => item.product).filter(Boolean) as Product[]
 }
 
-// Obtener reseÃ±as de un producto
+// Obtener reseñas de un producto
 export async function getProductReviews(productId: number): Promise<Review[]> {
   if (!hasPublicSupabaseConfig()) {
     return []
