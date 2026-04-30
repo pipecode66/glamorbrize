@@ -45,7 +45,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
         name: "BLANCO",
         color: "#f2f2f2",
         description: "Tono blanco profesional",
-        images: ["/images/bata-medica-antifluido.png"],
+        images: ["/images/antifluido/16.png"],
       },
       {
         name: "NEGRO",
@@ -57,7 +57,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
         name: "GRIS",
         color: "#9d9aa1",
         description: "Tono gris profesional",
-        images: ["/images/antifluido/19.png"],
+        images: ["/images/antifluido/16.png"],
       },
     ],
     specs: [
@@ -94,13 +94,13 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
         name: "BLANCO",
         color: "#f2f2f2",
         description: "Tono blanco profesional",
-        images: ["/images/estraplera-antifluidos.png"],
+        images: ["/images/antifluido/17.png"],
       },
       {
         name: "NEGRO",
         color: "#19161e",
         description: "Tono clÃ¡sico y profesional",
-        images: ["/images/antifluido/18.png"],
+        images: ["/images/antifluido/17.png"],
       },
       {
         name: "GRIS",
@@ -302,7 +302,7 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
 
   const modelo7Product = {
     id: 7,
-    name: "SÃBANA + FUNDA - ANTIFLUIDO",
+    name: "SÁBANA + FUNDA (ANTIFLUIDO)",
     basePrice: 145000,
     pricing: {},
     description: "Kit de sÃ¡bana antifluido para camilla con funda incluida, pensado para uso profesional.",

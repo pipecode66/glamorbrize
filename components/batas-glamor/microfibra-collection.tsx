@@ -101,7 +101,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         name: "BLANCO CON ORILLOS",
         color: "#e8e8e9",
         description: "Blanco con orillos disponibles en blanco, gris y dorado",
-        images: ["/images/microfibra/2.png"],
+        images: ["/images/microfibra/4.png"],
       },
       {
         name: "GRIS",
