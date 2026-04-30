@@ -34,27 +34,27 @@ const kitProduct = {
   colorVariants: [],
   sizeVariants: {
     "KIT 1": {
-      images: ["/images/microfibra/7.png"],
+      images: ["/images/kits-empresariales/kit-1.jpeg"],
       description: "Kit empresarial #1 en microfibra: 2 estrapleras, 2 baberos y 2 balacas.",
     },
     "KIT 2": {
-      images: ["/images/microfibra/2.png"],
+      images: ["/images/kits-empresariales/kit-2.jpeg"],
       description: "Kit empresarial #2 en microfibra: 3 estrapleras y 3 balacas.",
     },
     "KIT 3": {
-      images: ["/images/microfibra/1.png"],
+      images: ["/images/kits-empresariales/kit-3.jpeg"],
       description: "Kit empresarial #3 en microfibra: 1 bata, 1 estraplera, 2 balacas y 2 baberos.",
     },
     "KIT 4": {
-      images: ["/images/antifluido/17.png"],
+      images: ["/images/kits-empresariales/kit-4.jpeg"],
       description: "Kit empresarial #4 antifluido: 3 estrapleras y 3 balacas.",
     },
     "KIT 5": {
-      images: ["/images/antifluido/21.png"],
+      images: ["/images/kits-empresariales/kit-5.jpeg"],
       description: "Kit empresarial #5 antifluido: 2 batas, 2 estrapleras y 2 balacas.",
     },
     "KIT 6": {
-      images: ["/images/antifluido/16.png"],
+      images: ["/images/kits-empresariales/kit-6.jpeg"],
       description: "Kit empresarial #6 antifluido: 3 batas y 3 balacas.",
     },
   },

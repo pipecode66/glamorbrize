@@ -18,7 +18,7 @@ export default function KitsEmpresarialesPage() {
           <div className="relative mx-auto max-w-6xl">
             <div className="relative h-[32vh] overflow-hidden rounded-lg shadow-xl sm:h-[38vh] md:h-[44vh] lg:h-[50vh]">
               <Image
-                src="/images/pedidos-empresariales-banner.png"
+                src="/images/kits-empresariales-banner.png"
                 alt="Kits Empresariales Batas Glamor"
                 fill
                 className="object-cover object-center"
