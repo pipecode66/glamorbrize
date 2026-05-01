@@ -65,13 +65,13 @@ export default function SedaCollection({ colors = batasGlamorColors }: SedaColle
         name: "BEIGE",
         color: "#e6dfd1",
         description: "Tono beige sofisticado",
-        images: ["/images/seda/13.png"],
+        images: ["/images/seda/12.png"],
       },
       {
         name: "ROSADO",
         color: "#efb3af",
         description: "Tono rosado suave",
-        images: ["/images/seda/14.png"],
+        images: ["/images/seda/12.png"],
       },
     ],
     specs: [

@@ -66,13 +66,13 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         name: "PERLA",
         color: "#CFD1D3",
         description: "Tono perla suave y elegante",
-        images: ["/images/microfibra/3.png"],
+        images: ["/images/microfibra/1.png"],
       },
       {
         name: "GRIS",
         color: "#9d9aa1",
         description: "Tono gris unicolor",
-        images: ["/images/microfibra/5.png"],
+        images: ["/images/microfibra/1.png"],
       },
     ],
     specs: [
@@ -132,7 +132,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
         name: "GRIS",
         color: "#9d9aa1",
         description: "Tono gris unicolor",
-        images: ["/images/microfibra/6.png"],
+        images: ["/images/microfibra/4.png"],
       },
     ],
     specs: [
