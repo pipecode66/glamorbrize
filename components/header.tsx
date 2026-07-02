@@ -99,6 +99,16 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <Link
+            href="/uniformes-g/tonos"
+            className="text-sm font-medium text-white hover:text-gray-300 min-h-[44px] flex items-center px-2"
+          >
+            <div className="flex items-center space-x-1">
+              <Palette className="h-4 w-4" />
+              <span>TONOS</span>
+            </div>
+          </Link>
+
           {showBordadosNavigation && (
             <Link
               href="/bordados"
@@ -216,6 +226,14 @@ export default function Header() {
                     </Link>
                   </CollapsibleContent>
                 </Collapsible>
+
+                <Link
+                  href="/uniformes-g/tonos"
+                  className="text-lg font-medium hover:text-primary min-h-[44px] flex items-center"
+                  onClick={() => setIsOpen(false)}
+                >
+                  TONOS
+                </Link>
 
                 {showBordadosNavigation && (
                   <Link

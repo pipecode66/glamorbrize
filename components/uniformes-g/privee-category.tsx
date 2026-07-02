@@ -23,11 +23,149 @@ interface PriveeCategoryProps {
 }
 
 export default function PriveeCategory({ colors = uniformesGColors }: PriveeCategoryProps) {
-  const [activeTab, setActiveTab] = useState("amatista")
+  const [activeTab, setActiveTab] = useState("ambar")
   const quoteHref =
     "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20Linea%20Privee%20de%20Uniformes%20G"
 
   // Producto AMATISTA con precios actualizados según PDF
+  const ambarProduct = {
+    id: 6,
+    name: "AMBAR - Línea Privée",
+    basePrice: 225000,
+    pricing: {
+      S: 225000,
+      M: 225000,
+      L: 225000,
+      XL: 232000,
+      XXL: 242000,
+    },
+    description:
+      "Conjunto Privée en tono azul grisáceo, diseñado para proyectar sobriedad, comodidad y presencia profesional.",
+    colorVariants: [
+      {
+        name: "AMBAR",
+        color: "#a3adbb",
+        description: "Tono azul grisáceo de la referencia AMBAR.",
+        images: [
+          "/images/privee-new/ambar-1.jpg",
+          "/images/privee-new/ambar-2.jpg",
+          "/images/privee-new/ambar-3.jpg",
+        ],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Tela antifluido premium" },
+      { name: "Incluye", value: "Blusa y pantalón" },
+      { name: "Referencia", value: "AMBAR" },
+      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "S, M, L", value: "$225.000" },
+      { name: "XL", value: "$232.000" },
+      { name: "XXL", value: "$242.000" },
+    ],
+    features: [
+      "Diseño exclusivo línea Privée",
+      "Tela antifluido de alta calidad",
+      "Conjunto de blusa y pantalón",
+      "Acabados profesionales",
+      "Ajuste cómodo para jornada laboral",
+      "Tono elegante y versátil",
+    ],
+    colors: ["AMBAR"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
+  }
+
+  const rubiProduct = {
+    id: 7,
+    name: "RUBÍ - Línea Privée",
+    basePrice: 225000,
+    pricing: {
+      S: 225000,
+      M: 225000,
+      L: 225000,
+      XL: 232000,
+      XXL: 242000,
+    },
+    description:
+      "Conjunto Privée en tono terracota, ideal para profesionales que buscan una imagen cálida, moderna y distintiva.",
+    colorVariants: [
+      {
+        name: "RUBÍ",
+        color: "#ad4a3c",
+        description: "Tono terracota/teja de la referencia RUBÍ.",
+        images: [
+          "/images/privee-new/rubi-1.jpg",
+          "/images/privee-new/rubi-2.jpg",
+          "/images/privee-new/rubi-3.jpg",
+        ],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Tela antifluido premium" },
+      { name: "Incluye", value: "Blusa y pantalón" },
+      { name: "Referencia", value: "RUBÍ" },
+      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "S, M, L", value: "$225.000" },
+      { name: "XL", value: "$232.000" },
+      { name: "XXL", value: "$242.000" },
+    ],
+    features: [
+      "Diseño exclusivo línea Privée",
+      "Tela antifluido de alta calidad",
+      "Conjunto de blusa y pantalón",
+      "Color de alto impacto visual",
+      "Comodidad para uso diario",
+      "Acabados funcionales y elegantes",
+    ],
+    colors: ["RUBÍ"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
+  }
+
+  const coralProduct = {
+    id: 8,
+    name: "CORAL - Línea Privée",
+    basePrice: 225000,
+    pricing: {
+      S: 225000,
+      M: 225000,
+      L: 225000,
+      XL: 232000,
+      XXL: 242000,
+    },
+    description:
+      "Conjunto Privée en tono verde oliva profundo, pensado para una presencia profesional elegante y contemporánea.",
+    colorVariants: [
+      {
+        name: "CORAL",
+        color: "#3e3b29",
+        description: "Tono verde oliva de la referencia CORAL.",
+        images: [
+          "/images/privee-new/coral-1.jpg",
+          "/images/privee-new/coral-2.jpg",
+          "/images/privee-new/coral-3.jpg",
+        ],
+      },
+    ],
+    specs: [
+      { name: "Material", value: "Tela antifluido premium" },
+      { name: "Incluye", value: "Blusa y pantalón" },
+      { name: "Referencia", value: "CORAL" },
+      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
+      { name: "S, M, L", value: "$225.000" },
+      { name: "XL", value: "$232.000" },
+      { name: "XXL", value: "$242.000" },
+    ],
+    features: [
+      "Diseño exclusivo línea Privée",
+      "Tela antifluido de alta calidad",
+      "Conjunto de blusa y pantalón",
+      "Tono sobrio y sofisticado",
+      "Prenda cómoda para largas jornadas",
+      "Estética profesional moderna",
+    ],
+    colors: ["CORAL"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
+  }
+
   const amatistaProduct = {
     id: 1,
     name: "AMATISTA - Línea Priveé",
@@ -215,13 +353,13 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
   const esmeraldaProduct = {
     id: 4,
     name: "ESMERALDA - Línea Priveé",
-    basePrice: 245000,
+    basePrice: 225000,
     pricing: {
-      S: 245000,
-      M: 245000,
-      L: 245000,
-      XL: 252000,
-      XXL: 262000,
+      S: 225000,
+      M: 225000,
+      L: 225000,
+      XL: 232000,
+      XXL: 242000,
     },
     description:
       "La joya de la corona en nuestra Línea Priveé. Diseño vanguardista con cuello alto tipo tortuga y pantalón palazzo de corte amplio. Representa la máxima expresión de elegancia y sofisticación para profesionales de élite.",
@@ -266,7 +404,7 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Incluye", value: "Camisa cuello tortuga y pantalón palazzo" },
       { name: "Referencia", value: "ESMERALDA" },
       { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "Precio desde", value: "$245.000" },
+      { name: "Precio desde", value: "$225.000" },
     ],
     features: [
       "Tecnología antifluido avanzada",
@@ -336,16 +474,45 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
             className="text-center max-w-3xl mx-auto text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg px-4"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
+            Descubre nuestras 8 colecciones premium: AMBAR, RUBÍ, CORAL, AMATISTA, ÁGATA, PERLA, ESMERALDA y JADE,
+            diseñadas especialmente para profesionales que buscan la perfecta combinación entre elegancia, funcionalidad
+            y comodidad en su entorno laboral.
+          </p>
+          <p
+            className="hidden text-center max-w-3xl mx-auto text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base md:text-lg px-4"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
             Descubre nuestras 5 colecciones premium: AMATISTA, ÁGATA, PERLA, ESMERALDA y JADE, diseñadas especialmente
             para profesionales que buscan la perfecta combinación entre elegancia, funcionalidad y comodidad en su
             entorno laboral.
           </p>
         </div>
 
-        {/* Tabs para las diferentes colecciones - Responsive con 5 tabs */}
+        {/* Tabs para las diferentes colecciones */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8">
-            <TabsList className="grid h-auto w-full max-w-md grid-cols-2 gap-2 sm:max-w-4xl sm:grid-cols-5 sm:gap-1">
+            <TabsList className="grid h-auto w-full max-w-md grid-cols-2 gap-2 sm:max-w-6xl sm:grid-cols-4 sm:gap-1 lg:grid-cols-8">
+              <TabsTrigger
+                value="ambar"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                AMBAR
+              </TabsTrigger>
+              <TabsTrigger
+                value="rubi"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                RUBÍ
+              </TabsTrigger>
+              <TabsTrigger
+                value="coral"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                CORAL
+              </TabsTrigger>
               <TabsTrigger
                 value="amatista"
                 className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
@@ -376,13 +543,34 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
               </TabsTrigger>
               <TabsTrigger
                 value="jade"
-                className="col-span-2 min-h-[44px] px-1 text-xs font-semibold sm:col-span-1 sm:px-3 sm:text-sm"
+                className="min-h-[44px] px-1 text-xs font-semibold sm:px-3 sm:text-sm"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
                 JADE
               </TabsTrigger>
             </TabsList>
           </div>
+
+          {/* Contenido AMBAR */}
+          <TabsContent value="ambar" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...ambarProduct} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          {/* Contenido RUBÍ */}
+          <TabsContent value="rubi" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...rubiProduct} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
+
+          {/* Contenido CORAL */}
+          <TabsContent value="coral" className="space-y-6 sm:space-y-8">
+            <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
+              <ProductDisplay {...coralProduct} uniformesGColors={colors} />
+            </div>
+          </TabsContent>
 
           {/* Contenido AMATISTA */}
           <TabsContent value="amatista" className="space-y-6 sm:space-y-8">
