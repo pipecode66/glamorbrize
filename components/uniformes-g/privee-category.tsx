@@ -4,8 +4,8 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { PRIVEE_TONES } from "@/lib/privee-tones"
 import ProductDisplay from "./product-display"
+import PriveeTonePalette from "./privee-tone-palette"
 
 // Definimos los colores de Uniformes G basados en la paleta oficial del manual de marca
 const uniformesGColors = {
@@ -555,56 +555,104 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
           {/* Contenido AMBAR */}
           <TabsContent value="ambar" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...ambarProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...ambarProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
 
           {/* Contenido RUBÍ */}
           <TabsContent value="rubi" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...rubiProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...rubiProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
 
           {/* Contenido CORAL */}
           <TabsContent value="coral" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...coralProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...coralProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
 
           {/* Contenido AMATISTA */}
           <TabsContent value="amatista" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...amatistaProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...amatistaProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
 
           {/* Contenido ÁGATA */}
           <TabsContent value="agata" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...agataProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...agataProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
 
           {/* Contenido PERLA */}
           <TabsContent value="perla" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...perlaProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...perlaProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
 
           {/* Contenido ESMERALDA */}
           <TabsContent value="esmeralda" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...esmeraldaProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...esmeraldaProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
 
           {/* Contenido JADE - Nueva colección */}
           <TabsContent value="jade" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...jadeProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
+              <ProductDisplay
+                {...jadeProduct}
+                hideColorSelection
+                combineColorVariantImages
+                uniformesGColors={colors}
+              />
+              <PriveeTonePalette />
             </div>
           </TabsContent>
         </Tabs>
