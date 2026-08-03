@@ -14,6 +14,11 @@ interface ColorVariant {
   sizes?: string[]
 }
 
+interface AvailableColor {
+  name: string
+  color: string
+}
+
 interface ComplementaryProduct {
   name: string
   price: number
@@ -37,6 +42,7 @@ interface ProductDisplayProps {
   specs: Array<{ name: string; value: string }>
   features: string[]
   colors: string[]
+  availableColors?: readonly AvailableColor[]
   sizes: string[]
   sizeLabel?: string
   badgeLabel?: string
@@ -82,6 +88,7 @@ export default function ProductDisplay({
   specs,
   features,
   colors,
+  availableColors = [],
   sizes,
   sizeLabel = "Talla",
   badgeLabel = "Línea Privée",
@@ -100,10 +107,16 @@ export default function ProductDisplay({
   }
 
   const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.name || colors[0] || "")
+  const [selectedAvailableColor, setSelectedAvailableColor] = useState(availableColors[0]?.name || "")
   const [selectedSize, setSelectedSize] = useState(colorVariants[0]?.sizes?.[0] || sizes[0] || "")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const currentVariant = colorVariants.find((variant) => variant.name === selectedColor) || colorVariants[0]
+  const currentAvailableColor =
+    availableColors.find((availableColor) => availableColor.name === selectedAvailableColor) || availableColors[0]
+  const currentAvailableColorLabel = currentAvailableColor
+    ? `${currentAvailableColor.name} (${currentAvailableColor.color.toUpperCase()})`
+    : ""
   const availableSizes = currentVariant?.sizes ?? sizes
   const availableSizesKey = availableSizes.join("|")
   const currentSizeVariant = selectedSize ? sizeVariants?.[selectedSize] : undefined
@@ -263,13 +276,13 @@ export default function ProductDisplay({
             </div>
           )}
 
-          {colorVariants.length > 0 && colors.length > 0 && (
+          {colorVariants.length > 0 && colors.length > 0 && (availableColors.length === 0 || colorVariants.length > 1) && (
             <div className="space-y-3">
               <h3
                 className="text-center text-base font-semibold sm:text-lg lg:text-left"
                 style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
               >
-                Color: {selectedColor}
+                {availableColors.length > 0 ? "Fotos de referencia" : "Color"}: {selectedColor}
               </h3>
               <div className="flex justify-center gap-2 lg:justify-start">
                 {colorVariants.map((variant) => (
@@ -324,6 +337,50 @@ export default function ProductDisplay({
             </div>
           )}
 
+          {availableColors.length > 0 && (
+            <div className="space-y-3">
+              <h3
+                className="text-center text-base font-semibold sm:text-lg lg:text-left"
+                style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
+              >
+                Tonos disponibles: {currentAvailableColorLabel}
+              </h3>
+              <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+                {availableColors.map((availableColor) => {
+                  const isSelected = selectedAvailableColor === availableColor.name
+
+                  return (
+                    <button
+                      key={availableColor.name}
+                      type="button"
+                      onClick={() => setSelectedAvailableColor(availableColor.name)}
+                      aria-label={`Seleccionar ${availableColor.name}, ${availableColor.color}`}
+                      aria-pressed={isSelected}
+                      className={`flex min-h-16 items-center gap-2 rounded-lg border p-2 text-left transition-all ${
+                        isSelected
+                          ? "border-gray-800 bg-gray-50 ring-2 ring-gray-800 ring-offset-1"
+                          : "border-gray-200 hover:border-gray-400 hover:bg-gray-50"
+                      }`}
+                    >
+                      <span
+                        className="h-8 w-8 shrink-0 rounded-full border border-black/15 shadow-sm"
+                        style={{ backgroundColor: availableColor.color }}
+                      />
+                      <span className="min-w-0">
+                        <span className="block text-[11px] font-semibold text-gray-800 sm:text-xs">
+                          {availableColor.name}
+                        </span>
+                        <span className="block truncate text-[10px] uppercase text-gray-500 sm:text-[11px]">
+                          {availableColor.color}
+                        </span>
+                      </span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
           {specs.length > 0 && (
             <div className="space-y-3">
               <h3
@@ -346,7 +403,7 @@ export default function ProductDisplay({
           <QuoteButton
             productName={name}
             productPrice={formatPrice(currentPrice)}
-            selectedColor={selectedColor || undefined}
+            selectedColor={currentAvailableColorLabel || selectedColor || undefined}
             selectedSize={selectedSize || undefined}
             selectedSizeLabel={sizeLabel}
             className="w-full py-3 text-sm font-semibold sm:py-4 sm:text-base md:text-lg"

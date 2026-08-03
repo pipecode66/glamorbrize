@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { PRIVEE_TONES } from "@/lib/privee-tones"
 
 const uniformesGColors = {
   primary: "#354358",
@@ -10,21 +11,6 @@ const uniformesGColors = {
   white: "#FFFFFF",
   black: "#000000",
 }
-
-const tonos = [
-  "#0c0d3d",
-  "#4f5847",
-  "#0c565c",
-  "#29476b",
-  "#2e2f33",
-  "#111113",
-  "#867b67",
-  "#5b5c5e",
-  "#926663",
-  "#8185a0",
-  "#704210",
-  "#280c10",
-]
 
 export default function TonosPage() {
   return (
@@ -72,24 +58,24 @@ export default function TonosPage() {
       <section className="py-10 sm:py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {tonos.map((tono, index) => (
+            {PRIVEE_TONES.map((tone) => (
               <article
-                key={tono}
+                key={tone.name}
                 className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="aspect-[4/5] w-full" style={{ backgroundColor: tono }} />
+                <div className="aspect-[4/5] w-full" style={{ backgroundColor: tone.color }} />
                 <div className="space-y-1 p-4">
                   <p
                     className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Tono {String(index + 1).padStart(2, "0")}
+                    {tone.name}
                   </p>
                   <p
                     className="text-lg font-bold uppercase"
                     style={{ color: uniformesGColors.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
                   >
-                    {tono}
+                    {tone.color}
                   </p>
                 </div>
               </article>

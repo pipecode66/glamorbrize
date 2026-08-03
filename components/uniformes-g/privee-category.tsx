@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { PRIVEE_TONES } from "@/lib/privee-tones"
 import ProductDisplay from "./product-display"
 
 // Definimos los colores de Uniformes G basados en la paleta oficial del manual de marca
@@ -554,56 +555,56 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
           {/* Contenido AMBAR */}
           <TabsContent value="ambar" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...ambarProduct} uniformesGColors={colors} />
+              <ProductDisplay {...ambarProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
 
           {/* Contenido RUBÍ */}
           <TabsContent value="rubi" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...rubiProduct} uniformesGColors={colors} />
+              <ProductDisplay {...rubiProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
 
           {/* Contenido CORAL */}
           <TabsContent value="coral" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...coralProduct} uniformesGColors={colors} />
+              <ProductDisplay {...coralProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
 
           {/* Contenido AMATISTA */}
           <TabsContent value="amatista" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...amatistaProduct} uniformesGColors={colors} />
+              <ProductDisplay {...amatistaProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
 
           {/* Contenido ÁGATA */}
           <TabsContent value="agata" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...agataProduct} uniformesGColors={colors} />
+              <ProductDisplay {...agataProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
 
           {/* Contenido PERLA */}
           <TabsContent value="perla" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...perlaProduct} uniformesGColors={colors} />
+              <ProductDisplay {...perlaProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
 
           {/* Contenido ESMERALDA */}
           <TabsContent value="esmeralda" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...esmeraldaProduct} uniformesGColors={colors} />
+              <ProductDisplay {...esmeraldaProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
 
           {/* Contenido JADE - Nueva colección */}
           <TabsContent value="jade" className="space-y-6 sm:space-y-8">
             <div className="mb-6 sm:mb-8 pb-6 sm:pb-8">
-              <ProductDisplay {...jadeProduct} uniformesGColors={colors} />
+              <ProductDisplay {...jadeProduct} availableColors={PRIVEE_TONES} uniformesGColors={colors} />
             </div>
           </TabsContent>
         </Tabs>
