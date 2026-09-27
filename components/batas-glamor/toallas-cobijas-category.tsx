@@ -27,16 +27,16 @@ const toallasCobijasTabs = [
 const toallaProduct = {
   id: 1,
   name: "TOALLA",
-  basePrice: 22000,
+  basePrice: 25000,
   pricing: {
-    "40x60": 22000,
-    "70x1,30": 48000,
+    "40x60": 25000,
+    "70x1,30": 50000,
     "90x1,80": 60000,
   },
   variantPricing: {
     BLANCA: {
-      "40x60": 22000,
-      "70x1,30": 48000,
+      "40x60": 25000,
+      "70x1,30": 50000,
       "90x1,80": 60000,
     },
     NEGRA: {
@@ -65,7 +65,7 @@ const toallaProduct = {
   specs: [
     { name: "Producto", value: "Toalla profesional" },
     { name: "Colores", value: "Blanca y Negra" },
-    { name: "Toalla blanca", value: "40x60 - $22.000 / 70x1,30 - $48.000 / 90x1,80 - $60.000" },
+    { name: "Toalla blanca", value: "40x60 - $25.000 / 70x1,30 - $50.000 / 90x1,80 - $60.000" },
     { name: "Toalla negra", value: "40x60 - $24.000 / 50x100 - $37.000" },
   ],
   features: ["Suave al tacto", "Alta absorción", "Uso profesional", "Personalizable con bordado"],

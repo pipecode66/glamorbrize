@@ -39,19 +39,19 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
   const modelo1Product = {
     id: 1,
     name: "BATA DE BAÑO - MICROFIBRA",
-    basePrice: 85000,
+    basePrice: 98000,
     pricing: {
-      M: 85000,
-      L: 85000,
+      M: 98000,
+      L: 98000,
     },
     variantPricing: {
-      BLANCA: { M: 85000, L: 85000 },
+      BLANCA: { M: 98000, L: 98000 },
       PERLA: { M: 90000, L: 90000 },
-      GRIS: { M: 90000, L: 90000 },
+      GRIS: { M: 110000, L: 110000 },
     },
     bordadoPricing: {
-      delantero: 85000,
-      trasero: 90000,
+      delantero: 98000,
+      trasero: 110000,
     },
     description:
       "Bata de baño en microfibra suave y cómoda, disponible en M y L. Diseño elegante con acabados de alta calidad.",
@@ -82,10 +82,12 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       { name: "M", value: "Busto 100 cm / largo 100 cm" },
       { name: "L", value: "Espalda 45 cm / largo 115 cm" },
       { name: "Colores", value: "Blanca, Perla y Gris" },
-      { name: "Blanca bordado delantero", value: "$85.000" },
-      { name: "Blanca bordado espalda", value: "$90.000" },
-      { name: "Perla o gris bordado delantero", value: "$90.000" },
-      { name: "Perla o gris bordado espalda", value: "$95.000" },
+      { name: "Blanca bordado delantero", value: "$98.000" },
+      { name: "Blanca bordado espalda", value: "$110.000" },
+      { name: "Perla bordado delantero", value: "$90.000" },
+      { name: "Perla bordado espalda", value: "$95.000" },
+      { name: "Gris bordado delantero", value: "$110.000" },
+      { name: "Gris bordado espalda", value: "$120.000" },
     ],
     features: [
       "Microfibra suave al tacto",
@@ -102,16 +104,16 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
   const modelo2Product = {
     id: 2,
     name: "ESTRAPLERA - MICROFIBRA",
-    basePrice: 50000,
+    basePrice: 65000,
     pricing: {},
     variantPricing: {
-      BLANCA: { "": 50000 },
+      BLANCA: { "": 65000 },
       PERLA: { "": 55000 },
-      GRIS: { "": 55000 },
+      GRIS: { "": 65000 },
     },
     bordadoPricing: {
-      delantero: 50000,
-      balaca: 16000,
+      delantero: 65000,
+      balaca: 20000,
     },
     description:
       "Estraplera de microfibra talla única, moderna y funcional para tratamientos de spa, estética y bienestar.",
@@ -141,8 +143,9 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       { name: "Talla", value: "Única" },
       { name: "Medidas", value: "140 cm ancho x 70 cm largo" },
       { name: "Colores", value: "Blanca, Perla y Gris" },
-      { name: "Blanca con bordado", value: "$50.000" },
-      { name: "Perla o gris con bordado", value: "$55.000" },
+      { name: "Blanca con bordado", value: "$65.000" },
+      { name: "Perla con bordado", value: "$55.000" },
+      { name: "Gris con bordado", value: "$65.000" },
     ],
     features: [
       "Diseño moderno y funcional",
@@ -202,7 +205,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
   const modelo4Product = {
     id: 4,
     name: "TURBANTE - MICROFIBRA",
-    basePrice: 25000,
+    basePrice: 30000,
     pricing: {},
     description: "Turbante de microfibra versátil y práctico para complementar la línea de microfibra.",
     colorVariants: [
@@ -230,7 +233,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       { name: "Referencia", value: "MICRO-004" },
       { name: "Medidas", value: "52 cm ancho x 75 cm largo" },
       { name: "Colores", value: "Blanco con sesgos, Gris y Perla" },
-      { name: "Precio", value: "$25.000" },
+      { name: "Precio", value: "$30.000" },
     ],
     features: [
       "Diseño contemporáneo",
@@ -246,7 +249,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
   const modelo5Product = {
     id: 5,
     name: "BALACA - MICROFIBRA",
-    basePrice: 16000,
+    basePrice: 20000,
     pricing: {},
     description: "Balaca de microfibra con velcro, pensada como complemento para la línea de microfibra.",
     colorVariants: [
@@ -275,7 +278,7 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
       { name: "Medidas", value: "68 cm largo x 8 cm ancho" },
       { name: "Cierre", value: "Velcro" },
       { name: "Colores", value: "Blanco con sesgos, Gris y Perla" },
-      { name: "Precio", value: "$16.000" },
+      { name: "Precio", value: "$20.000" },
     ],
     features: [
       "Complemento en microfibra",

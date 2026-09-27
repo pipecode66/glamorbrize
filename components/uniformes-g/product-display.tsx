@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import Image from "next/image"
-import { Check } from "lucide-react"
+import { Check, ChevronLeft, ChevronRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import QuoteButton from "@/components/quote-button"
 
@@ -39,6 +39,8 @@ interface ProductDisplayProps {
   colors: string[]
   sizes: string[]
   hideColorSelection?: boolean
+  hideSpecs?: boolean
+  mobileSizeCarousel?: boolean
   combineColorVariantImages?: boolean
   sizeLabel?: string
   badgeLabel?: string
@@ -86,6 +88,8 @@ export default function ProductDisplay({
   colors,
   sizes,
   hideColorSelection = false,
+  hideSpecs = false,
+  mobileSizeCarousel = false,
   combineColorVariantImages = false,
   sizeLabel = "Talla",
   badgeLabel = "Línea Privée",
@@ -130,6 +134,17 @@ export default function ProductDisplay({
     setCurrentImageIndex(0)
   }
 
+  const changeSelectedSize = (direction: -1 | 1) => {
+    if (availableSizes.length < 2) return
+
+    setSelectedSize((currentSize) => {
+      const currentIndex = Math.max(availableSizes.indexOf(currentSize), 0)
+      const nextIndex = (currentIndex + direction + availableSizes.length) % availableSizes.length
+      return availableSizes[nextIndex]
+    })
+    setCurrentImageIndex(0)
+  }
+
   useEffect(() => {
     if (availableSizes.length === 0) {
       if (selectedSize) {
@@ -155,8 +170,8 @@ export default function ProductDisplay({
   const rightFeatures = features.slice(Math.ceil(features.length / 2))
   const mainImageWrapperClassName =
     imageAspectRatio === "square"
-      ? "relative mx-auto aspect-square max-w-sm overflow-hidden rounded-lg bg-gray-50 sm:max-w-md lg:max-w-lg"
-      : "relative mx-auto aspect-[4/5] max-w-xs overflow-hidden rounded-lg bg-gray-50 sm:max-w-sm"
+      ? "relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-lg bg-gray-50 sm:max-w-md lg:max-w-lg"
+      : "relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-lg bg-gray-50 sm:max-w-sm"
   const mainImageSizes =
     imageSizes ??
     (imageAspectRatio === "square"
@@ -167,7 +182,7 @@ export default function ProductDisplay({
   return (
     <div className="mx-auto max-w-7xl rounded-lg bg-white p-4 shadow-lg sm:p-6 md:p-8">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12">
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           <div className={mainImageWrapperClassName}>
             {imageWidth && imageHeight ? (
               <Image
@@ -186,6 +201,27 @@ export default function ProductDisplay({
                 className="object-cover"
                 sizes={mainImageSizes}
               />
+            )}
+
+            {mobileSizeCarousel && availableSizes.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => changeSelectedSize(-1)}
+                  aria-label={`${sizeLabel} anterior`}
+                  className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white shadow-md transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white md:hidden"
+                >
+                  <ChevronLeft className="h-6 w-6" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => changeSelectedSize(1)}
+                  aria-label={`${sizeLabel} siguiente`}
+                  className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white shadow-md transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white md:hidden"
+                >
+                  <ChevronRight className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </>
             )}
           </div>
 
@@ -214,7 +250,7 @@ export default function ProductDisplay({
           )}
         </div>
 
-        <div className="space-y-6">
+        <div className="min-w-0 space-y-6">
           <div>
             <h1
               className="text-center text-xl font-bold sm:text-2xl md:text-3xl lg:text-left"
@@ -302,7 +338,7 @@ export default function ProductDisplay({
           )}
 
           {availableSizes.length > 0 && (
-            <div className="space-y-3">
+            <div className={`space-y-3 ${mobileSizeCarousel ? "hidden md:block" : ""}`}>
               <h3
                 className="text-center text-base font-semibold sm:text-lg lg:text-left"
                 style={{ color: palette.primary, fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
@@ -332,7 +368,7 @@ export default function ProductDisplay({
             </div>
           )}
 
-          {specs.length > 0 && (
+          {!hideSpecs && specs.length > 0 && (
             <div className="space-y-3">
               <h3
                 className="text-center text-lg font-semibold sm:text-xl lg:text-left"

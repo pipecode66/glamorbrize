@@ -9,10 +9,10 @@ const batasProducts = [
   {
     id: 1,
     name: "Bata de baño microfibra blanca",
-    price: 85000,
+    price: 98000,
     image: "/images/bata-microfibra-blanca.png",
-    description: "Blanca con sesgos satinados en los orillos. Bordado espalda: $90.000.",
-    bordadoEspalda: 90000,
+    description: "Blanca con sesgos satinados en los orillos. Bordado espalda: $110.000.",
+    bordadoEspalda: 110000,
   },
   {
     id: 2,
@@ -25,10 +25,10 @@ const batasProducts = [
   {
     id: 3,
     name: "Bata de baño microfibra gris",
-    price: 90000,
+    price: 110000,
     image: "/images/bata-microfibra-gris.png",
-    description: "Color gris. Bordado espalda: $95.000.",
-    bordadoEspalda: 95000,
+    description: "Color gris. Bordado espalda: $120.000.",
+    bordadoEspalda: 120000,
   },
   {
     id: 4,
@@ -92,7 +92,7 @@ const estraplerasProducts = [
   {
     id: 1,
     name: "Estraplera microfibra blanca",
-    price: 50000,
+    price: 65000,
     image: "/images/estraplera-microfibra-blanca.png",
     description: "Blanca con bordado.",
   },
@@ -106,7 +106,7 @@ const estraplerasProducts = [
   {
     id: 3,
     name: "Estraplera microfibra gris",
-    price: 55000,
+    price: 65000,
     image: "/images/estraplera-microfibra-gris.png",
     description: "Color gris con bordado.",
   },
@@ -130,7 +130,7 @@ const accesoriosProducts = [
   {
     id: 1,
     name: "Balaca microfibra",
-    price: 16000,
+    price: 20000,
     image: "/images/balaca-microfibra.png",
     description: "Disponible en blanco con sesgos, gris y perla.",
   },
@@ -144,7 +144,7 @@ const accesoriosProducts = [
   {
     id: 3,
     name: "Turbante microfibra",
-    price: 25000,
+    price: 30000,
     image: "/images/turbante-microfibra.png",
     description: "Disponible en blanco con sesgos, gris y perla.",
   },
@@ -175,14 +175,14 @@ const toallasProducts = [
   {
     id: 1,
     name: "Toalla blanca 40x60",
-    price: 22000,
+    price: 25000,
     image: "/images/toallas-blancas.png",
     description: "Toalla blanca, presentación 40x60.",
   },
   {
     id: 2,
     name: "Toalla blanca 70x1,30",
-    price: 48000,
+    price: 50000,
     image: "/images/toallas-blancas.png",
     description: "Toalla blanca, presentación 70x1,30.",
   },

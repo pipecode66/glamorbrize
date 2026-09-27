@@ -10,7 +10,7 @@ const products = [
   {
     id: 1,
     name: "Bata Microfibra Blanca",
-    price: 85000,
+    price: 98000,
     image: "/images/batamicroblanca.png",
     category: "Batas Glamor",
     type: "microfibra",
@@ -26,7 +26,7 @@ const products = [
   {
     id: 3,
     name: "Estraplera Microfibra Blanca",
-    price: 50000,
+    price: 65000,
     image: "/images/estramicroblanca.png",
     category: "Batas Glamor",
     type: "microfibra",

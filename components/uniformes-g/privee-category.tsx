@@ -32,13 +32,14 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
   const ambarProduct = {
     id: 6,
     name: "AMBAR - Línea Privée",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "Conjunto Privée en tono azul grisáceo, diseñado para proyectar sobriedad, comodidad y presencia profesional.",
@@ -58,10 +59,10 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium" },
       { name: "Incluye", value: "Blusa y pantalón" },
       { name: "Referencia", value: "AMBAR" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "S, M, L", value: "$225.000" },
-      { name: "XL", value: "$232.000" },
-      { name: "XXL", value: "$242.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "XS, S y M", value: "$232.800" },
+      { name: "L y XL", value: "$242.800" },
+      { name: "XXL", value: "$258.800" },
     ],
     features: [
       "Diseño exclusivo línea Privée",
@@ -72,19 +73,20 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Tono elegante y versátil",
     ],
     colors: ["AMBAR"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   const rubiProduct = {
     id: 7,
     name: "RUBÍ - Línea Privée",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "Conjunto Privée en tono terracota, ideal para profesionales que buscan una imagen cálida, moderna y distintiva.",
@@ -104,10 +106,10 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium" },
       { name: "Incluye", value: "Blusa y pantalón" },
       { name: "Referencia", value: "RUBÍ" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "S, M, L", value: "$225.000" },
-      { name: "XL", value: "$232.000" },
-      { name: "XXL", value: "$242.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "XS, S y M", value: "$232.800" },
+      { name: "L y XL", value: "$242.800" },
+      { name: "XXL", value: "$258.800" },
     ],
     features: [
       "Diseño exclusivo línea Privée",
@@ -118,19 +120,20 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Acabados funcionales y elegantes",
     ],
     colors: ["RUBÍ"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   const coralProduct = {
     id: 8,
     name: "CORAL - Línea Privée",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "Conjunto Privée en tono verde oliva profundo, pensado para una presencia profesional elegante y contemporánea.",
@@ -150,10 +153,10 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium" },
       { name: "Incluye", value: "Blusa y pantalón" },
       { name: "Referencia", value: "CORAL" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "S, M, L", value: "$225.000" },
-      { name: "XL", value: "$232.000" },
-      { name: "XXL", value: "$242.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "XS, S y M", value: "$232.800" },
+      { name: "L y XL", value: "$242.800" },
+      { name: "XXL", value: "$258.800" },
     ],
     features: [
       "Diseño exclusivo línea Privée",
@@ -164,19 +167,20 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Estética profesional moderna",
     ],
     colors: ["CORAL"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   const amatistaProduct = {
     id: 1,
     name: "AMATISTA - Línea Priveé",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "Estilo y comodidad en equilibrio perfecto. Camisa semi ajustada con cuello alto en V y bolsillo con ribete para un toque elegante. Pantalón cargo de bota ancha que garantiza libertad de movimiento sin perder sofisticación. ¡Versatilidad para cualquier ocasión!",
@@ -219,8 +223,8 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium" },
       { name: "Incluye", value: "Camisa semi ajustada y pantalón cargo" },
       { name: "Referencia", value: "AMATISTA" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "Precio desde", value: "$225.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "Precio desde", value: "$232.800" },
     ],
     features: [
       "Diseño exclusivo línea Priveé",
@@ -231,20 +235,21 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Fácil mantenimiento y cuidado",
     ],
     colors: ["Coral", "Cielo", "Gris"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   // Producto ÁGATA con precios actualizados según PDF
   const agataProduct = {
     id: 2,
     name: "ÁGATA - Línea Priveé",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "Diseño cómodo y deportivo para profesionales en movimiento. Camisa oversize con cuello deportivo y pantalón de corte recto con elástico en la cintura, bolsillos laterales y traseros. ¡Libertad y estilo en cada jornada!",
@@ -277,8 +282,8 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium" },
       { name: "Incluye", value: "Camisa oversize y pantalón de corte recto" },
       { name: "Referencia", value: "ÁGATA" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "Precio desde", value: "$225.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "Precio desde", value: "$232.800" },
     ],
     features: [
       "Confección superior con acabados",
@@ -289,20 +294,21 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Colores que no se destiñen",
     ],
     colors: ["Turquesa", "Arena", "Rosa"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   // Producto PERLA con 3 colores - agregando el tercer color
   const perlaProduct = {
     id: 3,
     name: "PERLA - Línea Priveé",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "Comodidad y estilo urbano en una sola prenda. Camisa de silueta amplia con bolsillo en el pecho y pantalón de corte recto con doble bolsillo delantero. Perfecto para días activos con un toque moderno.",
@@ -335,8 +341,8 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium" },
       { name: "Incluye", value: "Camisa amplia y pantalón de corte recto" },
       { name: "Referencia", value: "PERLA" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "Precio desde", value: "$225.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "Precio desde", value: "$232.800" },
     ],
     features: [
       "Acabados de lujo y refinamiento",
@@ -347,20 +353,21 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Colores de larga duración",
     ],
     colors: ["Azul Marino", "Gris Salvia", "Verde Menta"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   // Producto ESMERALDA - Intercambio específico de las primeras 2 imágenes de cada color
   const esmeraldaProduct = {
     id: 4,
     name: "ESMERALDA - Línea Priveé",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "La joya de la corona en nuestra Línea Priveé. Diseño vanguardista con cuello alto tipo tortuga y pantalón palazzo de corte amplio. Representa la máxima expresión de elegancia y sofisticación para profesionales de élite.",
@@ -404,8 +411,8 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium plus" },
       { name: "Incluye", value: "Camisa cuello tortuga y pantalón palazzo" },
       { name: "Referencia", value: "ESMERALDA" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "Precio desde", value: "$225.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "Precio desde", value: "$232.800" },
     ],
     features: [
       "Tecnología antifluido avanzada",
@@ -416,20 +423,21 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Tratamiento antimicrobiano",
     ],
     colors: ["Azul Turquesa", "Verde Esmeralda", "Gris Élite"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   // Nuevo Producto JADE
   const jadeProduct = {
     id: 5,
     name: "JADE - Línea Priveé",
-    basePrice: 225000,
+    basePrice: 232800,
     pricing: {
-      S: 225000,
-      M: 225000,
-      L: 225000,
-      XL: 232000,
-      XXL: 242000,
+      XS: 232800,
+      S: 232800,
+      M: 232800,
+      L: 242800,
+      XL: 242800,
+      XXL: 258800,
     },
     description:
       "Elegancia minimalista y funcionalidad moderna. Camisa con cuello en V profundo y mangas cortas, combinada con pantalón palazzo de cintura alta con cordón ajustable. Diseño contemporáneo que fusiona comodidad y sofisticación para el profesional de hoy.",
@@ -446,8 +454,8 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       { name: "Material", value: "Tela antifluido premium" },
       { name: "Incluye", value: "Camisa cuello V y pantalón palazzo" },
       { name: "Referencia", value: "JADE" },
-      { name: "Tallas disponibles", value: "S, M, L, XL, XXL" },
-      { name: "Precio desde", value: "$225.000" },
+      { name: "Tallas disponibles", value: "XS, S, M, L, XL, XXL" },
+      { name: "Precio desde", value: "$232.800" },
     ],
     features: [
       "Diseño minimalista y elegante",
@@ -458,7 +466,7 @@ export default function PriveeCategory({ colors = uniformesGColors }: PriveeCate
       "Comodidad superior todo el día",
     ],
     colors: ["Rosa Jade"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   }
 
   return (

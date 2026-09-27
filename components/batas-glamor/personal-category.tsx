@@ -6,7 +6,7 @@ export default function PersonalCategory() {
     {
       id: 1,
       name: "Bata de baño microfibra blanca",
-      price: 85000,
+      price: 98000,
       description:
         "Bata de baño en microfibra de alta calidad, ideal para uso personal en spa, salón de belleza o en casa. Suave al tacto y altamente absorbente.",
       images: [
@@ -18,8 +18,8 @@ export default function PersonalCategory() {
         { name: "Material", value: "Microfibra de alta resistencia" },
         { name: "Peso", value: "202 g" },
         { name: "Detalle", value: "Sesgo satinado en los orillos" },
-        { name: "Bordado delantero", value: "$85.000" },
-        { name: "Bordado espalda", value: "$90.000" },
+        { name: "Bordado delantero", value: "$98.000" },
+        { name: "Bordado espalda", value: "$110.000" },
       ],
       features: [
         "Suave y confortable al tacto",
@@ -34,7 +34,7 @@ export default function PersonalCategory() {
     {
       id: 2,
       name: "Estraplera microfibra blanca",
-      price: 50000,
+      price: 65000,
       description:
         "Estraplera en microfibra de alta calidad, perfecta para uso después del baño o durante tratamientos de spa y belleza. Diseño cómodo y funcional.",
       images: [
@@ -45,7 +45,7 @@ export default function PersonalCategory() {
       specs: [
         { name: "Material", value: "Microfibra de alta resistencia" },
         { name: "Detalle", value: "Sesgo satinado en los orillos" },
-        { name: "Precio con bordado", value: "$50.000" },
+        { name: "Precio con bordado", value: "$65.000" },
       ],
       features: [
         "Diseño ajustable con velcro",
@@ -59,7 +59,7 @@ export default function PersonalCategory() {
     {
       id: 3,
       name: "Turbante microfibra blanco",
-      price: 25000,
+      price: 30000,
       description:
         "Turbante en microfibra de alta calidad, ideal para secar el cabello después del baño o durante tratamientos capilares. Práctico y cómodo.",
       images: [
@@ -70,7 +70,7 @@ export default function PersonalCategory() {
       specs: [
         { name: "Material", value: "Microfibra de alta resistencia" },
         { name: "Color", value: "Blanco con sesgos" },
-        { name: "Precio", value: "$25.000" },
+        { name: "Precio", value: "$30.000" },
       ],
       features: ["Diseño ajustable", "Alta capacidad de absorción", "Secado rápido", "Ligero y cómodo"],
       colors: ["Blanco con sesgos", "Gris", "Perla"],
