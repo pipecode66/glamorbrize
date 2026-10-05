@@ -72,8 +72,11 @@ export default function ProductTabSlider({
   return (
     <>
       <div className="mb-6 space-y-3 sm:hidden" aria-label="Navegación de productos por deslizamiento">
-        <div className="mx-auto max-w-[260px] rounded-md bg-muted px-4 py-3 text-center" aria-live="polite">
-          <span className={triggerClassName} style={triggerStyle}>
+        <div
+          className="mx-auto max-w-[260px] rounded-md bg-[#74A4AB] px-4 py-3 text-center text-white shadow-sm"
+          aria-live="polite"
+        >
+          <span className={triggerClassName} style={{ ...triggerStyle, color: "#FFFFFF" }}>
             {activeTab.label}
           </span>
         </div>

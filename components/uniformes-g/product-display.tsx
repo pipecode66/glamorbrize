@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Image from "next/image"
-import { Check, ChevronLeft, ChevronRight } from "lucide-react"
+import { Check } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import QuoteButton from "@/components/quote-button"
 
@@ -110,6 +110,7 @@ export default function ProductDisplay({
   const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.name || colors[0] || "")
   const [selectedSize, setSelectedSize] = useState(colorVariants[0]?.sizes?.[0] || sizes[0] || "")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const swipeStart = useRef<{ x: number; y: number } | null>(null)
 
   const currentVariant = colorVariants.find((variant) => variant.name === selectedColor) || colorVariants[0]
   const availableSizes = currentVariant?.sizes ?? sizes
@@ -143,6 +144,25 @@ export default function ProductDisplay({
       return availableSizes[nextIndex]
     })
     setCurrentImageIndex(0)
+  }
+
+  const handleSizeSwipeStart = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!mobileSizeCarousel || event.pointerType !== "touch") return
+    swipeStart.current = { x: event.clientX, y: event.clientY }
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+
+  const handleSizeSwipeEnd = (event: React.PointerEvent<HTMLDivElement>) => {
+    const start = swipeStart.current
+    swipeStart.current = null
+
+    if (!mobileSizeCarousel || !start || event.pointerType !== "touch") return
+
+    const distanceX = event.clientX - start.x
+    const distanceY = event.clientY - start.y
+    const isHorizontalSwipe = Math.abs(distanceX) >= 50 && Math.abs(distanceX) > Math.abs(distanceY) * 1.2
+
+    if (isHorizontalSwipe) changeSelectedSize(distanceX < 0 ? 1 : -1)
   }
 
   useEffect(() => {
@@ -183,7 +203,11 @@ export default function ProductDisplay({
     <div className="mx-auto max-w-7xl rounded-lg bg-white p-4 shadow-lg sm:p-6 md:p-8">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12">
         <div className="min-w-0 space-y-4">
-          <div className={mainImageWrapperClassName}>
+          <div
+            className={`${mainImageWrapperClassName} ${mobileSizeCarousel ? "touch-pan-y" : ""}`}
+            onPointerDown={handleSizeSwipeStart}
+            onPointerUp={handleSizeSwipeEnd}
+          >
             {imageWidth && imageHeight ? (
               <Image
                 src={mainImage}
@@ -205,25 +229,30 @@ export default function ProductDisplay({
 
             {mobileSizeCarousel && availableSizes.length > 1 && (
               <>
-                <button
-                  type="button"
-                  onClick={() => changeSelectedSize(-1)}
-                  aria-label={`${sizeLabel} anterior`}
-                  className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white shadow-md transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white md:hidden"
-                >
-                  <ChevronLeft className="h-6 w-6" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => changeSelectedSize(1)}
-                  aria-label={`${sizeLabel} siguiente`}
-                  className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white shadow-md transition hover:bg-black/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white md:hidden"
-                >
-                  <ChevronRight className="h-6 w-6" aria-hidden="true" />
-                </button>
+                <div className="absolute inset-x-0 top-3 flex justify-center md:hidden">
+                  <span className="rounded-md bg-[#74A4AB] px-4 py-2 text-sm font-bold text-white shadow-md">
+                    {selectedSize}
+                  </span>
+                </div>
+                <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5 md:hidden" aria-hidden="true">
+                  {availableSizes.map((size) => (
+                    <span
+                      key={size}
+                      className={`h-2 rounded-full shadow-sm transition-all ${
+                        selectedSize === size ? "w-6 bg-[#74A4AB]" : "w-2 bg-white/80"
+                      }`}
+                    />
+                  ))}
+                </div>
               </>
             )}
           </div>
+
+          {mobileSizeCarousel && availableSizes.length > 1 && (
+            <p className="text-center text-xs text-muted-foreground md:hidden">
+              Desliza la imagen para cambiar de {sizeLabel.toLowerCase()}
+            </p>
+          )}
 
           {currentImages.length > 1 && (
             <div className="mx-auto grid max-w-sm grid-cols-4 gap-2 sm:grid-cols-5">
