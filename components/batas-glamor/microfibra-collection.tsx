@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
-import ProductTabSlider from "./product-tab-slider"
+import ProductTabSlider, { useSwipeableTabs } from "./product-tab-slider"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -34,6 +34,7 @@ const microfibraTabs = [
 
 export default function MicrofibraCollection({ colors = batasGlamorColors }: MicrofibraCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
+  const swipeHandlers = useSwipeableTabs({ tabs: microfibraTabs, activeValue: activeTab, onValueChange: setActiveTab })
   const quoteHref = "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20colecci%C3%B3n%20microfibra"
 
   const modelo1Product = {
@@ -309,11 +310,10 @@ export default function MicrofibraCollection({ colors = batasGlamorColors }: Mic
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full touch-pan-y" {...swipeHandlers}>
           <ProductTabSlider
             tabs={microfibraTabs}
             activeValue={activeTab}
-            onValueChange={setActiveTab}
             desktopListClassName="grid h-auto w-full max-w-3xl grid-cols-5 gap-2"
             triggerStyle={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           />

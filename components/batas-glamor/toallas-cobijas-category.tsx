@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
 import CustomDesignShowcase from "./custom-design-showcase"
-import ProductTabSlider from "./product-tab-slider"
+import ProductTabSlider, { useSwipeableTabs } from "./product-tab-slider"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -149,6 +149,7 @@ const flannelProduct = {
 
 export default function ToallasCobijasCategory() {
   const [activeTab, setActiveTab] = useState("toallas")
+  const swipeHandlers = useSwipeableTabs({ tabs: toallasCobijasTabs, activeValue: activeTab, onValueChange: setActiveTab })
 
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8">
@@ -168,11 +169,10 @@ export default function ToallasCobijasCategory() {
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full touch-pan-y" {...swipeHandlers}>
           <ProductTabSlider
             tabs={toallasCobijasTabs}
             activeValue={activeTab}
-            onValueChange={setActiveTab}
             triggerStyle={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           />
 

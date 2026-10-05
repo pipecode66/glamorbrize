@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProductDisplay from "@/components/uniformes-g/product-display"
-import ProductTabSlider from "./product-tab-slider"
+import ProductTabSlider, { useSwipeableTabs } from "./product-tab-slider"
 
 const batasGlamorColors = {
   primary: "#74A4AB",
@@ -36,6 +36,7 @@ const antifluidoTabs = [
 
 export default function AntifluidoCollection({ colors = batasGlamorColors }: AntifluidoCollectionProps) {
   const [activeTab, setActiveTab] = useState("modelo1")
+  const swipeHandlers = useSwipeableTabs({ tabs: antifluidoTabs, activeValue: activeTab, onValueChange: setActiveTab })
   const quoteHref = "https://wa.me/573156614208?text=Hola,%20quiero%20cotizar%20la%20colecci%C3%B3n%20antifluidos"
 
   const modelo1Product = {
@@ -373,11 +374,10 @@ export default function AntifluidoCollection({ colors = batasGlamorColors }: Ant
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full touch-pan-y" {...swipeHandlers}>
           <ProductTabSlider
             tabs={antifluidoTabs}
             activeValue={activeTab}
-            onValueChange={setActiveTab}
             triggerStyle={{ fontFamily: "Poppins, sans-serif", fontWeight: 700 }}
           />
 

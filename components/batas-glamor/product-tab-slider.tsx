@@ -1,7 +1,7 @@
 "use client"
 
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import type { CSSProperties } from "react"
+import { useRef } from "react"
+import type { CSSProperties, PointerEventHandler } from "react"
 import { TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface ProductTab {
@@ -12,16 +12,53 @@ interface ProductTab {
 interface ProductTabSliderProps {
   tabs: ProductTab[]
   activeValue: string
-  onValueChange: (value: string) => void
   desktopListClassName?: string
   triggerClassName?: string
   triggerStyle?: CSSProperties
 }
 
+interface SwipeableTabsOptions {
+  tabs: ProductTab[]
+  activeValue: string
+  onValueChange: (value: string) => void
+}
+
+export function useSwipeableTabs({ tabs, activeValue, onValueChange }: SwipeableTabsOptions) {
+  const swipeStart = useRef<{ x: number; y: number } | null>(null)
+
+  const onPointerDown: PointerEventHandler<HTMLDivElement> = (event) => {
+    if (event.pointerType !== "touch") return
+    swipeStart.current = { x: event.clientX, y: event.clientY }
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+
+  const onPointerUp: PointerEventHandler<HTMLDivElement> = (event) => {
+    const start = swipeStart.current
+    swipeStart.current = null
+
+    if (!start || event.pointerType !== "touch" || tabs.length < 2) return
+
+    const distanceX = event.clientX - start.x
+    const distanceY = event.clientY - start.y
+    const isHorizontalSwipe = Math.abs(distanceX) >= 50 && Math.abs(distanceX) > Math.abs(distanceY) * 1.2
+
+    if (!isHorizontalSwipe) return
+
+    const activeIndex = Math.max(
+      tabs.findIndex((tab) => tab.value === activeValue),
+      0,
+    )
+    const direction = distanceX < 0 ? 1 : -1
+    const nextIndex = (activeIndex + direction + tabs.length) % tabs.length
+    onValueChange(tabs[nextIndex].value)
+  }
+
+  return { onPointerDown, onPointerUp }
+}
+
 export default function ProductTabSlider({
   tabs,
   activeValue,
-  onValueChange,
   desktopListClassName,
   triggerClassName = "min-h-[44px] text-xs font-semibold sm:text-sm",
   triggerStyle,
@@ -31,35 +68,26 @@ export default function ProductTabSlider({
     0,
   )
   const activeTab = tabs[activeIndex] ?? tabs[0]
-  const goToPrevious = () => onValueChange(tabs[(activeIndex - 1 + tabs.length) % tabs.length].value)
-  const goToNext = () => onValueChange(tabs[(activeIndex + 1) % tabs.length].value)
 
   return (
     <>
-      <div className="mb-6 flex items-center justify-center gap-3 sm:hidden">
-        <button
-          type="button"
-          onClick={goToPrevious}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:border-gray-300 hover:bg-gray-50"
-          aria-label="Producto anterior"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-
-        <TabsList className="h-auto max-w-[220px] flex-1 bg-transparent p-0">
-          <TabsTrigger value={activeTab.value} className={triggerClassName} style={triggerStyle}>
+      <div className="mb-6 space-y-3 sm:hidden" aria-label="Navegación de productos por deslizamiento">
+        <div className="mx-auto max-w-[260px] rounded-md bg-muted px-4 py-3 text-center" aria-live="polite">
+          <span className={triggerClassName} style={triggerStyle}>
             {activeTab.label}
-          </TabsTrigger>
-        </TabsList>
-
-        <button
-          type="button"
-          onClick={goToNext}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:border-gray-300 hover:bg-gray-50"
-          aria-label="Producto siguiente"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+          </span>
+        </div>
+        <div className="flex items-center justify-center gap-2" aria-hidden="true">
+          {tabs.map((tab, index) => (
+            <span
+              key={tab.value}
+              className={`h-2 rounded-full transition-all ${
+                index === activeIndex ? "w-6 bg-[#74A4AB]" : "w-2 bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
+        <p className="text-center text-xs text-muted-foreground">Desliza la ficha para cambiar de producto</p>
       </div>
 
       {desktopListClassName && (
